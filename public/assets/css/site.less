@@ -1,0 +1,364 @@
+@import "./cross-browser";
+
+@ring-grey   : #eeeeee;
+@light-grey  : #e2e2e6;
+@gold        : #ffd700;
+@hero-bg     : #0DAAD1;
+@hero-border : #1A86A0;
+
+.ring(@color, @animation) {
+    @size          : 18px;
+    @x-fudge       : -4px;
+    @y-fudge       : -4px;
+    @border-radius : 30px;
+    
+    height         : @size;
+    width          : @size;
+    top            : @x-fudge;
+    left           : @y-fudge;
+    position       : relative;
+    
+    border         : 3px solid @color;
+    opacity        : 0.0;
+
+    -webkit-animation                 : @animation 1s ease-out;
+    -webkit-animation-iteration-count : infinite; 
+
+    .box-shadow(0px 0px 6px 0px rgba(50, 50, 50, 0.75));
+    .border-radius(@border-radius);
+}
+
+.pulsate(@opacity1, @opacity2, @scale1, @scale2) {
+    0% {-webkit-transform: scale(@scale1, @scale1); opacity: @opacity1;}
+    25% {opacity: @opacity2;}
+    50% {-webkit-transform: scale(@scale2, @scale2); opacity: @opacity1;}
+    75% {opacity: @opacity2;}
+    100% {-webkit-transform: scale(@scale1, @scale1); opacity: @opacity1;}
+}
+
+body {
+	width: 100%;
+}
+
+@font-face {
+    font-family : FiraMona;
+    src         : url("/fonts/FiraMono-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family : FiraMona;
+    font-weight : bold;
+    src         : url("/fonts/FiraMono-Bold.otf") format("opentype");
+}
+
+.pulse_marker {
+    @size         : 16px;
+    @x-pos        : 600px;
+    @y-pos        : 250px;
+    
+    width         : @size;
+    height        : @size;
+    top           : @y-pos;
+    left          : @x-pos;
+    display       : block;
+    position      : absolute;
+    
+    background    : @ring-grey;
+    border-radius : 28px;
+    opacity       : 0.6;
+    .box-shadow(0px 0px 6px 0px rgba(50, 50, 50, 0.75));
+}
+
+.pulse_ring {
+   .ring(@light-grey, pulsate1);
+}
+
+@-webkit-keyframes pulsate1 {
+    .pulsate(0.6, 0.8, 1.1, 1.5);
+}
+
+.timer_loc {
+    position      : absolute;
+    top           : 50px;
+    left          : 50px;
+    font-size     : 30px;
+    font-weight   : 700;
+    font-family   : FiraMona, Helvetica, Verdana, Sans-Serif;
+    width         : 150px;
+    border        : 3px solid #e2e2e6;
+    border-radius : 10px;
+    text-align    : center;
+}
+
+.score_loc {
+    position      : absolute;
+    top           : 50px;
+    right         : 50px;
+    font-size     : 30px;
+    font-weight   : 700;
+    font-family   : FiraMona, Helvetica, Verdana, Sans-Serif;
+    width         : 150px;
+    border        : 3px solid @light-grey;
+    border-radius : 10px;
+    text-align    : center;
+    #timer_hund {
+        margin-left: -18px;
+    }
+}
+
+.pulse_marker2 {
+    @size          : 16px;
+    @border-radius : 28px;
+    @x-pos         : 150px;
+    @y-pos         : 780px;
+    
+    width          : @size;
+    height         : @size;
+    background     : @gold;
+    display        : block;
+    position       : absolute;
+    top            : @x-pos;
+    left           : @y-pos;
+    .border-radius(@border-radius);
+}
+
+.pulse_ring2 {
+    .ring(@gold, pulsate2);
+}
+
+@-webkit-keyframes pulsate2 {
+    .pulsate(0.0, 1.0, 0.5, 1.7)
+}
+
+.pulse_marker3 {
+    @size          : 16px;
+    @border-radius : 28px;
+    @x-pos         : 300px;
+    @y-pos         : 600px;
+    
+    width          : @size;
+    height         : @size;
+    display        : block;
+    position       : absolute;
+    left           : @x-pos;
+    top            : @y-pos;
+    
+    background     : @light-grey;
+
+    .border-radius(@border-radius);
+    .box-shadow(0px 0px 6px 0px rgba(50, 50, 50, 0.75));
+
+    -webkit-animation                 : color_change 1s ease-out;
+    -webkit-animation-iteration-count : infinite;
+}
+
+.hero {
+    @size          : 16px;
+    @border-radius : 12px;
+    @x-pos         : 300px;
+    @y-pos         : 200px;
+    
+    width          : @size;
+    height         : @size;
+    display        : block;
+    position       : absolute;
+    left           : @x-pos;
+    top            : @y-pos;
+    background     : @hero-bg;
+    border         : 2px solid @hero-border;
+    .border-radius(@border-radius);   
+}
+
+.pulse_ring3 {
+    .ring(@light-grey, pulsate3)
+}
+@-webkit-keyframes pulsate3 {
+    .pulsate(0.0, 1.0, 1.9, 1.0);
+}
+
+@-webkit-keyframes color_change {
+    @scale1 : 1.0;
+    @scale2 : 1.6;
+	0% {
+		-webkit-transform: scale(@scale1, @scale1);
+        .box-shadow(inset 0px 0px 10px 5px rgba(131, 36, 37, 0.1));
+	}
+    50% {
+    	-webkit-transform: scale(@scale2, @scale2);
+        .box-shadow(inset 0px 0px 10px 5px rgba(131, 36, 37, 0.7));
+    }
+    100% {
+    	-webkit-transform: scale(@scale1, @scale1);
+        .box-shadow(inset 0px 0px 10px 5px rgba(131, 36, 37, 0.1));
+    }
+}
+
+.reveal-modal {
+  font-family: FiraMona, Helvetica, Verdana, Sans-Serif;
+}
+
+.modalText {
+  margin-left      : auto;
+  margin-right     : auto;
+  font-weight      : 700;
+  font-size        : 30px;
+  background-color : #eeeeee;
+  padding          : 0.5rem;
+  border           : 1px solid #d6e6e6;
+  border-radius    : 5px;
+  text-align       : center;
+  display          : inline-block;
+}
+/*.high-scores {
+    width            : 300px;
+    margin-left      : 50px;
+    background-color : #eeeeee;
+    border           : 1px solid #d6e6e6;
+    border-radius    : 5px;
+    text-align       : center;
+    display          : inline-block;
+    padding          : 8px;
+    position         : relative;
+    top              : -220px;
+    table {
+        margin: 0;
+        padding: 0;
+    }
+    h3 {
+        text-decoration: underline;
+        margin-bottom: 2px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+    td {
+         width: 150px;
+        text-align: center;
+    }
+}*/
+
+.button {
+    @border-radius: 6px;
+    .box-shadow(inset 0px 1px 0px 0px #ffffff);
+    .border-radius(@border-radius);
+	
+    background-color : @light-grey;
+    border           : 1px solid #dcdcdc;
+    color            : #777777;
+    font-size        : 15px;
+    font-weight      : bold;
+    font-style       : normal;
+    height           : 25px;
+    width            : 100px;
+    cursor           : pointer;
+    text-decoration  : none;
+    text-align       : center;
+    text-shadow      : 1px 1px 0px #ffffff;
+}
+
+.button:hover {
+	background-color:#dfdfdf;
+}
+
+.button_container {
+    margin-top      : 15px;
+    .flex-display();
+    .align-items(center);
+    .justify-content(space-around);
+}
+
+.nugget { 
+	position: absolute;
+	width: 16px;
+    height: 16px;
+    /*background: #eeeeee;*/
+    border-radius: 28px;
+    opacity: 0.6;
+    display: block;
+    .box-shadow(0px 0px 6px 0px rgba(50, 50, 50, 0.75));
+}
+
+.enemy {
+    @size    : 16px;
+    
+    width    : @size;
+    height   : @size;
+    position : absolute;
+    display  : block;
+    .animation-name(rotate);
+    .animation-duration(2s);
+    .animation-iteration-count(infinite);
+    .animation-timing-function(linear);
+
+    /*-webkit-animation-name: rotate; 
+    -webkit-animation-duration: 2s; 
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+    -moz-animation-name: rotate; 
+    -moz-animation-duration: 2s; 
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;*/
+}
+
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes rotate {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(360deg);}
+}
+
+.play-pause {
+    @width         : 50px;
+    @x-pos         : 1275px;
+    @y-pos         : 575px;
+    
+    width          : @width;
+    display        : block;
+    position       : absolute;
+    left           : @x-pos;
+    top            : @y-pos;
+    padding-bottom : 0px;
+    font-size      : 50px;
+    color          : #000;
+}
+.play-pause a {
+	text-decoration: none;
+	color: #000;
+}
+#play {
+	display: none;
+}
+#pause {
+}
+
+.music-volume {
+    @width         : 50px;
+    @x-pos         : 50px;
+    @y-pos         : 575px;
+
+    width          : @width;
+    display        : block;
+    position       : absolute;
+    left           : @x-pos;
+    top            : @y-pos;
+    padding-bottom : 0px;
+    font-size      : 50px;
+    color          : #000;
+}
+.music-volume a {
+    text-decoration: none;
+    color: #000;
+}
+#loud {
+    display: none;
+}
+#mute {
+}
+/*
+#pulse1:target {
+}*/

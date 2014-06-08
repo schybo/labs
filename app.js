@@ -9,12 +9,14 @@ module.exports = function (flights, db) {
 	var passport = require('./auth');
 	var routes = require('./routes')(flights);
 	var path = require('path');	
+	var lessMiddleware = require('less-middleware');
 	var app = express();
 
 	// all environments
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
+	//app.engine('html', require('ejs').renderFile);	// add support for EJS templates in .html files
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
 	app.use(express.cookieParser());
@@ -29,7 +31,7 @@ module.exports = function (flights, db) {
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(function (req, res, next) {
-		res.set('X-Powered-By', 'Flight Tracker');
+		res.set('X-Powered-By', 'Kleptomania');
 		next();
 	});
 	app.use(app.router);
@@ -39,6 +41,16 @@ module.exports = function (flights, db) {
 	if ('development' == app.get('env')) {
 	  app.use(express.errorHandler());
 	}
+
+	// serve up CSS compiled from LESS
+	var lessOptions =
+		{ // production LESS options
+			once         : true,
+			optimization : 2,
+			compress     : true
+		}
+	;
+	app.use('/css', lessMiddleware(__dirname + '/public/assets/css', lessOptions));
 
 	app.get('/flight/:number', routes.flight);
 	app.put('/flight/:number/arrived', routes.arrived);

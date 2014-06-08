@@ -1,6 +1,6 @@
-extends layout
-
-block content
-	h1= title
+h3= title + " High Scores"
+table
 	each user, index in highScore
-		p= "Username: " + user.username + " " + "Score: " + user.score
+		tr
+			td= user.username
+			td= user.score

@@ -7,6 +7,7 @@
 //Have timer, pause, and score off limits by elements
 //Get focus on replay button at end
 //Glitch collsion with enemey and snitch something happens
+//Loads next level when there are still two nuggets left
 
 //Features
 //================
@@ -17,7 +18,7 @@
 
 //Link to the high score schema
 //var HighScoreSchema = require('../../../schemas/kleptomania');
-
+//module.exports =function () {
 //The number of enemies at the start
 var num_nuggets = 1;
 
@@ -46,31 +47,34 @@ var size = {
   height: (window.innerHeight - 20) || (document.body.clientHeight - 20)
 }
 
+//var routes = require('../../../routes/index');
+
 //The size of the hero
 /*var heroSize = {
 	width: 16
 	height: 16
 }*/
 
-function addHighScore() {
-	/*var record = new HighScoreSchema(
+/*function addHighScore(username, score) {
+	alert('here');
+	var mongoose = require('mongoose');
+	alert('here');
+
+	var HighScoreSchema = mongoose.model('HighScore', {
+		username: username,
+		score: score
+	});
+	alert('here');
+
+	var record = new HighScoreSchema(
 		{
-			"username": 'Falcon',
-			"score": 300
+			"username": username,
+			"score": score
 		}
 	);
-
-	record.save(function(err) {
-		if (err) {
-			console.log(err);
-			res.status(500).json({status: 'failure'});
-		} else {
-			res.json({status: 'success'});
-		}
-	});
-
-	res.json({status: 'done'});*/
-}
+	alert('here');
+	record.save();
+}*/
 
 //Checks the size of the screen and then returns a random position inside there
 function randomPosition () {	
@@ -253,6 +257,7 @@ function hund_timer() {
   	 //If the second timer is out as wellthen pauses the game and brings end game menu
      if (count<=0) {
      	pause_game();
+     	//addHighScore('Brent', score);
 		$('#myModal').foundation('reveal', 'open');
 		//document.getElementById('replay').focus(); //not working
 	 //Else sets the counter back to 100;
@@ -533,6 +538,7 @@ function showOverlap(event,ui) {
 	for( var j=0; j<enemy_collision.length; j++ ) {
 		document.getElementById("hurt").play();
 		pause_game();
+		//addHighScore('Brent', 400);
 		$('#myModal').foundation('reveal', 'open');
 		document.getElementById('replay').focus();
 	}
@@ -557,3 +563,4 @@ function init() {
   		close_on_background_click: false
 	});
 }
+//}

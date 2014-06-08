@@ -107,21 +107,36 @@ module.exports = function (flights) {
 		});
 
 		res.json({status: 'done'});*/
-		addHighScore('John', 200);
+		addHighScore('John', 300);
 
-		res.render('index', {title: 'Kleptomania'});
+		/*HighScoreSchema.find()
+		.sort({score:-1})
+		.limit(5)
+		//.setOptions({sort: 'score'})
+		.exec(function(err, highScore) {
+			if (err) {
+				res.status(500).json({status: 'failure'});
+			} else {*/
+				res.render('index', {
+					title: 'Kleptomania'
+					//highScore: highScore
+				});
+		//	}
+		//});
 	};
 
 	functions.highScore = function(req, res) {
 		HighScoreSchema.find()
-		.setOptions({sort: 'score'})
+		.sort({score:-1})
+		//.limit(5)
+		//.setOptions({sort: 'score'})
 		.exec(function(err, highScore) {
 			if (err) {
 				res.status(500).json({status: 'failure'});
 			} else {
 				res.render('highScore', {
 					title: 'High Scores',
-					highScore: highScore,
+					highScore: highScore
 				});
 			}
 		});
