@@ -1,115 +1,55 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset='utf-8' />
-    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
-    <meta content="width=device-width, height=device-height, initial-scale=1, user-scalable=no" name='viewport' />
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-    <meta content='en-US-CA' http-equiv='Content-Language' />
-    <meta content='initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width' name='viewport' />
-    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
-    <meta content='Kleptomania' property='og:title' />
-    <meta content='Brent Scheibelhut' itemprop='name' />
-    <meta content='website' property='og:type' />
-    <meta content='Kleptomania - Brent Scheibelhut' property='og:description' />
-    <meta content='Broswer based game utilizing HTML5 and CSS3' itemprop='description' />
-	<title>Kleptomania</title>
-	<link rel="shortcut icon" type="image/png" href="/images/favicon32.ico">
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
-	<link rel="stylesheet" type="text/css" href="/css/vendor/dropdown.css">
-	<link rel="stylesheet" type="text/css"href="/css/vendor/icons.css">
-	<link rel="stylesheet" type="text/css" href="/css/vendor/introjs.css">
-</head>
-	<body onload="init();">
+<div id="timer_style" class="timer_loc" data-step="2" data-intro="Collect all the colored gems before time runs out. The golden snitch gem is worth extra points but not necessary for completion of the level">
+	<span id="timer"></span>
+	<span id="timer_hund"></span>
+</div>
+<div id="score_style" class="score_loc" data-step="3" data-intro="The higher your level the more your score multiplier!" data-position='left'>
+	<span id="score"></span>
+</div>
+<a class="pulse1" href="#pulse1">
+    <div onclick="move()" id="pulse" class="pulse_marker">
+        <div class="pulse_ring" data-step="6" data-intro="These guys get you points too, try clicking on them!"></div>
+    </div>
+</a>
 
-		<div id="timer_style" class="timer_loc" data-step="2" data-intro="Collect all the colored gems before time runs out. The golden snitch gem is worth extra points but not necessary for completion of the level">
-			<span id="timer"></span>
-			<span id="timer_hund"></span>
-		</div>
-		<div id="score_style" class="score_loc" data-step="3" data-intro="The higher your level the more your score multiplier!" data-position='left'>
-			<span id="score"></span>
-		</div>
-	    <a class="pulse1" href="#pulse1">
-	        <div onclick="move()" id="pulse" class="pulse_marker">
-	            <div class="pulse_ring" data-step="6" data-intro="These guys get you points too, try clicking on them!"></div>
-	        </div>
-	    </a>
+<div id="hero" class="hero" data-step="1" data-intro="This is your hero! Move him around with the arrow keys. <strong> Move to the next slide with the right arrow key</strong>">
+</div>
 
-		<div id="hero" class="hero" data-step="1" data-intro="This is your hero! Move him around with the arrow keys. <strong> Move to the next slide with the right arrow key</strong>">
-	    </div>
-
-		<div id="myModal" class="reveal-modal" data-reveal>
-		  <div class="modalText">
-			<center><img src="/images/game_over.gif"></center>
-			<span>You And Your Friends Are Dead</span>
-		  </div>
-		  <div class="button_container">
-			<a href="http://brentscheibelhut.com"><button class="button">No Way!</button></a>
-			<a id="replay" href="#"><button onclick="restart()" class="button">Replay?</button></a>
-		  </div>
-		</div>
+<div class="play-pause" data-step="4" data-intro="Pause/play the game with the space bar or by clicking on this icon" data-position='left'>
+	<a href="#" onclick="play_game(true)">
+		<span id="play" class="icon-play"></span>
+	</a>
+	<a href="#" onclick="pause_game(true)">
+		<span id="pause" class="icon-pause"></span>
+	</a>
+</div>
 
 
-		<div id="levelUp" class="reveal-modal" data-reveal>
-		  <div class="modalText">
-			<center><img src="/images/game_over.gif"></center>
-			<span>Congrats</span>
-			<span>Continue?</span>
-		  </div>
-		  <div class="button_container">
-			<a href="http://brentscheibelhut.com"><button class="button">No Way!</button></a>
-			<a id="levelUp" href="#"><button onclick="levelUp()" class="button">Hell ya!</button></a>
-		  </div>
-		</div>
-		
-		
-		<div class="play-pause" data-step="4" data-intro="Pause/play the game with the space bar or by clicking on this icon" data-position='left'>
-			<a href="#" onclick="play_game(true)">
-				<span id="play" class="icon-play"></span>
-			</a>
-			<a href="#" onclick="pause_game(true)">
-				<span id="pause" class="icon-pause"></span>
-			</a>
-		</div>
+<div class="music-volume" data-step="5" data-intro="Mute the background music if you'd like" data-position='right'>
+	<a href="#" onclick="bgMusicOff(true)">
+		<span id="mute" class="icon-volume-high"></span>
+	</a>
+	<a href="#" onclick="bgMusicOn(true)">
+		<span id="loud" class="icon-volume-mute"></span>
+	</a>
+</div>
 
+<!--<audio autoplay id="game_music">
+  <source src="ZN-Kernkraft400.mp3" type="audio/mpeg">
+</audio>-->
 
-		<div class="music-volume" data-step="5" data-intro="Mute the background music if you'd like" data-position='right'>
-			<a href="#" onclick="bgMusicOff(true)">
-				<span id="mute" class="icon-volume-high"></span>
-			</a>
-			<a href="#" onclick="bgMusicOn(true)">
-				<span id="loud" class="icon-volume-mute"></span>
-			</a>
-		</div>
-
-		<!--<audio autoplay id="game_music">
-		  <source src="ZN-Kernkraft400.mp3" type="audio/mpeg">
-		</audio>-->
-
-		<!-- HTML5 Audio Mayhem -->
-		<audio id="pickup-coin">
-		  <source src="/sounds/pickup-coin.wav" type="audio/wav">
-		</audio>
-		<audio id="hurt">
-		  <source src="/sounds/hurt.wav" type="audio/wav">
-		</audio>
-		<audio id="snitch_sound">
-		  <source src="/sounds/snitch.wav" type="audio/wav">
-		</audio>
-		<audio id="time_down">
-		  <source src="/sounds/time_down.wav" type="audio/wav">
-		</audio>
-		<audio autoplay id="bg-music">
-		  <source src="/sounds/bg-music.mp3" type="audio/mpeg">
-		</audio>
-		
-		<!--Includes-->
-	    <script src="/javascripts/vendor/jquery/dist/jquery.min.js"></script>
-		<script src="/javascripts/vendor/foundation/js/foundation/foundation.js"></script>
-		<script src="/javascripts/vendor/foundation/js/foundation/foundation.reveal.js"></script>
-		<script src="/javascripts/vendor/jquery-collision/jquery-collision.js"></script>
-		<script src="/javascripts/vendor/jquery-ui/ui/minified/jquery-ui.min.js"></script>
-		<script src="/javascripts/vendor/intro.js/minified/intro.min.js"></script>
-		<script src="/javascripts/main.js"></script>
-	</body>
-</html>
+<!-- HTML5 Audio Mayhem -->
+<audio id="pickup-coin">
+  <source src="/sounds/pickup-coin.wav" type="audio/wav">
+</audio>
+<audio id="hurt">
+  <source src="/sounds/hurt.wav" type="audio/wav">
+</audio>
+<audio id="snitch_sound">
+  <source src="/sounds/snitch.wav" type="audio/wav">
+</audio>
+<audio id="time_down">
+  <source src="/sounds/time_down.wav" type="audio/wav">
+</audio>
+<audio autoplay id="bg-music">
+  <source src="/sounds/bg-music.mp3" type="audio/mpeg">
+</audio>

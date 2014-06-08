@@ -78,8 +78,19 @@ module.exports = function (flights) {
 		res.render('login', {title: 'Log in'});
 	};
 
-	functions.index = function(req, res) {
+	function addHighScore(username, score) {
 		var record = new HighScoreSchema(
+			{
+				"username": username,
+				"score": score
+			}
+		);
+
+		record.save(function(err) {});
+	}
+
+	functions.index = function(req, res) {
+		/*var record = new HighScoreSchema(
 			{
 				"username": 'Falcon',
 				"score": 300
@@ -95,7 +106,8 @@ module.exports = function (flights) {
 			}
 		});
 
-		res.json({status: 'done'});
+		res.json({status: 'done'});*/
+		addHighScore('John', 200);
 
 		res.render('index', {title: 'Kleptomania'});
 	};

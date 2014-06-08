@@ -13,6 +13,7 @@
 //Time bonus
 //Time goes down at end of each level if levels?
 //Should have option to turn off sound effects too
+//Maybe gettings snitch increases your time?
 
 //Link to the high score schema
 //var HighScoreSchema = require('../../../schemas/kleptomania');
@@ -50,6 +51,26 @@ var size = {
 	width: 16
 	height: 16
 }*/
+
+function addHighScore() {
+	/*var record = new HighScoreSchema(
+		{
+			"username": 'Falcon',
+			"score": 300
+		}
+	);
+
+	record.save(function(err) {
+		if (err) {
+			console.log(err);
+			res.status(500).json({status: 'failure'});
+		} else {
+			res.json({status: 'success'});
+		}
+	});
+
+	res.json({status: 'done'});*/
+}
 
 //Checks the size of the screen and then returns a random position inside there
 function randomPosition () {	

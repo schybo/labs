@@ -1,0 +1,11 @@
+#myModal.reveal-modal(data-reveal='data-reveal')
+    .modalText
+        center
+          img(src='/images/game_over.gif')
+        span You And Your Friends Are Dead
+      .button_container
+        a(href='http://brentscheibelhut.com')
+          button.button No Way!
+        a#replay(href='#')
+          button.button(onclick='restart()') Replay?
+    block high-scores
