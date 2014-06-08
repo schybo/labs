@@ -1,0 +1,4 @@
+dev/
+node_modules/
+public/vendor/
+public/vendor/assets/sounds/bg-music.mp3

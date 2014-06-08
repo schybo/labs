@@ -1,0 +1,637 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"li",
+				"link	Tag"
+			],
+			[
+				"fligh",
+				"flightEmitter  (variable)"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"s",
+				"success"
+			],
+			[
+				"se",
+				"session"
+			],
+			[
+				"Fli",
+				"FlightSchema"
+			],
+			[
+				"get",
+				"getInformation"
+			],
+			[
+				"Flight",
+				"FlightScheme"
+			],
+			[
+				"fl",
+				"flight"
+			],
+			[
+				"re",
+				"require"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"b",
+				"Brent"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "db.js",
+			"settings":
+			{
+				"buffer_size": 168,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 405,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 87.0,
+		"selected_items":
+		[
+			[
+				"markdown preview in bro",
+				"Markdown Preview: Python Markdown: Preview in Browser"
+			],
+			[
+				"markdo",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Inst",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Upgrade Package"
+			]
+		],
+		"width": 633.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/brentscheibelhut/Documents/pulsate/foundation-copy.css",
+		"/Users/brentscheibelhut/Documents/pulsate/foundation.css",
+		"/Users/brentscheibelhut/Documents/pulsate/pulsate.html",
+		"/Users/brentscheibelhut/Desktop/final/package.json",
+		"/Users/brentscheibelhut/Desktop/start/package.json",
+		"/Users/brentscheibelhut/Desktop/start/server.js",
+		"/Users/brentscheibelhut/Desktop/repl.js",
+		"/Users/brentscheibelhut/Desktop/start/views/arrivals.jade",
+		"/Users/brentscheibelhut/Desktop/start/routes/index.js",
+		"/Users/brentscheibelhut/Desktop/start/auth.js",
+		"/Users/brentscheibelhut/Desktop/start/app.js",
+		"/Users/brentscheibelhut/Desktop/start/schemas/flights.js",
+		"/Users/brentscheibelhut/Desktop/start/views/layout.jade",
+		"/Users/brentscheibelhut/Desktop/start/test/helpers/app.js",
+		"/Users/brentscheibelhut/Desktop/start/db.js",
+		"/Users/brentscheibelhut/Desktop/start/test/FlightSpec.js",
+		"/Users/brentscheibelhut/Library/Application Support/Sublime Text 3/Packages/LiveStyle/LiveStyle.sublime-settings",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/build/dev/client/assets/css/jquery-ui.css",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/server/node_modules/mongojs/tests/test-create-collection.js",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/client/lib/bower_components/jquery/src/css/curCSS.js",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/deployment/code-review.js",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/client/models/User.js",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/server/node_modules/node-inspector/front-end/UIString.js",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/client/lib/jquery-ui/js/jquery-ui-1.10.4.custom.js",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/server/node_modules/grunt-contrib-uglify/node_modules/uglify-js/test/compress/negate-iife.js",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/site/node_modules/less-middleware/node_modules/less/test/css/import-interpolation.css",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/build/dev/client/assets/fonts/Roadmunk-Icons.woff",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/client/assets/css/jquery-ui.less",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/server/node_modules/mongodb/lib/mongodb/connection/connection_utils.js",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/server/node_modules/grunt/node_modules/js-yaml/examples/custom_types.js",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/client/assets/css/roadmunkIcons.less",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/client/assets/css/utils.less",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/roadmunk.sublime-project",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/roadmunk-key-autotesting.pem",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/server/node_modules/grunt-contrib-requirejs/docs/requirejs-options.md",
+		"/Users/brentscheibelhut/Library/Application Support/Sublime Text 3/Packages/Alignment/Base File.sublime-settings",
+		"/Users/brentscheibelhut/Library/Application Support/Sublime Text 3/Packages/User/Base File.sublime-settings",
+		"/Users/brentscheibelhut/Desktop/airline/index.js",
+		"/Users/brentscheibelhut/Documents/drunken-bear/server/index.js",
+		"/Users/brentscheibelhut/Documents/work_roadmunk/basic-email-template/stylesheets/email.css",
+		"/Users/brentscheibelhut/Documents/work_roadmunk/basic-email-template/basic.html",
+		"/Users/brentscheibelhut/Documents/workspace_roadmunk/Academic Petition - Revised.docx/deployment/developer-setup.md",
+		"/Users/brentscheibelhut/Documents/drunken-bear/server/public/partials/two_airports.html",
+		"/Users/brentscheibelhut/Documents/drunken-bear/server/public/js/controllers/airport1.js",
+		"/Users/brentscheibelhut/Documents/drunken-bear/server/public/js/controllers/airport2.js",
+		"/Users/brentscheibelhut/Documents/drunken-bear/server/public/js/controllers/flights.js",
+		"/Users/brentscheibelhut/Documents/drunken-bear/server/public/js/app.js",
+		"/Users/brentscheibelhut/Documents/drunken-bear/server/public/partials/airport.html",
+		"/Users/brentscheibelhut/Documents/drunken-bear/server/public/js/controllers/app.js",
+		"/Users/brentscheibelhut/Documents/drunken-bear/server/public/partials/change_name.html",
+		"/Users/brentscheibelhut/Documents/drunken-bear/index.html",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/_nav_bar.html.haml",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/references.html.haml",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/assets/stylesheets/foundation/_body.scss",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/assets/stylesheets/foundation/_references.scss",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/assets/stylesheets/foundation/_design.scss",
+		"/Users/brentscheibelhut/Documents/sydotcom/README.md",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/web_design.html.haml",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/_darkcloud.html.haml",
+		"/Users/brentscheibelhut/Music/cool",
+		"/Users/brentscheibelhut/Documents/Winter_2014/CS246/assignments/a1/runSuite",
+		"/Users/brentscheibelhut/Music/stream[0].json",
+		"/Users/brentscheibelhut/Downloads/addon-sdk-1.15/examples/reddit-panel/README.md",
+		"/Users/brentscheibelhut/Downloads/addon-sdk-1.15/examples/annotator/lib/main.js",
+		"/Users/brentscheibelhut/Downloads/addon-sdk-1.15/examples/annotator/README.md",
+		"/Users/brentscheibelhut/Downloads/80771 (1).user.js",
+		"/Users/brentscheibelhut/Documents/example.js",
+		"/Users/brentscheibelhut/Documents/WatrHub/index.php",
+		"/Users/brentscheibelhut/Documents/WatrHub/timeline_response.php",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/_freelance_form.html.haml",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/whiteboard.html.haml",
+		"/Users/brentscheibelhut/Documents/dave_fish_site/report.php",
+		"/Users/brentscheibelhut/Documents/easy-badge/index.php",
+		"/Users/brentscheibelhut/Documents/easy-badge/crop_web.php",
+		"/Users/brentscheibelhut/Documents/easy-badge/css/main.css",
+		"/Users/brentscheibelhut/Documents/dave_fish_site/html-head.inc",
+		"/Users/brentscheibelhut/Documents/dave_fish_site/index.php",
+		"/Users/brentscheibelhut/Documents/dave_fish_site/main-menu.inc",
+		"/Users/brentscheibelhut/Documents/dave_fish_site/.git/MERGE_MSG",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/assets/stylesheets/foundation/_slider.scss",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/layouts/layout.haml",
+		"/Users/brentscheibelhut/Documents/sydotcom/source/404.html.erb",
+		"/Users/brentscheibelhut/Documents/Staging-example/workdotcom-staging/config.ru",
+		"/Users/brentscheibelhut/Documents/sdotcom/package.json",
+		"/Users/brentscheibelhut/Documents/sydotcom/config.ru",
+		"/Users/brentscheibelhut/Documents/sdotcom/web.js",
+		"/Users/brentscheibelhut/Documents/railsproject/blog/app/views/posts/edit.html.erb",
+		"/Users/brentscheibelhut/Documents/railsproject/blog/app/views/welcome/index.html.erb",
+		"/Users/brentscheibelhut/Desktop/Rent & Stoofs",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/source/assets/stylesheets/foundation.css",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/source/assets/stylesheets/scss/foundation.scss",
+		"/Users/brentscheibelhut/Documents/Staging-example/workdotcom-staging/source/assets/stylesheets/site.css.sass",
+		"/Users/brentscheibelhut/Documents/Staging-example/workdotcom-staging/source/assets/javascripts/site.js",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/source/index.html",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/source/stylesheets/all.css",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/source/javascripts/all.js",
+		"/Users/brentscheibelhut/Documents/Staging-example/workdotcom-staging/data/meta_social.yml",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/data/webinars.yml",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/data/team.yml",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/data/resources.yml",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/data/press.yml",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/data/meta_social.yml",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/data/GeoIP.dat",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/data/associations.yml",
+		"/Users/brentscheibelhut/Documents/sdotcom/staging/config.ru",
+		"/Users/brentscheibelhut/Documents/Staging-example/workdotcom-staging/heroku.yml",
+		"/Users/brentscheibelhut/Documents/sdotcom/node_modules/express/lib/router/index.js",
+		"/Users/brentscheibelhut/Documents/sdotcom/node_modules/express/lib/application.js",
+		"/Users/brentscheibelhut/Documents/sdotcom/node_modules/express/index.js",
+		"/Users/brentscheibelhut/Documents/Staging-example/workdotcom-staging/app.rb",
+		"/Users/brentscheibelhut/Documents/Staging-example/workdotcom-staging/Rakefile",
+		"/Users/brentscheibelhut/Documents/Staging-example/workdotcom-staging/config.rb",
+		"/Users/brentscheibelhut/Documents/sdotcom/README.md",
+		"/Users/brentscheibelhut/Documents/sdotcom/.git/MERGE_MSG",
+		"/Users/brentscheibelhut/Documents/sdotcom/index.html",
+		"/Users/brentscheibelhut/Documents/sdotcom/foundation-4.3.1.custom/css/foundation.css",
+		"/Users/brentscheibelhut/Documents/Blog_First_Draft/ss_cp.html",
+		"/Users/brentscheibelhut/Documents/Blog_First_Draft/style.css",
+		"/Users/brentscheibelhut/Documents/Blog_First_Draft/album3.html",
+		"/Users/brentscheibelhut/Documents/Blog_First_Draft/album2.html",
+		"/Users/brentscheibelhut/Documents/Blog_First_Draft/album1.html",
+		"/Users/brentscheibelhut/Documents/Blog_First_Draft/album0.html",
+		"/Users/brentscheibelhut/Documents/TestGit/.git/COMMIT_EDITMSG",
+		"/Users/brentscheibelhut/test.txt",
+		"/Users/brentscheibelhut/Documents/TestGit/test1.txt.orig",
+		"/Users/brentscheibelhut/Pictures/points.rkt"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app, -*/node_modules/*, -*/client/lib/*, -*/vendor/*, -*/app/build/",
+			"/Users/brentscheibelhut/roadmunk/app, -*/node_modules/*, -*/client/lib/*, -*/vendor/*, -*/app/build/",
+			"*/roadmunk/app, -*/node_modules/*, -*/client/lib/*, -*/vendor/*, -*/app/build/",
+			"~*/roadmunk/app, -*/node_modules/*, -*/client/lib/*, -*/vendor/*, -*/app/build/",
+			"~/roadmunk/app, -*/node_modules/*, -*/client/lib/*, -*/vendor/*, -*/app/build/",
+			"~\\roadmunk\\app, -*/node_modules/*, -*/client/lib/*, -*/vendor/*, -*/app/build/",
+			"",
+			"/Users/brentscheibelhut/Documents/workspace_roadmunk/roadmunk/app/client",
+			"",
+			"~/app",
+			"",
+			"app",
+			"*/app",
+			"~*/app",
+			"~/app",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"_introExit",
+			"_introExitCall",
+			"_exitIntr",
+			"exit",
+			"_exit",
+			"_exitIntro",
+			"score",
+			"div",
+			"move_special",
+			"nuggets",
+			"breakable",
+			"play_game",
+			"next2",
+			"next1",
+			"200",
+			"ui-state-focus",
+			"ui-dialog-titlebar-close",
+			"anchor",
+			"style",
+			"clickBubble",
+			"icon-at",
+			"date",
+			"icon",
+			"input-ic",
+			"icon",
+			"icon-at",
+			"date",
+			"icon(",
+			"icon",
+			"input",
+			"ETIMEDOUT",
+			"connect ETIMEDOUT",
+			"container",
+			"content",
+			"head",
+			"tr",
+			"td",
+			"container",
+			"section_left",
+			"img",
+			".d_content_top",
+			"hypen",
+			"btn",
+			"page-header",
+			"page1",
+			"title",
+			"header",
+			"carou",
+			"js",
+			"ss1",
+			"ss2"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"move_snitch",
+			"nugget",
+			"pulse2",
+			"pulse1",
+			"hyphen",
+			"javascripts"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "db.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 168,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								86,
+								86
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "package.json",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 405,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "clean-pulsate.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"ccol",
+				"app/server/node_modules/mongojs/tests/test-create-collection.js"
+			],
+			[
+				"roadmunkicon",
+				"app/client/assets/css/roadmunkIcons.less"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 300.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

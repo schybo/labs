@@ -1,0 +1,6 @@
+extends layout
+
+block content
+	h1= title
+	each user, index in highScore
+		p= "Username: " + user.username + " " + "Score: " + user.score
