@@ -6,7 +6,7 @@
 @hero-bg     : #0DAAD1;
 @hero-border : #1A86A0;
 
-.ring(@color, @animation) {
+.ring(@color, @animation, @shadow) {
     @size          : 18px;
     @x-fudge       : -4px;
     @y-fudge       : -4px;
@@ -24,7 +24,7 @@
     -webkit-animation                 : @animation 1s ease-out;
     -webkit-animation-iteration-count : infinite; 
 
-    .box-shadow(0px 0px 6px 0px rgba(50, 50, 50, 0.75));
+    .box-shadow(0px 0px @shadow 0px rgba(50, 50, 50, 0.75));
     .border-radius(@border-radius);
 }
 
@@ -70,7 +70,7 @@ body {
 }
 
 .pulse_ring {
-   .ring(@light-grey, pulsate1);
+   .ring(@light-grey, pulsate1, 6px);
 }
 
 @-webkit-keyframes pulsate1 {
@@ -101,9 +101,10 @@ body {
     border        : 3px solid @light-grey;
     border-radius : 10px;
     text-align    : center;
-    #timer_hund {
-        margin-left: -18px;
-    }
+}
+
+#timer_hund {
+    margin-left: -18px;
 }
 
 .pulse_marker2 {
@@ -123,11 +124,13 @@ body {
 }
 
 .pulse_ring2 {
-    .ring(@gold, pulsate2);
+    .ring(@gold, pulsate2, 0px);
 }
 
 @-webkit-keyframes pulsate2 {
-    .pulsate(0.0, 1.0, 0.5, 1.7)
+    0% {-webkit-transform: scale(0.5, 0.5); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.7, 1.7); opacity: 0.0;}
 }
 
 .pulse_marker3 {
@@ -170,7 +173,7 @@ body {
 }
 
 .pulse_ring3 {
-    .ring(@light-grey, pulsate3)
+    .ring(@light-grey, pulsate3, 6px);
 }
 @-webkit-keyframes pulsate3 {
     .pulsate(0.0, 1.0, 1.9, 1.0);
@@ -195,6 +198,8 @@ body {
 
 .reveal-modal {
   font-family: FiraMona, Helvetica, Verdana, Sans-Serif;
+  padding-bottom: 0;
+  border-radius: 8px;
 }
 
 .modalText {
@@ -208,6 +213,22 @@ body {
   border-radius    : 5px;
   text-align       : center;
   display          : inline-block;
+}
+
+.basic-bullet {
+    @size          : 8px;
+    @border-radius : 10px;
+    //@x-pos         : 300px;
+    //@y-pos         : 200px;
+    
+    width          : @size;
+    height         : @size;
+    display        : block;
+    position       : absolute;
+    //left           : @x-pos;
+    //top            : @y-pos;
+    background     : #E59825;
+    .border-radius(@border-radius);  
 }
 /*.high-scores {
     width            : 300px;
@@ -240,25 +261,7 @@ body {
 
 .button {
     @border-radius: 6px;
-    .box-shadow(inset 0px 1px 0px 0px #ffffff);
     .border-radius(@border-radius);
-	
-    background-color : @light-grey;
-    border           : 1px solid #dcdcdc;
-    color            : #777777;
-    font-size        : 15px;
-    font-weight      : bold;
-    font-style       : normal;
-    height           : 25px;
-    width            : 100px;
-    cursor           : pointer;
-    text-decoration  : none;
-    text-align       : center;
-    text-shadow      : 1px 1px 0px #ffffff;
-}
-
-.button:hover {
-	background-color:#dfdfdf;
 }
 
 .button_container {

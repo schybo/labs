@@ -47,6 +47,46 @@ var size = {
   height: (window.innerHeight - 20) || (document.body.clientHeight - 20)
 }
 
+//The amount of movement done by the hero
+var movement = 5;
+
+//Keypress boolean variables
+var rightKey = false;
+var leftKey = false;
+var upKey = false;
+var downKey = false;
+var spaceBar = false;
+
+//The number of seconds
+var count=60;
+
+//The number of miliseconds
+var hund_count=100;
+
+//Needed so that they're global
+var counter;
+var counter_hund;
+
+//Sets the timer for the introduction
+document.getElementById("timer").innerHTML=60 + ".";
+document.getElementById("timer_hund").innerHTML='00';
+
+//Checks for user input to move the hero
+var inv_hero=setInterval(move_hero, 15);
+var shoot_bullet=setInterval(shootBullet, 100);
+
+//Global variable for enemy movement
+var enemy_movement;
+
+//Amount of bullets shot
+var bullets_shot = 0;
+
+//The last vertical movement key pressed
+var last_vmove;
+
+//The last horizontal movement key pressed
+var last_hmove;
+
 //var routes = require('../../../routes/index');
 
 //The size of the hero
@@ -122,6 +162,106 @@ function bgMusicOn (changeIcon) {
 	}
 }
 
+/*function bulletChecker(bullet) {
+  var bullet = $(bullet);
+
+  //Gets the hero position
+  var bullet_position = bullet.position();
+  if (bullet_position.left >= size.width) {
+  	bullet.remove();
+  } else if (bullet_position.top >= size.height) {
+	bullet.remove();
+  }
+}*/
+
+function shootBullet () {
+	//Gets the hero element by ID
+	var hero = $( "#hero" );
+
+	//Gets the hero position
+	var hero_position = hero.position();
+	var nw = (size.width - hero_position.left);
+	var nh = (size.height - hero_position.top);
+	//var uniq_id = 'bullet' + bullets_shot;
+	//bullets_shot++;
+
+	//Creates the enemy div
+	var div = document.createElement("div");
+	div.className += 'basic-bullet';
+	//div.id = uniq_id;
+
+	document.getElementById("hero").appendChild(div);
+
+	if ((last_hmove == 'right') && (last_vmove == 'up')) {
+		if (rightKey && !upKey) {
+			$(div).animate({ 
+			   left: nw
+			}, 1000);
+		} else if (!rightKey && upKey) {
+			$(div).animate({ 
+				top: (-1 * nh)
+			}, 1000);
+		} else {
+			$(div).animate({ 
+				top: (-1 * nh), left: nw
+			}, 1000);
+		}
+	} else if ((last_hmove == 'right') && (last_vmove == 'down')) {
+		if (rightKey && !downKey) {
+			$(div).animate({ 
+			   left: nw
+			}, 1000);
+		} else if (!rightKey && downKey) {
+			$(div).animate({ 
+				top: nh
+			}, 1000);
+		} else {
+			$(div).animate({ 
+				top: nh, left: nw
+			}, 1000);
+		}
+	} else if ((last_hmove == 'left') && (last_vmove == 'up')) {
+		if (leftKey && !upKey) {
+			$(div).animate({ 
+				left: (-1 * nw)
+			}, 1000);
+		} else if (!leftKey && upKey) {
+			$(div).animate({ 
+				top: (-1 * nh)
+			}, 1000);
+		} else {
+			$(div).animate({ 
+				top: (-1 * nh), left: (-1 * nw)
+			}, 1000);
+		}
+	} else {
+		if (leftKey && !downKey) {
+			$(div).animate({ 
+				left: (-1 * nw)
+			}, 1000);
+		} else if (!leftKey && downKey) {
+			$(div).animate({ 
+				top: nh
+			}, 1000);
+		} else {
+			$(div).animate({ 
+				top: nh, left: (-1 * nw)
+			}, 1000);
+		}
+	}
+
+	/*$(div).animate({ 
+			top: nh, left: nw
+	}, 1000);*/
+
+	function remove () {
+		$(div).remove();
+	}
+
+	//setInterval(bulletChecker(uniq_id), 15);
+	setTimeout(remove, 1000);
+}
+
 //Creates the nuggets for the game
 //Gets called at the start of the game and at the start of each new level
 function createNugget() {
@@ -186,20 +326,6 @@ function createEnemy() {
 		document.body.appendChild(div);
 	}
 }
-
-//Sets the timer for the introduction
-document.getElementById("timer").innerHTML=60 + ".";
-document.getElementById("timer_hund").innerHTML='00';
-
-//The number of seconds
-var count=60;
-
-//The number of miliseconds
-var hund_count=100;
-
-//Needed so that they're global
-var counter;
-var counter_hund;
 
 //The seconds timer
 function timer() {
@@ -349,20 +475,7 @@ function move_hero() {
 
   //Checks to see if the hero overlaps with any other divs
   showOverlap();
-
-  //Used for checking if the users is out of bounds
-  //Would be good if we had set width and height
-  //if (block_x <= 0) block_x = 0;
-  //if ((block_x + block_w) >= WIDTH) block_x = WIDTH - block_w;
-  //if (block_y <= 0) block_y = 0;
-  //if ((block_y + block_h) >= HEIGHT) block_y = HEIGHT - block_h;
 }
-
-//Checks for user input to move the hero
-var inv_hero=setInterval(move_hero, 15);
-
-//Global variable for enemy movement
-var enemy_movement;
 
 function play_game(changeIcon) {
 	//Plays the background movement
@@ -390,6 +503,7 @@ function play_game(changeIcon) {
 
 	//Reset hero moement tracker
 	inv_hero=setInterval(move_hero, 15);
+	shoot_bullet=setInterval(shootBullet, 100);
 }
 
 function pause_game(changeIcon) {
@@ -409,6 +523,7 @@ function pause_game(changeIcon) {
 	stopClock();
 	clearInterval(move_counter);
     clearInterval(inv_hero);
+    clearInterval(shoot_bullet);
 
     //Ends enemey animation and clears interval
 	$(".enemy").stop();
@@ -460,22 +575,22 @@ function restart() {
 	play_game();
 }
 
-//The amount of movement done by the hero
-var movement = 5;
-
-//Keypress boolean variables
-var rightKey = false;
-var leftKey = false;
-var upKey = false;
-var downKey = false;
-var spaceBar = false;
-
 function onKeyDown(evt) {
   //Changes boolean variable to true if key is pressed
-  if (evt.keyCode == 39) rightKey = true;
-  else if (evt.keyCode == 37) leftKey = true;
-  if (evt.keyCode == 38) upKey = true;
-  else if (evt.keyCode == 40) downKey = true;
+  if (evt.keyCode == 39) { 
+  	rightKey = true;
+  	last_hmove = 'right'; 
+  } else if (evt.keyCode == 37) {
+  	leftKey = true;
+  	last_hmove = 'left';
+  } 
+  if (evt.keyCode == 38) {
+  	upKey = true;
+  	last_vmove = 'up';
+  } else if (evt.keyCode == 40) {
+  	downKey = true;
+  	last_vmove = 'down';
+  }
 
   //Pauses game if space bar is pressed
   if (evt.keyCode == 32) {
