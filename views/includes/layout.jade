@@ -21,7 +21,9 @@ html
 		link(rel='stylesheet', type='text/css', href='/css/vendor/introjs.css')
 		link(rel='stylesheet', type='text/css', href='/css/site.css')
 	body(onload='init();')
-		block main-content
+		.wrap
+			.main
+				block main-content
 		include endDropdown
 		include levelUp
 		include scripts

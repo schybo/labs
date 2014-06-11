@@ -41,10 +41,27 @@ document.getElementById("score").innerHTML=score;
 //Indicates whether pause is on (and it's paused until the end of intro)
 var pause_on = true;
 
+//Top margin of game board
+var top_margin = 100;
+
+//Size of a nugget 
+var nugget_size = 16;
+
+//Size of an enemy
+var enemy_size = 16;
+
+//Size of the hero
+var hero_size = 16;
+
+//The left margin of the game board
+var left_margin = parseInt($(".playing-field").css('margin-left'), 10);
+
 //The width & height of the screen
 var size = {
-  width: (window.innerWidth - 20) || (document.body.clientWidth - 20),
-  height: (window.innerHeight - 20) || (document.body.clientHeight - 20)
+  //width: (window.innerWidth - 20) || (document.body.clientWidth - 20),
+  width: 1100,
+  //height: (window.innerHeight - 20) || (document.body.clientHeight - 20)
+  height: 550
 }
 
 //The amount of movement done by the hero
@@ -73,7 +90,8 @@ document.getElementById("timer_hund").innerHTML='00';
 
 //Checks for user input to move the hero
 var inv_hero=setInterval(move_hero, 15);
-var shoot_bullet=setInterval(shootBullet, 100);
+//var shoot_bullet=setInterval(shootBullet, 100);
+var passes = 0;
 
 //Global variable for enemy movement
 var enemy_movement;
@@ -118,10 +136,10 @@ var last_hmove;
 
 //Checks the size of the screen and then returns a random position inside there
 function randomPosition () {	
-	// First get the size from the window
-	// if that didn't work, get it from the body
-	var nw = Math.floor((Math.random() * size.width) + 1);
-	var nh = Math.floor((Math.random() * size.height) + 1);
+
+	//This will become a problem when elements are different sizes
+	var nw = Math.floor((Math.random() * (size.width - nugget_size) + 1)) + left_margin;
+	var nh = Math.floor((Math.random() * (size.height - nugget_size) + 1)) + top_margin;
 
 	return [nw, nh];
 }
@@ -131,7 +149,8 @@ function move () {
 	//Can only get points and move the orb if pause is off
 	if (pause_on != true) {
 		//Adds points to the score for clicking the orb
-		score = Math.floor((score + 2) * scoreMult);
+		//for some reason this increases score multiplier
+		score += Math.floor(1 * scoreMult);
 		document.getElementById("score").innerHTML=score;
 
 		var rpos = randomPosition();
@@ -174,14 +193,14 @@ function bgMusicOn (changeIcon) {
   }
 }*/
 
-function shootBullet () {
+function shootBullet (left, top) {
 	//Gets the hero element by ID
-	var hero = $( "#hero" );
+	//var hero = $( "#hero" );
 
 	//Gets the hero position
-	var hero_position = hero.position();
-	var nw = (size.width - hero_position.left);
-	var nh = (size.height - hero_position.top);
+	//var hero_position = hero.position();
+	var nw = (size.width - left);
+	var nh = (size.height - top);
 	//var uniq_id = 'bullet' + bullets_shot;
 	//bullets_shot++;
 
@@ -445,33 +464,46 @@ function move_hero() {
   //Gets the hero position
   var hero_position = hero.position();
 
+  var left_boundary = left_margin;
+  var right_boundary = size.width + left_margin - hero_size;
+  var top_boundary = top_margin;
+  var bottom_boundary = size.height + top_margin - hero_size;
+
   //Simple process flow based on keyboard input
+  //Why do I even set a vlaue here if its at the border
   if (rightKey) {
-  	if ((hero_position.left + movement) >= size.width) {
-  		$(hero).css({'left': size.width + 'px'});
+  	if ((hero_position.left + movement) >= right_boundary) {
+  		$(hero).css({'left': right_boundary + 'px'});
   	} else {
   		$(hero).css({'left': hero_position.left + movement + 'px'});
   	}
   } else if (leftKey) {
-  	if ((hero_position.left - movement) <= 0) {
-  		$(hero).css({'left': 0 + 'px'});
+  	if ((hero_position.left - movement) <= left_boundary) {
+  		$(hero).css({'left': left_boundary + 'px'});
   	} else {
   		$(hero).css({'left': hero_position.left - movement + 'px'});
   	}
   }
   if (upKey) {
-  	if ((hero_position.top - movement) <= 0) {
-  		$(hero).css({'top': 0 + 'px'});
+  	if ((hero_position.top - movement) <= top_boundary) {
+  		$(hero).css({'top': top_boundary + 'px'});
   	} else {
   		$(hero).css({'top': hero_position.top - movement + 'px'});
   	}
   } else if (downKey) {
-  	if ((hero_position.top + movement) >= size.height) {
-  		$(hero).css({'top': size.height + 'px'});
+  	if ((hero_position.top + movement) >= bottom_boundary) {
+  		$(hero).css({'top': bottom_boundary + 'px'});
   	} else {
   		$(hero).css({'top': hero_position.top + movement + 'px'});
   	}
   }
+
+  /*if (passes >= 5) {
+  	shootBullet(hero_position.left, hero_position.top);
+  	passes = 0;
+  } else {
+  	passes++;
+  }*/
 
   //Checks to see if the hero overlaps with any other divs
   showOverlap();
@@ -503,7 +535,7 @@ function play_game(changeIcon) {
 
 	//Reset hero moement tracker
 	inv_hero=setInterval(move_hero, 15);
-	shoot_bullet=setInterval(shootBullet, 100);
+	//shoot_bullet=setInterval(shootBullet, 100);
 }
 
 function pause_game(changeIcon) {
@@ -523,7 +555,7 @@ function pause_game(changeIcon) {
 	stopClock();
 	clearInterval(move_counter);
     clearInterval(inv_hero);
-    clearInterval(shoot_bullet);
+    //clearInterval(shoot_bullet);
 
     //Ends enemey animation and clears interval
 	$(".enemy").stop();
@@ -604,6 +636,14 @@ function onKeyDown(evt) {
   }
 }
 
+//Eats the key so it doesn't move down
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
 //Turns boolean variable off if key is released
 function onKeyUp(evt) {
   if (evt.keyCode == 39) rightKey = false;
@@ -660,6 +700,7 @@ function showOverlap(event,ui) {
 }
 
 function init() {
+
 	//Creates nuggets
 	createNugget();
 
