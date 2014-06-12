@@ -23,7 +23,7 @@
 var num_nuggets = 1;
 
 //The number of enemies at the start
-var num_enemies = 3;
+var num_enemies = 0;
 
 //The number of enemies left on the screen
 var nuggets_left = num_nuggets;
@@ -105,6 +105,15 @@ var last_vmove;
 //The last horizontal movement key pressed
 var last_hmove;
 
+//How many bad guys should be on the board
+var increase_bad_guys = 3;
+
+//The interval for the snitch
+var move_counter;
+
+//The timeout for the silver orb
+var so_timeout;
+
 //var routes = require('../../../routes/index');
 
 //The size of the hero
@@ -148,20 +157,29 @@ function randomPosition () {
 function move () {
 	//Can only get points and move the orb if pause is off
 	if (pause_on != true) {
+		var silver_orb = $("#pulse");
+		var so_pos = silver_orb.position();
+
 		//Adds points to the score for clicking the orb
-		//for some reason this increases score multiplier
-		score += Math.floor(1 * scoreMult);
+		new_points = Math.floor(5 * scoreMult);
+		pointsEffect(so_pos.top, so_pos.left, new_points);
+		score += new_points;
 		document.getElementById("score").innerHTML=score;
 
 		var rpos = randomPosition();
+		var randTime = Math.floor((Math.random()*20000) + 15000);
 
 		//Calculates a random hex color (thanks Paul Irish)
-		var rand_color = '#'+Math.floor(Math.random()*16777215).toString(16);
+		//var rand_color = '#'+Math.floor(Math.random()*16777215).toString(16);
 
+		function showOrb () {
+			silver_orb.show()
+		}
 		//Moves the div
-		var div = document.getElementById('pulse');
-		div.style.left = rpos[0] + 'px';
-		div.style.top = rpos[1] + 'px';
+		silver_orb.hide();
+		silver_orb.css('left', rpos[0] + 'px');
+		silver_orb.css('top', rpos[1] + 'px');
+		so_timeout = setTimeout(showOrb, randTime);
 	}
 }
 
@@ -326,9 +344,9 @@ function createNugget() {
 
 //Creates the enemy for each game
 function createEnemy() {
-
+	//if(typeof(num_bad_guys)==='undefined') num_bad_guys = num_enemies;
 	//Creates the number of enemies required
-	for( var j=0; j < num_enemies; j++ ) {
+	for( num_enemies; num_enemies < increase_bad_guys; num_enemies++ ) {
 		//Gets a random position
 		var rpos = randomPosition();
 
@@ -340,7 +358,7 @@ function createEnemy() {
 		div.className += 'enemy';
 
 		//Gives each badguy a unique id
-		div.id = 'badguy' + j;
+		div.id = 'badguy' + num_enemies;
 
 		document.body.appendChild(div);
 	}
@@ -390,9 +408,6 @@ function move_enemy() {
 	}
 }
 
-//The interval for the snitch
-var move_counter;
-
 function hund_timer() {
   //Decreases the hundred second timer by one
   hund_count=hund_count-1;
@@ -436,6 +451,10 @@ function levelUp() {
 	//Closes the dropdown
 	//$('#levelUp').foundation('reveal', 'close');
 
+	//Change the game board shadow color
+	//var rand_color = '#'+Math.floor(Math.random()*16777215).toString(16);
+	//$(".playing-field").css('box-shadow', 'inset 0px 0px 6px 0px' + rand_color);
+
 	//Increases the score multiplier
 	scoreMult = (scoreMult * 1.5);
 
@@ -443,6 +462,10 @@ function levelUp() {
 	num_nuggets = num_nuggets + Math.floor((num_nuggets / 2) + 3);
 	nuggets_left = num_nuggets;
 	createNugget();
+
+	//Increase the number of bad_guys
+	increase_bad_guys++;
+	createEnemy();
 
 	//Resets the clock
     count = 60;
@@ -583,11 +606,19 @@ function move_snitch()
 
 //Not Working
 function restart() {
+	num_nuggets = 1;
+	num_enemies = 0;
+	nuggets_left = num_nuggets;
+	increase_bad_guys = 3;
+
+	scoreMult = 1.5;
+
+	clearTimeout(so_timeout);
+	$("#pulse").show();
 
 	//Removes the elements from the previous game
 	//Except the silver orb
 	$(".enemy").remove();
-	$("#enemy").remove();
 	$(".nugget").remove();
 
 	//Creates new nuggets and snitch
@@ -657,27 +688,57 @@ function onKeyUp(evt) {
 $(document).keydown(onKeyDown);
 $(document).keyup(onKeyUp);
 
+function pointsEffect(ntop, nleft, points) {
+	var div = document.createElement("div");
+	div.style.left = nleft + 'px';
+	div.style.top = ntop + 'px';
+	div.innerHTML = "&#43;" + points;
+	div.className += 'points-effect';
+
+	document.body.appendChild(div);
+
+	//$(".points-text").html("&#43;10");
+	//var pos = $(".points-text").position();
+
+	$( ".points-effect" ).animate({
+	    opacity: 0.0,
+	    fontSize: "3em",
+	    top: ntop - 30 + "px"
+	}, 500, function () {
+	    $(".points-text").remove();
+	});
+}
+
 //Collision detection
 function showOverlap(event,ui) {
 	//Collision with the snitch
 	var snitch = $("#hero").collision( "#snitch" );
+	var snitch_pos = snitch.position();
 	snitch.remove()
 	for( var i=0; i<snitch.length; i++ ) {
 		document.getElementById("snitch_sound").play();
-		score += Math.floor(10 * scoreMult);	
+		new_points = Math.floor(10 * scoreMult);
+		score += new_points;	
+
+		//The points effect after capturing a nugget
+		pointsEffect(snitch_pos.top, snitch_pos.left, new_points);
 		document.getElementById("score").innerHTML=score;
 		snitch_alive = false;
 	}
 
 	//Collision with the nugget (adds points and plays sound)
 	var nugget = $("#hero").collision( ".nugget" );
+	var nug_pos = nugget.position();
 	nugget.remove();
 	for( var l=0; l<nugget.length; l++ ) {
-		score += Math.floor((l + 1) * scoreMult);
+		new_points = Math.floor((l + 1) * scoreMult);
+		score += new_points;
 		document.getElementById("pickup-coin").play();	
 		document.getElementById("score").innerHTML=score;
 		nuggets_left--;
 
+		//The points effect after capturing a nugget
+		pointsEffect(nug_pos.top, nug_pos.left, new_points);
 		//If no nuggets are left then offers to increase the level
 		//we should increase level automatically
 		if (nuggets_left == 0) {
