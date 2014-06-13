@@ -14,16 +14,19 @@ html
 		meta(content='Kleptomania - Brent Scheibelhut', property='og:description')
 		meta(content='Broswer based game utilizing HTML5 and CSS3', itemprop='description')
 		title Kleptomania
-		link(rel='shortcut icon', type='image/png', href='/images/favicon32.ico')
+		link(rel='shortcut icon', type='image/png', href='/images/favicon.ico')
 		//-link(rel='stylesheet', type='text/css', href='/css/vendor/dropdown.css')
 		link(rel='stylesheet', type='text/css', href='/css/vendor/foundation.css')
 		link(rel='stylesheet', type='text/css', href='/css/vendor/icons.css')
 		link(rel='stylesheet', type='text/css', href='/css/vendor/introjs.css')
 		link(rel='stylesheet', type='text/css', href='/css/site.css')
-	body(onload='init();')
+	body
+		//-progress(class=".loading-screen", value="20", max="100")
 		.wrap
 			.main
 				block main-content
-		include endDropdown
+		include launch
+		include walkthrough
 		include levelUp
+		include endDropdown
 		include scripts

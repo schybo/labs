@@ -107,7 +107,7 @@ module.exports = function (flights) {
 		});
 
 		res.json({status: 'done'});*/
-		addHighScore('John', 300);
+		//addHighScore('John', 300);
 
 		/*HighScoreSchema.find()
 		.sort({score:-1})

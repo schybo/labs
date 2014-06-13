@@ -78,6 +78,8 @@ module.exports = function (flights, db) {
 	app.use('/sounds', express.static(path.resolve('public/assets/sounds')));
 	// for serving up sound assets
 
+	//Do different routing when you have different versions
+	//app.get('/roygbiv-v1', routes.roygbiv1);
 	app.get('/', routes.index);
 
 	/*app.get('*', function(req, res) {

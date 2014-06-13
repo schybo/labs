@@ -8,6 +8,28 @@
 //Get focus on replay button at end
 //Glitch collsion with enemey and snitch something happens
 //Loads next level when there are still two nuggets left
+// Have silver orb created by javascript
+
+
+//Create loading screen
+
+//Onload function
+jQuery(window).load(function () {
+	//Turn on reveal which is currently not working
+  	$(document).foundation({
+  		close_on_background_click: false
+	});
+
+	//Pauses the game until the menus
+	pause_game();
+
+	//Launch the launching modal
+	//The player will either launch init_quick() or quick()
+	$('#launch').foundation('reveal', 'open');
+
+    //init();
+    //$(".loading-screen").remove();
+});
 
 //Features
 //================
@@ -142,6 +164,11 @@ var so_timeout;
 	alert('here');
 	record.save();
 }*/
+
+function walkthrough() {
+	$('#launch').foundation('reveal', 'close');
+	$('#walkthrough').foundation('reveal', 'open');
+}
 
 //Checks the size of the screen and then returns a random position inside there
 function randomPosition () {	
@@ -761,6 +788,8 @@ function showOverlap(event,ui) {
 }
 
 function init() {
+	//Closes the walkthrough dropdown.
+	$('#walkthrough').foundation('reveal', 'close');
 
 	//Creates nuggets
 	createNugget();
@@ -769,15 +798,24 @@ function init() {
 	createEnemy();
 
 	//Pauses the game until the end of the walkthorugh
-	pause_game();
+	//pause_game();
 
 	//The introduction
 	//May not want to change icon here
   	introJs().setOption('showButtons', false).oncomplete(play_game).onexit(play_game).start();
-	
-  	//Turn on reveal which is currently not working
-  	$(document).foundation({
-  		close_on_background_click: false
-	});
+}
+
+function init_quick() {
+	//Closes the walkthrough dropdown.
+	$('#walkthrough').foundation('reveal', 'close');
+
+	//Creates nuggets
+	createNugget();
+
+	//Creates enemies
+	createEnemy();
+
+	//plays the games
+	play_game();
 }
 //}

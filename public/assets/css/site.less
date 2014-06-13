@@ -42,6 +42,54 @@ body {
     margin: 0;
 }
 
+/*.loading-screen {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    .flex-display();
+    .align-items(center);
+    .justify-content(center);
+}*/
+
+#launch {
+    &.reveal-modal {
+        padding-top: 5px;
+    }
+}
+
+.launch-title {
+    font-size     : 30px;
+    font-weight   : 400;
+    font-family   : Graublau_Bold, FiraMona, Helvetica, Verdana, Sans-Serif;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    .flex-display();
+    .align-items(center);
+    .justify-content(center);
+}
+
+.launch-text {
+  margin-left      : auto;
+  margin-right     : auto;
+  font-weight      : 700;
+  font-size        : 30px;
+  background-color : #eeeeee;
+  padding          : 0.5rem;
+  border           : 1px solid #d6e6e6;
+  border-radius    : 5px;
+  text-align       : center;
+  display          : inline-block;
+  margin-bottom: 25px !important;
+  img {
+    border-radius: 5px;
+    width: 200px;
+    margin: 10px auto;
+    &:hover {
+        .box-shadow(0px 0px 6px 0px rgba(50, 50, 50, 0.75));
+    }
+  }
+}
+
 .wrap {
     min-height: 100%;
 }
@@ -106,6 +154,7 @@ body {
     @size         : 16px;
     @x-pos        : 600px;
     @y-pos        : 250px;
+    will-change   : transform, opacity, position;
     
     width         : @size;
     height        : @size;
@@ -149,7 +198,16 @@ body {
 }
 
 .title {
-    width : 150px;
+    .flex-display();
+    .align-items(center);
+    .justify-content(space-around);
+    img {
+        //display: inline-block;
+        width: 65px;
+        height: 45px;
+    }
+    //display: inline-block;
+    width : 250px;
     font-size     : 40px;
     font-weight   : 400;
     font-family   : Graublau_Bold, FiraMona, Helvetica, Verdana, Sans-Serif;
@@ -165,6 +223,7 @@ body {
     @border-radius : 28px;
     @x-pos         : 150px;
     @y-pos         : 780px;
+    will-change    : transform, opacity;
     
     width          : @size;
     height         : @size;
@@ -191,6 +250,7 @@ body {
     @border-radius : 28px;
     @x-pos         : 300px;
     @y-pos         : 600px;
+    will-change    : transform, opacity;
     
     width          : @size;
     height         : @size;
@@ -213,6 +273,7 @@ body {
     @border-radius : 12px;
     @x-pos         : 300px;
     @y-pos         : 200px;
+    will-change    : position;
     
     width          : @size;
     height         : @size;
@@ -337,6 +398,7 @@ body {
 
 .enemy {
     @size    : 16px;
+    will-change    : animation;
     
     width    : @size;
     height   : @size;
