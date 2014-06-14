@@ -81,6 +81,7 @@ module.exports = function (flights, db) {
 	//Do different routing when you have different versions
 	//app.get('/roygbiv-v1', routes.roygbiv1);
 	app.get('/', routes.index);
+	app.get('/beergoggles', routes.beerGoggles);
 
 	/*app.get('*', function(req, res) {
 		res.render('/index');

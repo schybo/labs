@@ -1,0 +1,61 @@
+<div class="header">
+	<div id="timer_style" class="timer_loc" data-step="2" data-intro="Collect all the colored gems before time runs out. The golden snitch gem is worth extra points but not necessary for completion of the level">
+		<span id="timer"></span>
+		<span id="timer_hund"></span>
+	</div>
+
+	<div class="play-pause" data-step="4" data-intro="Pause/play the game with the space bar or by clicking on this icon" data-position='left'>
+		<a href="#" onclick="play_game(true)">
+			<span id="play" class="icon-play"></span>
+		</a>
+		<a href="#" onclick="pause_game(true)">
+			<span id="pause" class="icon-pause"></span>
+		</a>
+	</div>
+
+	<div class="title"><!--<img src="/images/elephant.svg">-->beer goggles</div>
+	<div class="music-volume" data-step="5" data-intro="Mute the background music if you'd like" data-position='right'>
+		<a href="#" onclick="bgMusicOff(true)">
+			<span id="mute" class="icon-volume-high"></span>
+		</a>
+		<a href="#" onclick="bgMusicOn(true)">
+			<span id="loud" class="icon-volume-mute"></span>
+		</a>
+	</div>
+
+	<div id="score_style" class="score_loc" data-step="3" data-intro="The higher your level the more your score multiplier!" data-position='left'>
+		<span id="score"></span>
+	</div>
+</div>
+
+<div class="game-box">
+	<div class="img-box">
+		<img id="guessImg" src="/images/bg_pics/butterfly.jpg">
+	</div>
+	<span id="top" class="top-arrow icon-play"></span>
+	<span id="left" class="left-arrow icon-play"></span>
+	<span id="right" class="right-arrow icon-play"></span>
+	<span id="bottom" class="bottom-arrow icon-play"></span>
+
+	<span class="text-top">Adam &#40;and Eve&#41;</span>
+	<span class="text-left">Butterfly</span>
+	<span class="text-right">Donkey</span>
+	<span class="text-bottom">Bear</span>
+</div>
+
+
+<audio id="pickup-coin">
+  <source src="/sounds/pickup-coin.wav" type="audio/wav">
+</audio>
+<audio id="hurt">
+  <source src="/sounds/hurt.wav" type="audio/wav">
+</audio>
+<audio id="snitch_sound">
+  <source src="/sounds/snitch.wav" type="audio/wav">
+</audio>
+<audio id="time_down">
+  <source src="/sounds/time_down.wav" type="audio/wav">
+</audio>
+<audio id="bg-music">
+  <source src="/sounds/bg-music.mp3" type="audio/mpeg">
+</audio>

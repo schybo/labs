@@ -125,6 +125,12 @@ module.exports = function (flights) {
 		//});
 	};
 
+	functions.beerGoggles = function(req, res) {
+		res.render('beerGoggles', {
+			title: 'Beer Goggles'
+		});
+	};
+
 	functions.highScore = function(req, res) {
 		HighScoreSchema.find()
 		.sort({score:-1})
