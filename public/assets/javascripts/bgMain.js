@@ -1,7 +1,22 @@
 //Create loading screen
+//Bug on occasion when answer doesn't show
+
+//Fix 4, east, left
+
+var answer = 'buttefly';
+var option2 = 'bear';
+var option3 = 'women';
+var option4 = "chair"; 
+
+//The ans img location
+var ans_img = "/images/bg_pics/butterfly.jpg";
+var ans_loc;
 
 var blur_interval;
-var base_blur = 20;
+var base_blur = 30;
+
+var num_options = 4;
+var places = [1, 2, 3, 4];
 
 function blurReduction () {
 	if (base_blur != 0) {
@@ -27,10 +42,7 @@ jQuery(window).load(function () {
 	//Pauses the game until the menus
 	pause_game();
 
-	//Start the blur reduction
-	blur_interval = setInterval(blurReduction, 250); 
-
-    //init_quick();
+    init_quick();
     //$(".loading-screen").remove();
 });
 
@@ -88,6 +100,192 @@ function bgMusicOn (changeIcon) {
 	if (changeIcon) {
 		$( "#loud" ).hide();
 		$( "#mute" ).show();
+	}
+}
+
+function transformFactory (element, trans1) {
+	//Could make an array of prefixes and cycle through it by hey
+	$(element).css('-webkit-transform', trans1);
+	$(element).css('-moz-transform', trans1);
+	$(element).css('-ms-transform', trans1);
+	$(element).css('-o-transform', trans1);
+	$(element).css('transform', trans1);
+}
+
+function createAnsImg (img_position) {
+	//Will have to remove last image somewhere
+	//Call function at correct
+
+	//Adds the next image to the div, we will have to remove the previous img
+	var elem = document.createElement("img");
+	elem.src = ans_img;
+
+	document.getElementById("next_img").appendChild(elem);
+
+	//Go through to check the position of the answer so we can have the correct transformation
+	//Moves the image into position
+	//We apply the other transformation on key press
+	if (img_position == 4) {
+		transformFactory(".back", 'rotateY(180deg)');
+	} else if (img_position == 3) {
+		transformFactory(".back", 'rotateX(180deg)');
+	} else if (img_position == 2) {
+		transformFactory(".back", 'rotateY(-180deg)');
+	} else {
+		transformFactory(".back", 'rotateX(-180deg)');
+	}
+}
+
+function placeOptions() {
+	var array_option = num_options;
+
+	var ans_arr_loc = Math.floor(Math.random() * array_option);
+	ans_loc = places[ans_arr_loc];
+	array_option--;
+	places.splice(ans_arr_loc,1);
+
+	var opt2_arr_loc = Math.floor(Math.random() * array_option);
+	var opt2_loc = places[opt2_arr_loc];
+	array_option--;
+	places.splice(opt2_arr_loc,1);
+
+	var opt3_arr_loc = Math.floor(Math.random() * array_option);
+	var opt3_loc = places[opt3_arr_loc];
+	array_option--;
+	places.splice(opt3_arr_loc,1);
+
+	var opt4_loc = places[0];
+	places.splice(0,1);
+	place = [1,2,3,4];
+
+	createAnsImg(ans_loc);
+
+	if (ans_loc == 4) {
+		$(".vertical-row1").html(answer);
+		if (opt2_loc == 3) {
+			$(".row4").html(option2);
+			if (opt3_loc == 2) {
+				$(".vertical-row2").html(option3);
+				$(".row2").html(option4);
+			} else {
+				$(".vertical-row2").html(option4);
+				$(".row2").html(option3);
+			}
+		} else if (opt2_loc == 2) {
+			$(".vertical-row2").html(option2);
+			if (opt3_loc == 3) {
+				$(".row2").html(option4);
+				$(".row4").html(option3);
+			} else {
+				$(".row2").html(option3);
+				$(".row4").html(option4);
+			}
+		} else {
+			$(".row2").html(option2);
+			if (opt3_loc == 3) {
+				$(".row4").html(option3);
+				$(".vertical-row2").html(option4);
+			} else {
+				$(".row4").html(option4);
+				$(".vertical-row2").html(option3);
+			}
+		}
+
+
+	} else if (ans_loc == 3) {
+		$(".row4").html(answer);
+		if (opt2_loc == 4) {
+			$(".vertical-row1").html(option2);
+			if (opt3_loc == 2) {
+				$(".vertical-row2").html(option3);
+				$(".row2").html(option4);
+			} else {
+				$(".vertical-row2").html(option4);
+				$(".row2").html(option3);
+			}
+		} else if (opt2_loc == 2) {
+			$(".vertical-row2").html(option2);
+			if (opt3_loc == 4) {
+				$(".row2").html(option4);
+				$(".vertical-row1").html(option3);
+			} else {
+				$(".row2").html(option3);
+				$(".vertical-row1").html(option4);
+			}
+		} else {
+			$(".row2").html(option2);
+			if (opt3_loc == 4) {
+				$(".vertical-row1").html(option3);
+				$(".vertical-row2").html(option4);
+			} else {
+				$(".vertical-row1").html(option4);
+				$(".vertical-row2").html(option3);
+			}
+		}
+
+
+	} else if (ans_loc == 2) {
+		$(".vertical-row2").html(answer);
+		if (opt2_loc == 4) {
+			$(".vertical-row1").html(option2);
+			if (opt3_loc == 3) {
+				$(".row2").html(option4);
+				$(".row4").html(option3);
+			} else {
+				$(".row2").html(option3);
+				$(".row4").html(option4);
+			}
+		} else if (opt2_loc == 3) {
+			$(".row4").html(option2);
+			if (opt3_loc == 4) {
+				$(".vertical-row1").html(option3);
+				$(".row2").html(option4);
+			} else {
+				$(".vertical-row1").html(option4);
+				$(".row2").html(option3);
+			}
+		} else {
+			$(".row2").html(option2);
+			if (opt3_loc == 4) {
+				$(".vertical-row2").html(option3);
+				$(".row4").html(option4);
+			} else {
+				$(".vertical-row2").html(option4);
+				$(".row4").html(option3);
+			}
+		}
+
+
+	} else {
+		$(".row2").html(answer);
+		if (opt2_loc == 4) {
+			$(".vertical-row1").html(option2);
+			if (opt3_loc == 3) {
+				$(".vertical-row2").html(option4);
+				$(".row4").html(option3);
+			} else {
+				$(".vertical-row2").html(option3);
+				$(".row4").html(option4);
+			}
+		} else if (opt2_loc == 3) {
+			$(".row4").html(option2);
+			if (opt3_loc == 4) {
+				$(".vertical-row2").html(option4);
+				$(".vertical-row1").html(option3);
+			} else {
+				$(".vertical-row2").html(option3);
+				$(".vertical-row1").html(option4);
+			}
+		} else {
+			$(".vertical-row2").html(option2);
+			if (opt3_loc == 3) {
+				$(".vertical-row1").html(option4);
+				$(".row4").html(option3);
+			} else {
+				$(".vertical-row1").html(option3);
+				$(".row4").html(option4);
+			}
+		}
 	}
 }
 
@@ -166,56 +364,43 @@ function levelUp() {
 	resumeClock();
 }
 
-
-//Moves the hero bases on user input
-function move_hero() {
-
-  //Simple process flow based on keyboard input
-  //Why do I even set a vlaue here if its at the border
-  if (rightKey) {
-  
-  } else if (leftKey) {
-  	
-  }
-  if (upKey) {
-  
-  } else if (downKey) {
-  
-  }
-}
-
 function play_game(changeIcon) {
 	//Plays the background movement
-	bgMusicOn(true);
+	//bgMusicOn(true);
 
 	//If we need to change the icon then do so
-	if (changeIcon) {
+	/*if (changeIcon) {
 		$( "#pause" ).show();
 		$( "#play" ).hide();
-	}
+	}*/
 
 	//Resumes the clock
 	resumeClock();
 
 	//Indicates the game is not paused
 	pause_on = false;
+
+	//Start the blur reduction
+	blur_interval = setInterval(blurReduction, 250); 
 }
 
 function pause_game(changeIcon) {
 	//Pauses background music
-	bgMusicOff(true);
+	//bgMusicOff(true);
 
 	//Indicates that the pause is on
 	pause_on = true;
 
 	//If we need to change the icon then do so
-	if (changeIcon) {
+	/*if (changeIcon) {
 		$( "#pause" ).hide();
 		$( "#play" ).show();
-	}
+	}*/
 
 	//Stops the clock and clears interavals
 	stopClock();
+
+	clearInterval(blur_interval);
 }
 
 function restart() {
@@ -227,6 +412,34 @@ function keyPress(key) {
 	setTimeout(function () {
 		$(arrow).css('color', 'black');
 	}, 150);
+	
+	if ((key == 'left') && (ans_loc == 4)) {
+		//Add a point and time to the clock
+		score++;
+		//score effect
+		document.getElementById("score").innerHTML=score;
+		count+=10;
+
+		transformFactory("#card", 'rotateY(180deg)');
+	} else if ((key == 'bottom') && (ans_loc == 3)) {
+		score++;
+		document.getElementById("score").innerHTML=score;
+		count+=10;
+
+		transformFactory("#card", 'rotateX(180deg)');
+	} else if ((key == 'right') && (ans_loc == 2)) {
+		score++;
+		document.getElementById("score").innerHTML=score;
+		count+=10;
+
+		transformFactory("#card", 'rotateY(-180deg)');
+	} else if ((key == 'top') && (ans_loc == 1)) {
+		score++;
+		document.getElementById("score").innerHTML=score;
+		count+=10;
+
+		transformFactory("#card", 'rotateX(-180deg)');
+	}
 }
 
 
@@ -252,7 +465,7 @@ function onKeyDown(evt) {
   //Pauses game if space bar is pressed
   if (evt.keyCode == 32) {
   	var pause_state = $( "#pause" ).css("display");
-  	if (pause_state == "inline") {
+  	if (pause_on != true) {
   		pause_game(true);
   	} else {
   		play_game(true);
@@ -290,6 +503,8 @@ function init() {
 }
 
 function init_quick() {
+
+	placeOptions();
 
 	//plays the games
 	play_game();

@@ -4,14 +4,14 @@
 		<span id="timer_hund"></span>
 	</div>
 
-	<div class="play-pause" data-step="4" data-intro="Pause/play the game with the space bar or by clicking on this icon" data-position='left'>
+	<!--<div class="play-pause" data-step="4" data-intro="Pause/play the game with the space bar or by clicking on this icon" data-position='left'>
 		<a href="#" onclick="play_game(true)">
 			<span id="play" class="icon-play"></span>
 		</a>
 		<a href="#" onclick="pause_game(true)">
 			<span id="pause" class="icon-pause"></span>
 		</a>
-	</div>
+	</div>-->
 
 	<div class="title"><!--<img src="/images/elephant.svg">-->beer goggles</div>
 	<div class="music-volume" data-step="5" data-intro="Mute the background music if you'd like" data-position='right'>
@@ -29,18 +29,55 @@
 </div>
 
 <div class="game-box">
-	<div class="img-box">
-		<img id="guessImg" src="/images/bg_pics/butterfly.jpg">
+	<div class="row1">
+		<span id="top" class="top-arrow icon-play"></span>
 	</div>
-	<span id="top" class="top-arrow icon-play"></span>
-	<span id="left" class="left-arrow icon-play"></span>
-	<span id="right" class="right-arrow icon-play"></span>
-	<span id="bottom" class="bottom-arrow icon-play"></span>
+	<div class="row2">
+	</div>
+	<div class="row3">
+		<div class="col1">
+			<span id="left" class="left-arrow icon-play"></span>
+			<div class="vertical-row1">
+			</div>
+		</div>
+		<div class="col2">
+			<!--<div class="img-box">
+				<div class="faces-box">
+					<div class="face">
+						<img id="guessImg" src="/images/bg_pics/butterfly.jpg">
+					</div>
+					<div class="face back">
+						<img id="guessImg" src="/images/bg_pics/butterfly.jpg">
+					</div>
+				</div>
+			</div>-->
+			<div class="img-box">
+				<div id="card" class="shadow">
+				  <div class="front face">
+				    <img src="/images/bg_pics/butterfly.jpg"/>
+				  </div>
+				  <div id="next_img" class="back face">
+				    <!--<img src="/images/bg_pics/butterfly.jpg"/>-->
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="col3">
+			<div class="vertical-row2">
+			</div>
+			<span id="right" class="right-arrow icon-play"></span>
+		</div>
+	</div>
+	<div class="row4">
+	</div>
+	<div class="row5">
+		<span id="bottom" class="bottom-arrow icon-play"></span>
+	</div>
 
-	<span class="text-top">Adam &#40;and Eve&#41;</span>
+	<!--<span class="text-top">Adam &#40;and Eve&#41;</span>
 	<span class="text-left">Butterfly</span>
 	<span class="text-right">Donkey</span>
-	<span class="text-bottom">Bear</span>
+	<span class="text-bottom">Bear</span>-->
 </div>
 
 

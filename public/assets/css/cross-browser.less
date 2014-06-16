@@ -28,25 +28,62 @@
           user-modify: @value;
 }
 .transform(@value) {
-  -webkit-transform : @value;
-     -moz-transform : @value;
-          transform : @value;
+    -webkit-transform : @value;
+    -moz-transform    : @value;
+    -ms-transform     : @value;
+    -o-transform      : @value;
+    transform         : @value;
 }
 .transform-origin(@value) {
   -webkit-transform-origin : @value;
      -moz-transform-origin : @value;
           transform-origin : @value;
 }
+
+.transform-style(@value) {
+  -webkit-transform-style : @value;
+  -moz-transform-style    : @value;
+  -ms-transform-style     : @value;
+  -o-transform-style      : @value;
+  transform-style         : @value;
+}
+
 .box-shadow(@value) {
     -webkit-box-shadow: @value;
     -moz-box-shadow:    @value;
     box-shadow:         @value;   
 }
 
+.perspective(@value) {
+  -webkit-perspective : @value;
+  -moz-perspective    : @value;
+  -ms-perspective     : @value;
+  -o-perspective      : @value;
+  perspective         : @value;
+}
+
+.backface-visibility(@value) {
+  -webkit-backface-visibility : @value;
+  -moz-backface-visibility    : @value;
+  -ms-backface-visibility     : @value;
+  -o-backface-visibility      : @value;
+  backface-visibility         : @value;
+}
+
 .transition(@value) {
-  -webkit-transition : @value;
-     -moz-transition : @value;
-          transition : @value;
+    -webkit-transition : @value;
+    -moz-transition    : @value;
+    -ms-transition     : @value;
+    -o-transition      : @value;
+    transition         : @value;
+}
+
+.perspective(@value) {
+    -webkit-perspective : @value;
+    -moz-perspective    : @value;
+    -ms-perspective     : @value;
+    -o-perspective      : @value;
+    perspective         : @value;
 }
 
 .box-sizing(@value) {
