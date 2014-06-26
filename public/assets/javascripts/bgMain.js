@@ -3,7 +3,7 @@
 
 //Fix 4, east, left
 
-var answer = 'buttefly';
+var answer = 'butterfly';
 var option2 = 'bear';
 var option3 = 'women';
 var option4 = "chair"; 
@@ -115,12 +115,18 @@ function transformFactory (element, trans1) {
 function createAnsImg (img_position) {
 	//Will have to remove last image somewhere
 	//Call function at correct
+	var back_div = document.createElement("div");
+	back_div.id = "next_img";
+	back_div.className += 'face back';
+
+	$("#card").append(back_div);
 
 	//Adds the next image to the div, we will have to remove the previous img
 	var elem = document.createElement("img");
 	elem.src = ans_img;
 
-	document.getElementById("next_img").appendChild(elem);
+	//document.getElementById("next_img").appendChild(elem);
+	$(".back").append(elem);
 
 	//Go through to check the position of the answer so we can have the correct transformation
 	//Moves the image into position
@@ -180,6 +186,7 @@ function placeOptions() {
 				$(".row2").html(option3);
 				$(".row4").html(option4);
 			}
+		//Seems to get an error on this use case
 		} else {
 			$(".row2").html(option2);
 			if (opt3_loc == 3) {
@@ -247,10 +254,10 @@ function placeOptions() {
 		} else {
 			$(".row2").html(option2);
 			if (opt3_loc == 4) {
-				$(".vertical-row2").html(option3);
+				$(".vertical-row1").html(option3);
 				$(".row4").html(option4);
 			} else {
-				$(".vertical-row2").html(option4);
+				$(".vertical-row1").html(option4);
 				$(".row4").html(option3);
 			}
 		}
@@ -421,24 +428,87 @@ function keyPress(key) {
 		count+=10;
 
 		transformFactory("#card", 'rotateY(180deg)');
+		
+		setTimeout(function () {
+			//Remove the front div
+			$(".front").remove();
+			//Remove the back class and add the front class 
+			$("#next_img").removeClass("back");
+			$("#next_img").addClass("front");
+
+			//Remove the next img id from the 
+			$('#next_img').removeAttr('id');
+
+			//Create next image and place options needed now
+			placeOptions();
+		}, 500);
+
 	} else if ((key == 'bottom') && (ans_loc == 3)) {
 		score++;
 		document.getElementById("score").innerHTML=score;
 		count+=10;
 
 		transformFactory("#card", 'rotateX(180deg)');
+		
+		setTimeout(function () {
+			//Remove the front div
+			$(".front").remove();
+			//Remove the back class and add the front class 
+			$("#next_img").removeClass("back");
+			$("#next_img").addClass("front");
+
+			//Remove the next img id from the 
+			$('#next_img').removeAttr('id');
+
+			//Create next image and place options needed now
+			placeOptions();
+		}, 500);
+
 	} else if ((key == 'right') && (ans_loc == 2)) {
 		score++;
 		document.getElementById("score").innerHTML=score;
 		count+=10;
 
 		transformFactory("#card", 'rotateY(-180deg)');
+		
+		setTimeout(function () {
+			//Remove the front div
+			$(".front").remove();
+			//Remove the back class and add the front class 
+			$("#next_img").removeClass("back");
+			$("#next_img").addClass("front");
+
+			//Remove the next img id from the 
+			$('#next_img').removeAttr('id');
+
+			//Create next image and place options needed now
+			placeOptions();
+		}, 500);
+
 	} else if ((key == 'top') && (ans_loc == 1)) {
 		score++;
 		document.getElementById("score").innerHTML=score;
 		count+=10;
 
 		transformFactory("#card", 'rotateX(-180deg)');
+		
+		setTimeout(function () {
+			//Remove the front div
+			$(".front").remove();
+			//Remove the back class and add the front class 
+			$("#next_img").removeClass("back");
+			$("#next_img").addClass("front");
+
+			//Remove the next img id from the 
+			$('#next_img').removeAttr('id');
+
+			//Create next image and place options needed now
+			placeOptions();
+		}, 500);
+
+	//If they are incorrect in their guess
+	} else {
+		count-=10;
 	}
 }
 

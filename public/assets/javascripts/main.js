@@ -37,6 +37,7 @@ jQuery(window).load(function () {
 //Time goes down at end of each level if levels?
 //Should have option to turn off sound effects too
 //Maybe gettings snitch increases your time?
+//Allow use of WASD Keys
 
 //Link to the high score schema
 //var HighScoreSchema = require('../../../schemas/kleptomania');
@@ -631,7 +632,6 @@ function move_snitch()
     div.style["transform"] = "translate(" + rand_width + "px," + rand_height +"px)";*/
 }
 
-//Not Working
 function restart() {
 	num_nuggets = 1;
 	num_enemies = 0;
@@ -663,6 +663,11 @@ function restart() {
 	document.getElementById("timer_hund").innerHTML='00';
 
 	play_game();
+}
+
+function highScores() {
+	$('#myModal').foundation('reveal', 'close');
+	$('#highScores').foundation('reveal', 'open');
 }
 
 function onKeyDown(evt) {

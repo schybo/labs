@@ -329,6 +329,32 @@ body {
   display          : inline-block;
 }
 
+#highScores {
+    .flex-display();
+    .align-items(center);
+    .justify-content(center);
+}
+
+.highScoreText {
+    margin-left      : auto;
+    margin-right     : auto;
+    padding          : 50px;
+    width            : 75%;
+    background-color : #eeeeee;
+    border           : 1px solid #d6e6e6;
+    border-radius    : 5px;
+    font-weight      : 300;
+    font-family      : Graublau_Bold, FiraMona, Helvetica, Verdana, Sans-Serif;
+    text-align       : center;
+    display          : inline-block;
+    h2 {
+        span {
+            border-bottom: 1px solid black;
+            padding-bottom: 2px;
+        }
+    }
+}
+
 .basic-bullet {
     @size          : 8px;
     @border-radius : 10px;
@@ -344,6 +370,20 @@ body {
     background     : #E59825;
     .border-radius(@border-radius);  
 }
+
+.high-scores {
+    font-size: 20px;
+    table {
+        margin: 0;
+        padding: 0;
+    }
+    td {
+        padding: 5px 20px;
+        width: 100px;
+        text-align: center;
+    }
+}
+
 /*.high-scores {
     width            : 300px;
     margin-left      : 50px;
