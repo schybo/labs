@@ -83,6 +83,13 @@ module.exports = function (flights, db) {
 	app.get('/', routes.index);
 	app.get('/beergoggles', routes.beerGoggles);
 
+	//Write to database
+	app.get("/string", function(req, res) {
+		var strings = ["rad", "bla", "ska"]
+		var n = Math.floor(Math.random() * strings.length)
+		res.send(strings[n])
+	})
+
 	/*app.get('*', function(req, res) {
 		res.render('/index');
 	})*/

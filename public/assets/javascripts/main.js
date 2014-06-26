@@ -792,6 +792,12 @@ function showOverlap(event,ui) {
 	}
 }
 
+function server() {
+	$.get("/string", function(string) {
+	    alert(string);
+	})
+}
+
 function init() {
 	//Closes the walkthrough dropdown.
 	$('#walkthrough').foundation('reveal', 'close');
@@ -811,6 +817,7 @@ function init() {
 }
 
 function init_quick() {
+	server();
 	//Closes the walkthrough dropdown.
 	$('#walkthrough').foundation('reveal', 'close');
 
