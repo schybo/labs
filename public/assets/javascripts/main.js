@@ -9,6 +9,7 @@
 //Glitch collsion with enemey and snitch something happens
 //Loads next level when there are still two nuggets left
 // Have silver orb created by javascript
+//Enemies all seem to move the same distance
 
 
 //Create loading screen
@@ -655,6 +656,7 @@ function restart() {
 	createEnemy();
 
 	$('#myModal').foundation('reveal', 'close');
+	$('#highScores-test').foundation('reveal', 'close');
 	score = 0;
 	document.getElementById("score").innerHTML=score;
 	count = 60;
@@ -667,7 +669,7 @@ function restart() {
 
 function highScores() {
 	$('#myModal').foundation('reveal', 'close');
-	$('#highScores').foundation('reveal', 'open');
+	$('#highScores-test').foundation('reveal', 'open');
 }
 
 function onKeyDown(evt) {
@@ -817,7 +819,7 @@ function init() {
 }
 
 function init_quick() {
-	server();
+	//server();
 	//Closes the walkthrough dropdown.
 	$('#walkthrough').foundation('reveal', 'close');
 

@@ -131,6 +131,12 @@ module.exports = function (flights) {
 		});
 	};
 
+	functions.todo = function(req, res) {
+		res.render('todo', {
+			title: 'todo'
+		});
+	};
+
 	functions.highScore = function(req, res) {
 		HighScoreSchema.find()
 		.sort({score:-1})

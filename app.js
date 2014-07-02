@@ -82,6 +82,7 @@ module.exports = function (flights, db) {
 	//app.get('/roygbiv-v1', routes.roygbiv1);
 	app.get('/', routes.index);
 	app.get('/beergoggles', routes.beerGoggles);
+	app.get('/todo', routes.todo);
 
 	//Write to database
 	app.get("/string", function(req, res) {
@@ -89,6 +90,9 @@ module.exports = function (flights, db) {
 		var n = Math.floor(Math.random() * strings.length)
 		res.send(strings[n])
 	})
+
+	//The database api
+	require('./routes/klepto_routes.js')(app);
 
 	/*app.get('*', function(req, res) {
 		res.render('/index');
