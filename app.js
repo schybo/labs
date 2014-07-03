@@ -17,7 +17,7 @@ module.exports = function (flights, db) {
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
 	//app.engine('html', require('ejs').renderFile);	// add support for EJS templates in .html files
-	app.use(express.favicon());
+	app.use(express.favicon(path.join(__dirname, 'public/assets/images/favicon.ico')));
 	app.use(express.logger('dev'));
 	app.use(express.cookieParser());
 	app.use(express.session({

@@ -8,8 +8,9 @@ Two quick game mockups utilizing:
 - Javascript
 - CSS3 (LESS)
 - HTML5
+- AngularJS
 
-Hoping I can get AngularJS in there to utilize the MEAN stack but we'll see
+Basically the MEAN stack plus some
 
 Statuses
 ==========================
