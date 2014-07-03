@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "SchyboLabs",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -19,5 +19,9 @@
     "mocha": "~1.12.1",
     "should": "~1.2.2",
     "supertest": "~0.7.1"
+  }
+  {
+  "engines": {
+    "node": "0.10.25"
   }
 }
