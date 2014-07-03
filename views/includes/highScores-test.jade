@@ -5,7 +5,8 @@
         span= title + " Wall of Legends"
         .high-scores
           ol.rounded-list
-            li(ng-repeat='highscore in highscores | limitTo:5 | orderBy:score:reverse')
+            //-Angular isn't working here for the top five online?
+            li(ng-repeat='highscore in highscores | orderBy:score:reverse | limitTo:5')
                 a(href='')
                   span.username {{ highscore.username }} 
                   span &#45;
