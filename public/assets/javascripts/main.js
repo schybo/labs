@@ -10,23 +10,24 @@
 //Loads next level when there are still two nuggets left
 // Have silver orb created by javascript
 //Enemies all seem to move the same distance
-
-
-//Create loading screen
+//Fix so you can use icons from the css
 
 //Onload function
 jQuery(window).load(function () {
-	//Turn on reveal which is currently not working
-  	$(document).foundation({
-  		close_on_background_click: false
-	});
+	setTimeout(function () {
+		$(".loading-screen").fadeOut("slow");
+		//Turn on reveal which is currently not working
+	  	$(document).foundation({
+	  		close_on_background_click: false
+		});
 
-	//Pauses the game until the menus
-	pause_game();
+		//Pauses the game until the menus
+		pause_game();
 
-	//Launch the launching modal
-	//The player will either launch init_quick() or quick()
-	$('#launch').foundation('reveal', 'open');
+		//Launch the launching modal
+		//The player will either launch init_quick() or quick()
+		$('#launch').foundation('reveal', 'open');
+	}, 1000);
 
     //init();
     //$(".loading-screen").remove();
