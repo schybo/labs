@@ -123,15 +123,17 @@ function createAnsImg (img_position) {
 
 	//Adds the next image to the div, we will have to remove the previous img
 	var elem = document.createElement("img");
+	elem.id = 'guess2_img';
 	elem.src = ans_img;
 
 	//document.getElementById("next_img").appendChild(elem);
 	$(".back").append(elem);
 
+	$(".back").css('display', 'none');
 	//Go through to check the position of the answer so we can have the correct transformation
 	//Moves the image into position
 	//We apply the other transformation on key press
-	if (img_position == 4) {
+	/*if (img_position == 4) {
 		transformFactory(".back", 'rotateY(180deg)');
 	} else if (img_position == 3) {
 		transformFactory(".back", 'rotateX(180deg)');
@@ -139,7 +141,7 @@ function createAnsImg (img_position) {
 		transformFactory(".back", 'rotateY(-180deg)');
 	} else {
 		transformFactory(".back", 'rotateX(-180deg)');
-	}
+	}*/
 }
 
 function placeOptions() {
@@ -162,7 +164,7 @@ function placeOptions() {
 
 	var opt4_loc = places[0];
 	places.splice(0,1);
-	place = [1,2,3,4];
+	places = [1,2,3,4];
 
 	createAnsImg(ans_loc);
 
@@ -427,11 +429,15 @@ function keyPress(key) {
 		document.getElementById("score").innerHTML=score;
 		count+=10;
 
-		transformFactory("#card", 'rotateY(180deg)');
+		//transformFactory("#card", 'rotateY(-180deg)');
 		
 		setTimeout(function () {
 			//Remove the front div
+			$(".back").fadeIn();
+			$(".front").fadeOut();
 			$(".front").remove();
+			//Give the new icon blur
+			$('#guess2_img').attr('id', 'guessImg');
 			//Remove the back class and add the front class 
 			$("#next_img").removeClass("back");
 			$("#next_img").addClass("front");
@@ -448,11 +454,15 @@ function keyPress(key) {
 		document.getElementById("score").innerHTML=score;
 		count+=10;
 
-		transformFactory("#card", 'rotateX(180deg)');
+		//transformFactory("#card", 'rotateX(-180deg)');
 		
 		setTimeout(function () {
 			//Remove the front div
+			$(".back").fadeIn();
+			$(".front").fadeOut();
 			$(".front").remove();
+			//Give the new icon blur
+			$('#guess2_img').attr('id', 'guessImg');
 			//Remove the back class and add the front class 
 			$("#next_img").removeClass("back");
 			$("#next_img").addClass("front");
@@ -469,11 +479,17 @@ function keyPress(key) {
 		document.getElementById("score").innerHTML=score;
 		count+=10;
 
-		transformFactory("#card", 'rotateY(-180deg)');
+		//transformFactory("#card", 'rotateY(180deg)');
 		
 		setTimeout(function () {
 			//Remove the front div
+			$(".back").fadeIn();
+			$(".front").fadeOut();
 			$(".front").remove();
+
+			//Give the new icon blur
+			$('#guess2_img').attr('id', 'guessImg');
+
 			//Remove the back class and add the front class 
 			$("#next_img").removeClass("back");
 			$("#next_img").addClass("front");
@@ -490,11 +506,16 @@ function keyPress(key) {
 		document.getElementById("score").innerHTML=score;
 		count+=10;
 
-		transformFactory("#card", 'rotateX(-180deg)');
+		//Might be better just to have classes that you can have with the specific transformations
+		//transformFactory("#card", 'rotateX(180deg)');
 		
 		setTimeout(function () {
 			//Remove the front div
+			$(".back").fadeIn("slow");
+			$(".front").fadeOut("slow");
 			$(".front").remove();
+			//Give the new icon blur
+			$('#guess2_img').attr('id', 'guessImg');
 			//Remove the back class and add the front class 
 			$("#next_img").removeClass("back");
 			$("#next_img").addClass("front");

@@ -11,6 +11,8 @@
 // Have silver orb created by javascript
 //Enemies all seem to move the same distance
 //Fix so you can use icons from the css
+//Can save the silver orb for later and then click on it
+//the mask still applies when you go back to brentscheibelhut.com
 
 //Onload function
 jQuery(window).load(function () {
@@ -40,6 +42,7 @@ jQuery(window).load(function () {
 //Should have option to turn off sound effects too
 //Maybe gettings snitch increases your time?
 //Allow use of WASD Keys
+//'R' to restart
 
 //Link to the high score schema
 //var HighScoreSchema = require('../../../schemas/kleptomania');
