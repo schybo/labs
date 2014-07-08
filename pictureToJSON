@@ -31,14 +31,15 @@ mkdir $finished_directory
 #Add them to and array
 for img_name in `cat $tout_file`; do
   if [ $img_name != "pictureToJSON" ]; then
-    IMAGENAMES[$counter]=$img_name
+    temp_name=${img_name//[-]/ }
+    IMAGENAMES[$counter]=$temp_name
     counter=`expr $counter + 1`
   fi
 done
 
 echo -n "["
 
-for name in `cat $tout_file`; do
+for name in ${IMAGENAMES[@]}; do
   if [ $name != "pictureToJSON" ]; then
     echo -n "{"
     #Get name
