@@ -1,6 +1,12 @@
 //Create loading screen
 //Bug on occasion when answer doesn't show
 
+//Amount to increase time by if the user is correct
+var increase = 3;
+
+//Amount to decrease time by if the user is incorrect
+var decrease = 12;
+
 //Fix 4, east, left
 
 var answer = 'butterfly';
@@ -9,7 +15,8 @@ var option3 = 'women';
 var option4 = "chair"; 
 
 //The ans img location
-var ans_img = "/images/bg_pics/butterfly.jpg";
+//var ans_img = "/images/bg_pics/butterfly.jpg";
+var ans_img = "https://s3.amazonaws.com/labs.schybo.com.blur/blurPhotos/"
 var ans_loc;
 
 var blur_interval;
@@ -72,7 +79,7 @@ var downKey = false;
 var spaceBar = false;
 
 //The number of seconds
-var count=60;
+var count=30;
 
 //The number of miliseconds
 var hund_count=100;
@@ -112,7 +119,25 @@ function transformFactory (element, trans1) {
 	$(element).css('transform', trans1);
 }
 
-function createAnsImg (img_position) {
+function getPhotoInfo() {
+	//If only use it once be sure to switch it to this
+	//Make the AJAX calls run synchronously so the code doesn't get ahead of the call
+	jQuery.ajaxSetup({async:false});
+
+	var photo_info;
+	$.get("/string", function(string) {
+		photo_info = string;
+	    //alert(photo_name);
+	})
+
+	//Reset the AJAX calls to async
+	jQuery.ajaxSetup({async:true});
+	//Should have array instead of four options
+
+	return photo_info;
+}
+
+function createAnsImg (img_position, img_name) {
 	//Will have to remove last image somewhere
 	//Call function at correct
 	var back_div = document.createElement("div");
@@ -121,10 +146,13 @@ function createAnsImg (img_position) {
 
 	$("#card").append(back_div);
 
+	//Creates the image url
+	var img_url = ans_img + img_name + '.jpg';
+
 	//Adds the next image to the div, we will have to remove the previous img
 	var elem = document.createElement("img");
 	elem.id = 'guess2_img';
-	elem.src = ans_img;
+	elem.src = img_url;
 
 	//document.getElementById("next_img").appendChild(elem);
 	$(".back").append(elem);
@@ -145,6 +173,9 @@ function createAnsImg (img_position) {
 }
 
 function placeOptions() {
+	//Get the url of the photo to use next
+	var img_info = getPhotoInfo();
+
 	var array_option = num_options;
 
 	var ans_arr_loc = Math.floor(Math.random() * array_option);
@@ -166,7 +197,7 @@ function placeOptions() {
 	places.splice(0,1);
 	places = [1,2,3,4];
 
-	createAnsImg(ans_loc);
+	createAnsImg(ans_loc, img_info.hash);
 
 	if (ans_loc == 4) {
 		$(".vertical-row1").html(answer);
@@ -296,6 +327,11 @@ function placeOptions() {
 			}
 		}
 	}
+
+	answer = img_info.name;
+	option2 = img_info.option1;
+	option3 = img_info.option2;
+	option4 = img_info.option3;
 }
 
 //The seconds timer
@@ -366,7 +402,8 @@ function resumeClock() {
 function levelUp() {
 
 	//Resets the clock
-    count = 60;
+	//Should have a constant for this
+    count = 30;
 	hund_count = 100;
 
 	//Resumes the clock
@@ -415,6 +452,16 @@ function pause_game(changeIcon) {
 function restart() {
 }
 
+function correct() {
+	//Add a point and time to the clock
+	score++;
+	//Score Effect
+	document.getElementById("score").innerHTML=score;
+	count+=increase;
+	//Reset the blur (plus 1 for the second transition)
+	base_blur = 31;
+}
+
 function keyPress(key) {
 	var arrow = '#' + key;
 	$(arrow).css('color', 'red');
@@ -423,11 +470,7 @@ function keyPress(key) {
 	}, 150);
 	
 	if ((key == 'left') && (ans_loc == 4)) {
-		//Add a point and time to the clock
-		score++;
-		//score effect
-		document.getElementById("score").innerHTML=score;
-		count+=10;
+		correct();
 
 		//transformFactory("#card", 'rotateY(-180deg)');
 		
@@ -450,9 +493,7 @@ function keyPress(key) {
 		}, 500);
 
 	} else if ((key == 'bottom') && (ans_loc == 3)) {
-		score++;
-		document.getElementById("score").innerHTML=score;
-		count+=10;
+		correct();
 
 		//transformFactory("#card", 'rotateX(-180deg)');
 		
@@ -475,9 +516,7 @@ function keyPress(key) {
 		}, 500);
 
 	} else if ((key == 'right') && (ans_loc == 2)) {
-		score++;
-		document.getElementById("score").innerHTML=score;
-		count+=10;
+		correct();
 
 		//transformFactory("#card", 'rotateY(180deg)');
 		
@@ -502,9 +541,7 @@ function keyPress(key) {
 		}, 500);
 
 	} else if ((key == 'top') && (ans_loc == 1)) {
-		score++;
-		document.getElementById("score").innerHTML=score;
-		count+=10;
+		correct();
 
 		//Might be better just to have classes that you can have with the specific transformations
 		//transformFactory("#card", 'rotateX(180deg)');
@@ -529,7 +566,7 @@ function keyPress(key) {
 
 	//If they are incorrect in their guess
 	} else {
-		count-=10;
+		count-=decrease;
 	}
 }
 
@@ -594,9 +631,7 @@ function init() {
 }
 
 function init_quick() {
-
 	placeOptions();
-
 	//plays the games
 	play_game();
 }

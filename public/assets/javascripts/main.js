@@ -798,11 +798,13 @@ function showOverlap(event,ui) {
 	}
 }
 
+/*
 function server() {
 	$.get("/string", function(string) {
 	    alert(string);
 	})
 }
+*/
 
 function init() {
 	//Closes the walkthrough dropdown.

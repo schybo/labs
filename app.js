@@ -84,11 +84,27 @@ module.exports = function (flights, db) {
 	app.get('/beergoggles', routes.beerGoggles);
 	app.get('/todo', routes.todo);
 
+	var Photos = require('./schemas/beerGoggles');
+
 	//Write to database
 	app.get("/string", function(req, res) {
-		var strings = ["rad", "bla", "ska"]
-		var n = Math.floor(Math.random() * strings.length)
-		res.send(strings[n])
+		//Only do this once and copy array then just splice
+		Photos.find()
+		.exec(function(err, photos) {
+
+			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+			if (err)
+				res.send(err)
+
+			var n = Math.floor(Math.random() * photos.length)
+			res.send(photos[n])
+			//add to array of used names double check then get 
+			//res.json(photos); // return all photos in JSON format
+		});
+
+		//var strings = ["rad", "bla", "ska"]
+		//var n = Math.floor(Math.random() * strings.length)
+		//res.send(strings[n])
 	})
 
 	//The database api
