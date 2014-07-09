@@ -31,7 +31,7 @@ mkdir $finished_directory
 #Add them to and array
 for img_name in `cat $tout_file`; do
   if [ $img_name != "pictureToJSON" ]; then
-    temp_name=${img_name//[-]/ }
+    temp_name="${img_name//[-]/ }"
     IMAGENAMES[$counter]=$temp_name
     counter=`expr $counter + 1`
   fi
@@ -39,19 +39,22 @@ done
 
 echo -n "["
 
-for name in ${IMAGENAMES[@]}; do
+#for name in ${IMAGENAMES[@]}; do
+for name in `cat $tout_file`; do
   if [ $name != "pictureToJSON" ]; then
     echo -n "{"
     #Get name
-    echo -n "name : '$name',"
+    #Don't want to reuse array because then it won't know the name of the file to copy
+    temp_name="${name//[-]/ }"
+    echo -n "name : '$temp_name',"
     #Get options
     need_option=true
 
     while [ $need_option == true ]; do
       var=$RANDOM
       var=$[ $var % $counter ]
-      if [ ${IMAGENAMES[$var]} != $name ]; then
-        option1=${IMAGENAMES[$var]}
+      if [ "${IMAGENAMES[$var]}" != "$temp_name" ]; then
+        option1="${IMAGENAMES[$var]}"
         echo -n "option1 : '$option1',"
         need_option=false
       fi
@@ -62,8 +65,8 @@ for name in ${IMAGENAMES[@]}; do
     while [ $need_option == true ]; do
       var=$RANDOM
       var=$[ $var % $counter ]
-      if [ ${IMAGENAMES[$var]} != $name -a ${IMAGENAMES[$var]} != $option1 ]; then
-        option2=${IMAGENAMES[$var]}
+      if [ "${IMAGENAMES[$var]}" != "$temp_name" -a "${IMAGENAMES[$var]}" != "$option1" ]; then
+        option2="${IMAGENAMES[$var]}"
         echo -n "option2 : '$option2',"
         need_option=false
       fi
@@ -74,8 +77,8 @@ for name in ${IMAGENAMES[@]}; do
     while [ $need_option == true ]; do
       var=$RANDOM
       var=$[ $var % $counter ]
-      if [ ${IMAGENAMES[$var]} != $name -a ${IMAGENAMES[$var]} != $option1 -a ${IMAGENAMES[$var]} != $option2 ]; then
-        option3=${IMAGENAMES[$var]}
+      if [ "${IMAGENAMES[$var]}" != "$temp_name" -a "${IMAGENAMES[$var]}" != "$option1" -a "${IMAGENAMES[$var]}" != "$option2" ]; then
+        option3="${IMAGENAMES[$var]}"
         echo -n "option3 : '$option3',"
         need_option=false
       fi
