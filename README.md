@@ -1,4 +1,4 @@
-Kleptomania vs. ROYGBIV
+Kleptomania vs. ROYGBIV vs. Beer Googles
 =========================
 
 Two quick game mockups utilizing:
@@ -11,6 +11,11 @@ Two quick game mockups utilizing:
 - AngularJS
 
 Basically the MEAN stack plus some
+
+Beer Goggles
+===============
+
+Uses pictureToJSON bash file to help with picture creation
 
 Statuses
 ==========================
