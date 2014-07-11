@@ -31,7 +31,8 @@ mkdir $finished_directory
 #Add them to and array
 for img_name in `cat $tout_file`; do
   if [ $img_name != "pictureToJSON" ]; then
-    temp_name="${img_name//[-]/ }"
+    temp_name0="${img_name//[1-9]}"
+    temp_name="${temp_name0//[-]/ }"
     IMAGENAMES[$counter]=$temp_name
     counter=`expr $counter + 1`
   fi
@@ -45,7 +46,8 @@ for name in `cat $tout_file`; do
     echo -n "{"
     #Get name
     #Don't want to reuse array because then it won't know the name of the file to copy
-    temp_name="${name//[-]/ }"
+    temp_name0="${name//[1-9]}"
+    temp_name="${temp_name0//[-]/ }"
     echo -n "name : '$temp_name',"
     #Get options
     need_option=true
