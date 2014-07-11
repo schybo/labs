@@ -9,10 +9,10 @@ var decrease = 12;
 
 //Fix 4, east, left
 
-var answer = 'butterfly';
-var option2 = 'bear';
-var option3 = 'women';
-var option4 = "chair"; 
+var answer;
+var option2;
+var option3;
+var option4;
 
 //The ans img location
 //var ans_img = "/images/bg_pics/butterfly.jpg";
@@ -40,17 +40,40 @@ function blurReduction () {
 }
 
 //Onload function
-jQuery(window).load(function () {
-	//Turn on reveal which is currently not working
-  	$(document).foundation({
-  		close_on_background_click: false
-	});
+/*jQuery(window).load(function () {
+	setTimeout(function () {
+		$(".loading-screen").fadeOut("slow");
+		//Turn on reveal which is currently not working
+	  	$(document).foundation({
+	  		close_on_background_click: false
+		});
 
-	//Pauses the game until the menus
-	pause_game();
+		//Pauses the game until the menus
+		pause_game();
 
-    init_quick();
+		//Launch the launching modal
+		//The player will either launch init_quick() or quick()
+		$('#launch').foundation('reveal', 'open');
+	}, 1000);
+
+    //init();
     //$(".loading-screen").remove();
+});*/
+
+//Onload function
+jQuery(window).load(function () {
+	setTimeout(function () {
+		$(".loading-screen").fadeOut("slow");
+		//Turn on reveal which is currently not working
+	  	$(document).foundation({
+	  		close_on_background_click: false
+		});
+
+		//Pauses the game until the menus
+		pause_game();
+
+	    init_quick();
+	}, 1000);
 });
 
 //Indicates whether the snitch is currently alive
@@ -77,6 +100,9 @@ var leftKey = false;
 var upKey = false;
 var downKey = false;
 var spaceBar = false;
+
+//The initial_img
+var initial_img;
 
 //The number of seconds
 var count=30;
@@ -172,9 +198,37 @@ function createAnsImg (img_position, img_name) {
 	}*/
 }
 
+function getInitialImg() {
+	var front_div = document.createElement("div");
+	front_div.className += 'front face';
+
+	$("#card").append(front_div);
+
+	//Creates the image url
+	var img_url = ans_img + initial_img.hash + '.jpg';
+
+	//Adds the next image to the div, we will have to remove the previous img
+	var elem = document.createElement("img");
+	elem.id = 'guess_img';
+	elem.src = img_url;
+
+	//document.getElementById("next_img").appendChild(elem);
+	$(".front").append(elem);
+}
+
 function placeOptions() {
+
 	//Get the url of the photo to use next
-	var img_info = getPhotoInfo();
+	if (initial_img == false) {
+		var img_info = getPhotoInfo();
+	} else {
+		answer = initial_img.name;
+		option2 = initial_img.option1;
+		option3 = initial_img.option2;
+		option4 = initial_img.option3;
+		initial_img = false;
+		var img_info = getPhotoInfo();
+	}
 
 	var array_option = num_options;
 
@@ -631,6 +685,9 @@ function init() {
 }
 
 function init_quick() {
+	initial_img = getPhotoInfo();
+
+	getInitialImg();
 	placeOptions();
 	//plays the games
 	play_game();
