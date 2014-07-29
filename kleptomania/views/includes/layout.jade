@@ -1,0 +1,39 @@
+doctype html
+html(ng-app="scotchHighscore")
+	head
+		meta(charset='utf-8')
+		meta(content='IE=edge,chrome=1', http-equiv='X-UA-Compatible')
+		meta(content='width=device-width, height=device-height, initial-scale=1, user-scalable=no', name='viewport')
+		meta(content='text/html; charset=UTF-8', http-equiv='Content-Type')
+		meta(content='en-US-CA', http-equiv='Content-Language')
+		meta(content='initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width', name='viewport')
+		meta(content='IE=edge,chrome=1', http-equiv='X-UA-Compatible')
+		meta(content='Kleptomania', property='og:title')
+		meta(content='Brent Scheibelhut', itemprop='name')
+		meta(content='website', property='og:type')
+		meta(content='Kleptomania - Brent Scheibelhut', property='og:description')
+		meta(content='Broswer based game utilizing HTML5 and CSS3', itemprop='description')
+		title Kleptomania
+		//-Might not need because using favicon with node
+		link(rel='shortcut icon', type='image/png', href='/images/favicon.ico')
+		//-link(rel='stylesheet', type='text/css', href='/css/vendor/dropdown.css')
+		//-link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
+		link(rel='stylesheet', type='text/css', href='/css/vendor/foundation.css')
+		link(rel='stylesheet', type='text/css', href='/css/vendor/icons.css')
+		link(rel='stylesheet', type='text/css', href='/css/vendor/introjs.css')
+		link(rel='stylesheet', type='text/css', href='/css/site.css')
+	body(ng-controller="mainController")
+		//-progress(class=".loading-screen", value="20", max="100")
+		#overlay.loading-screen
+			.spinner
+				.cube1
+				.cube2
+		.wrap
+			.main
+				block main-content
+		include launch
+		include walkthrough
+		include levelUp
+		include endDropdown
+		include highScores-test
+		include scripts

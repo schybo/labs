@@ -1,0 +1,18 @@
+#highScores.reveal-modal.tiny(data-reveal='data-reveal')
+  .highScoreText
+    center
+      h2
+        span= title + " High Scores"
+        .high-scores
+          table
+            each user, index in highScore
+              tr
+                td= user.username
+                td= user.score
+  .button_container
+    a(href='http://brentscheibelhut.com')
+      button.button.small Go Home!
+    a#replay(href='#')
+      button.button.small(onclick='restart()') Replay?
+
+//Change the names when you get a chance

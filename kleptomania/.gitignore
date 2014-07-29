@@ -1,0 +1,5 @@
+dev/
+node_modules/
+public/vendor/
+public/vendor/assets/sounds/bg-music.mp3
+public/vendor/assets/sounds/ZN-Kernkraft400.mp3
