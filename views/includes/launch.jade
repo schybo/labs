@@ -1,0 +1,16 @@
+#launch.modal.fade.bs-example-modal-sm(tabindex="-1" role="dialog" aria-labelledby="launchModal" aria-hidden="true")
+	.modal-dialog.modal-sm
+		.modal-content
+			.row 
+				.col-md-12.lead.text-center #{title}
+			.row
+				.col-md-12.center.text-center
+					if title == "Roygbiv"
+						span Which version would you like to play?
+						a(href='#' onclick="walkthrough()")
+							img(src='/images/pulsate-v1.gif')
+					else
+						.button-container
+							button#easy.btn.btn-info(type="button") Easy
+							button#medium.btn.btn-warning(type="button") Medium
+							button#hard.btn.btn-danger(type="button") Hard

@@ -1,0 +1,21 @@
+doctype html
+html(ng-app="scotchHighscore")
+	head
+		include meta
+		include stylesheets
+	body(ng-controller="mainController")
+		#overlay.loading-screen
+			.spinner
+				.cube1
+				.cube2
+		.wrap
+			.main
+				block main-content
+		include launch
+		include walkthrough	
+		include endDropdown	
+		include scripts
+
+		if title == "Roygbiv"
+			include levelUp
+			include highScores

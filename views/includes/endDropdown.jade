@@ -1,0 +1,15 @@
+#gameOver.modal.fade.bs-example-modal-sm(tabindex="-1" role="dialog" aria-labelledby="gameOverModal" aria-hidden="true")
+  .modal-dialog.modal-sm
+    .modal-content
+      .row 
+        .col-md-12.lead.text-center
+          img(src='/images/game_over.gif')
+      .row 
+        .col-md-12.lead.text-center
+          .button-container
+            a(href='http://brentscheibelhut.com')
+              button.btn.btn-primary No Way!
+            a(href='#')
+              button.btn.btn-primary(onclick='highScores()') See High Scores
+            a#replay(href='#')
+              button.btn.btn-primary(onclick='restart()') Replay?

@@ -1,0 +1,19 @@
+{
+  "name": "clean_pulsate",
+  "version": "0.0.0",
+  "authors": [
+    "Brent Scheibelhut <brent.scheibelhut@gmail.com>"
+  ],
+  "description": "SchyboLabs",
+  "main": "app.js",
+  "license": "MIT",
+  "homepage": "http://brentscheibelhut.com",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "jquery-ui": "~1.10.4",
+    "intro.js": "~0.9.0",
+    "favico.js": "~0.3.4",
+    "bootstrap": "~3.2.0"
+  }
+}
