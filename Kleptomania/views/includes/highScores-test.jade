@@ -1,0 +1,23 @@
+#highScores-test.reveal-modal.tiny(data-reveal='data-reveal')
+  .highScoreText
+    center
+      h3
+        span= title + " Wall of Legends"
+        .high-scores
+          ol.rounded-list
+            //-Angular isn't working here for the top five online?
+            li(ng-repeat='highscore in highscores | orderBy:score:reverse | limitTo:5')
+                a(href='')
+                  span.username {{ highscore.username }} 
+                  span &#45;
+                  span.score {{ highscore.score}}
+
+        #highscore-form.hs-row
+          form
+            input.form-control.input-lg.text-center(type='text', placeholder='Enter a username to become a legend', ng-model='formData.username')
+            button.button.small.success(type='submit', ng-click='createHighscore()') Add
+  .button_container
+    a(href='http://brentscheibelhut.com')
+      button.button.small Go Home!
+    a#replay(href='#')
+      button.button.small(onclick='restart()') Replay?
