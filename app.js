@@ -62,7 +62,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var Photos = require('./schemas/beerGoggles');
+var Photos = require('./schemas/blur');
 
 //Write to database
 app.get("/photo", function(req, res) {

@@ -1,0 +1,251 @@
+.game-box {
+    width  : 600px;
+    height : 550px;
+    margin : 25px auto 0 auto;
+}
+
+.text() {
+    font-size: 35px;
+    text-align: center;
+    text-transform: capitalize;
+    font-family   : Graublau_Bold, FiraMona, Helvetica, Verdana, Sans-Serif;
+}
+
+.row() {
+    width: 100%;
+    .flex-display();
+}
+
+.row1 {
+    .row();
+    height: 60px;
+    .align-items(flex-start);
+    .justify-content(center);
+}
+
+.row2 {
+    .row();
+    .text();
+    height: 60px;
+    .align-items(flex-start);
+    .justify-content(center);
+}
+
+.row3 {
+    .row();
+    height: 310px;
+    .align-items(center);
+    .justify-content(space-between);
+}
+
+.row4 {
+    .row();
+    .text();
+    height: 60px;
+    .align-items(flex-end);
+    .justify-content(center);
+}
+
+.row5 {
+    .row();
+    height: 60px;
+    .align-items(flex-end);
+    .justify-content(center);
+}
+
+.col1 {
+    .flex-display();
+    .align-items(center);
+    .justify-content(space-around);
+    width: 140px; 
+    height: 100%;
+}
+
+.col2 {
+    .flex-display();
+    .align-items(center);
+    .justify-content(center);
+    width: 320px;
+    height: 100%;
+}
+
+.col3 {
+    .flex-display();
+    .align-items(center);
+    .justify-content(space-around);
+    width: 140px; 
+    height: 100%;
+}
+
+.vertical-row1 {
+    width: 290px;
+    .transform(rotate(-90deg));
+    .text();
+}
+
+.vertical-row2 {
+    width: 290px;
+    .transform(rotate(90deg));
+    .text();
+}
+
+
+.img-box {
+  @size : 300px;
+  position : relative;
+  margin   : 0 auto;
+  width    : @size;
+  height   : @size;
+  .perspective(1000);
+  //put shadow on card itself
+  //.box-shadow(0px 0px 11px 0px rgba(50, 50, 50, 0.75));
+  img {
+    .border-radius(10px);
+  }
+}
+
+#card {
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  .transform-style(preserve-3d);
+  //.transform(translateZ(-150px));
+  .transition(all 0.75s linear);
+  //.box-shadow(0px 0px 11px 0px rgba(50, 50, 50, 0.75));
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  .backface-visibility(hidden);
+  &.back {
+    display: block;
+    .box-sizing(border-box);
+  }
+}
+
+//ARROW BOXES
+
+.arrow() {
+    width     : 55px;
+    display   : inline-block;
+    font-size : 65px;
+}
+
+.top-arrow {
+    .arrow();
+    .transform(rotate(270deg));
+}
+
+.left-arrow {
+    .arrow();
+    .transform(rotate(180deg));
+}
+
+.right-arrow {
+    .arrow();
+}
+
+.bottom-arrow {
+    .arrow();
+    .transform(rotate(90deg));
+}
+
+//TEXT BOXES
+
+.text() {
+    width: 100%;
+    display: inline-block;
+    font-size: 35px;
+    position: relative;
+    text-align: center;
+}
+
+.text-top {
+    .text();
+    top: -435px;
+}
+
+.text-left {
+    .text();
+    left: -205px;
+    top: -285px;
+    .transform(rotate(-90deg));
+}
+
+.text-right {
+    .text();
+    left: 205px;
+    top: -315px;
+    .transform(rotate(90deg));
+}
+
+.text-bottom {
+    .text();
+    top: -165px;
+}
+
+//END OF TEXT BOXES
+
+//Styling for cool cube
+/*figure {
+  margin: 0;
+}
+.container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  .perspective(1000px);
+}
+
+#cube {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  .transform-style(preserve-3d);
+}
+
+#cube figure {
+  width: 196px;
+  height: 196px;
+  display: block;
+  position: absolute;
+  border: 2px solid black;
+  line-height: 196px;
+  font-size: 120px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+#cube .front1  { .transform(rotateY(  0deg)); background: hsla( 0, 100%, 50%, 0.7 ); }
+#cube .back1  { .transform(rotateX(180deg)); background: hsla( 60, 100%, 50%, 0.7 ); }
+#cube .right  { .transform(rotateY( 90deg)); background: hsla( 120, 100%, 50%, 0.7 ); }
+#cube .left   { .transform(rotateY(-90deg)); background: hsla( 180, 100%, 50%, 0.7 ); }
+#cube .top    { .transform(rotateX( 90deg)); background: hsla( 240, 100%, 50%, 0.7 ); }
+#cube .bottom { .transform(rotateX(-90deg)); background: hsla( 300, 100%, 50%, 0.7 ); }
+
+#cube .front1  { .transform(rotateY(  0deg) translateZ(100px)); }
+#cube .back1   { .transform(rotateX(180deg) translateZ(100px)); }
+#cube .right  { .transform(rotateY( 90deg) translateZ(100px)); }
+#cube .left   { .transform(rotateY(-90deg) translateZ(100px)); }
+#cube .top    { .transform(rotateX( 90deg) translateZ(100px)); }
+#cube .bottom { .transform(rotateX(-90deg) translateZ(100px)); }
+
+#cube { .transform(translateZ(-100px)); }
+
+#cube.show-front  { .transform(translateZ(-100px) rotateY(   0deg)); }
+#cube.show-back   { .transform(translateZ(-100px) rotateX(-180deg)); }
+#cube.show-right  { .transform(translateZ(-100px) rotateY( -90deg)); }
+#cube.show-left   { .transform(translateZ(-100px) rotateY(  90deg)); }
+#cube.show-top    { .transform(translateZ(-100px) rotateX( -90deg)); }
+#cube.show-bottom { .transform(translateZ(-100px) rotateX(  90deg)); }
+
+#cube { .transition(all 1s); }
+
+.space-around {
+  .flex-display();
+  .align-items(center);
+  .justify-content(space-around);
+}*/

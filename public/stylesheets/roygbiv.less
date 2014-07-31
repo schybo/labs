@@ -1,0 +1,147 @@
+.ring(@color, @animation, @shadow) {
+    @size          : 18px;
+    @x-fudge       : -4px;
+    @y-fudge       : -4px;
+    @border-radius : 30px;
+    
+    height         : @size;
+    width          : @size;
+    top            : @x-fudge;
+    left           : @y-fudge;
+    position       : relative;
+    
+    border         : 3px solid @color;
+    opacity        : 0.0;
+
+    .animation(@animation 1s infinite ease-out);
+    .box-shadow(0px 0px @shadow 0px rgba(50, 50, 50, 0.75));
+    .border-radius(@border-radius);
+    .box-sizing(content-box);
+}
+
+.marker(@size, @br, @x-pos, @y-pos, @bg : false, @bs : false) {
+    width    : @size;
+    height   : @size;
+    display  : block;
+
+    & when not (@x-pos = false) {
+        top      : @y-pos;
+        left     : @x-pos;
+        position : absolute;
+    }
+
+    & when not (@bg = false) {
+        background : @bg;
+    }
+
+    & when not (@bs = false) {
+        .box-shadow(0px 0px 6px 0px rgba(50, 50, 50, 0.75));
+    }
+
+    .border-radius(@br);
+    .box-sizing(content-box);
+}
+
+.playing-field {
+    width: 1100px;
+    height: 550px;
+    margin: 25px auto 0 auto;
+    border: 1px solid #000;
+    z-index: -1;
+    .box-shadow(inset 0px 0px 11px 0px rgba(50, 50, 50, 0.75));
+}
+
+.pulse_marker {
+    @size          : 16px;
+    @x-pos         : 600px;
+    @y-pos         : 250px;
+    @border-radius : 28px;
+    will-change   : transform, opacity, position;
+    .marker(@size, @border-radius, @x-pos, @y-pos, @ring-grey, true);
+    
+    opacity       : 0.6;
+}
+
+.pulse_ring {
+   .ring(@light-grey, pulsate1, 6px);
+   .box-sizing(content-box);
+}
+
+.pulse_marker2 {
+    @size          : 16px;
+    @border-radius : 28px;
+    @x-pos         : 150px;
+    @y-pos         : 780px;
+    will-change    : transform, opacity;
+    .marker(@size, @border-radius, @x-pos, @y-pos);
+}
+
+.pulse_ring2 {
+    .ring(@gold, pulsate2, 0px);
+    .box-sizing(content-box);
+}
+
+.pulse_marker3 {
+    @size          : 16px;
+    @border-radius : 28px;
+    @x-pos         : 300px;
+    @y-pos         : 600px;
+    will-change    : transform, opacity;
+    .marker(@size, @border-radius, @x-pos, @y-pos, @light-grey, true);
+
+    .animation(color_change 1s infinite ease-out);
+}
+
+.hero {
+    @size          : 16px;
+    @border-radius : 12px;
+    @x-pos         : 300px;
+    @y-pos         : 200px;
+    will-change    : position;
+    .marker(@size, @border-radius, @x-pos, @y-pos, @hero-bg);
+
+    border         : 2px solid @hero-border;
+}
+
+.pulse_ring3 {
+    .ring(@light-grey, pulsate3, 6px);
+    .box-sizing(content-box);
+}
+
+.basic-bullet {
+    @size          : 8px;
+    @border-radius : 10px;
+    .marker(@size, @border-radius, false, false, #E59825);
+
+    .border-radius(@border-radius); 
+    .box-sizing(content-box);
+}
+
+.nugget {
+    @size  : 16px;
+    @br    : 28px;
+    @x-pos : 0;
+    @y-pos : 0;
+
+    opacity: 0.6;
+
+    .marker(@size, @br, @x-pos, @y-pos, #E59825, true);
+}
+
+.enemy {
+    @size       : 16px;
+    will-change : animation;
+    
+    .marker(@size, 0, false, false);
+    .animation(rotate 2s infinite linear);
+}
+
+.points-effect {
+    color       : #FF4840;
+    font-weight : bold;
+    position    : absolute;
+    top         : 100px;
+    left        : 50px;
+    font-size   : 30px;
+    text-shadow : 0px 0px 5px rgba(150, 150, 150, 0.75);
+}
