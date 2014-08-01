@@ -73,7 +73,7 @@
     @x-pos         : 150px;
     @y-pos         : 780px;
     will-change    : transform, opacity;
-    .marker(@size, @border-radius, @x-pos, @y-pos);
+    .marker(@size, @border-radius, @x-pos, @y-pos, @gold);
 }
 
 .pulse_ring2 {
@@ -131,6 +131,7 @@
 .enemy {
     @size       : 16px;
     will-change : animation;
+    position    : absolute;
     
     .marker(@size, 0, false, false);
     .animation(rotate 2s infinite linear);

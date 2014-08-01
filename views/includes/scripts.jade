@@ -1,6 +1,7 @@
 script(src='/javascripts/vendor/jquery/dist/jquery.min.js')
 script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
 script(src='/javascripts/vendor/intro.js/minified/intro.min.js')
+script(src='/javascripts/globalVariables.js')
 
 if title == "Roygbiv"
 	script(src='/javascripts/vendor/jquery-ui/ui/minified/jquery-ui.min.js')
@@ -9,6 +10,19 @@ if title == "Roygbiv"
 	script(src='/javascripts/controllers/main.js')
 	script(src='/javascripts/services/highscores.js')
 	script(src='/javascripts/core.js')
-	script(src='/javascripts/main.js')
+	script(src='/javascripts/roygbiv/roygbivConstants.js')
+	script(src='/javascripts/roygbiv/layout.js')
+	script(src='/javascripts/roygbiv/factories.js')
+	script(src='/javascripts/roygbiv/version2.js')
+	script(src='/javascripts/roygbiv/movement.js')
+	script(src='/javascripts/global.js')
+	script(src='/javascripts/roygbiv/roygbiv.js')
 else
-	script(src='/javascripts/bgMain.js')
+	script(src='/javascripts/blur/blurConstants.js')
+	script(src='/javascripts/blur/changeFilters.js')
+	script(src='/javascripts/blur/buttonClicks.js')
+	script(src='/javascripts/blur/placeOptions.js')
+	script(src='/javascripts/blur/layout.js')
+	script(src='/javascripts/global.js')
+	script(src='/javascripts/blur/blur.js')
+
