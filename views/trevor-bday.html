@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trevor's Birthday</title>
+	<style>
+		@-webkit-keyframes spin { 
+		    100% { 
+		    	-webkit-transform : rotate(360deg);
+			    -moz-transform    : rotate(360deg);
+			    -ms-transform     : rotate(360deg);
+			    -o-transform      : rotate(360deg);
+			    transform         : rotate(360deg);
+		    }
+		}
+		@keyframes spin {
+		    100% { 
+		    	-webkit-transform : rotate(360deg);
+			    -moz-transform    : rotate(360deg);
+			    -ms-transform     : rotate(360deg);
+			    -o-transform      : rotate(360deg);
+			    transform         : rotate(360deg);
+		    }
+		}
+
+		#trevorBirthday:hover {
+			-webkit-animation : spin 2s infinite linear;
+		     -moz-animation : spin 2s infinite linear;
+		      -ms-animation : spin 2s infinite linear;
+		       -o-animation : spin 2s infinite linear;
+		}
+	</style>
+</head>
+<body style="background: #432852;">
+	<div style="margin: 0 auto;text-align: center; position: relative; top: 50px;">
+		<img id="trevorBirthday" src="/images/trevor-bday.svg" width="500" height="500" style="border-radius: 15px;">
+	</div>
+</body>
+</html>

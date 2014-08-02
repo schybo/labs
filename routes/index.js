@@ -14,4 +14,8 @@ router.get('/blur', function(req, res) {
   res.render('blur', { title: 'Blur' });
 });
 
+router.get('/trevor-bday', function(req, res) {
+  res.render('trevor-bday', { title: 'Happy Birthday Trevor' });
+});
+
 module.exports = router;
