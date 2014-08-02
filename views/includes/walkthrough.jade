@@ -2,14 +2,19 @@
   .modal-dialog.modal-sm
     .modal-content
       .row 
-        .col-md-12.lead.text-center #{title}
+        .col-md-12.text-center
+          if title == "Roygbiv"
+            span.game-title-icon.icon-elephant
+          else
+            span.game-title-icon.icon-blur
+          .game-title #{title}
       .row
-        .col-md-12.center.text-center
+        .col-md-12.center.text-center.subheader-text
           span Want to see the walkthrough?
       .row
         .col-md-12.center.text-center
           .button-container
-            a(href='#' onclick="init()")
-              button.btn.btn-primary Sure&#33;
             a(href='#' onclick="init_quick()")
-              button.btn.btn-primary No&#44; I&#39;m Pro
+              button.btn.btn-lg.btn-primary No&#44; I&#39;m Pro
+            a(href='#' onclick="init()")
+              button.btn.btn-lg.btn-primary Sure&#33;

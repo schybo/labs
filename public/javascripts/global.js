@@ -19,7 +19,7 @@ function timer() {
   if (count <= 4) {
   	document.getElementById("time_down").play();
   	var timer_div = document.getElementById('timer_style');
-  	timer_div.style.color = "red";
+  	timer_div.style.color = "#DA727E";
   	timer_div.style.textShadow = '0px 0px 5px rgba(131, 36, 37, 0.7)';
   	timer_div.style.moztextShadow = '0px 0px 5px rgba(131, 36, 37, 0.7);';
 	timer_div.style.webkitextShadow = '0px 0px 5px rgba(131, 36, 37, 0.7);';

@@ -19,11 +19,11 @@
                 #highscore-form.hs-row
                   form
                     input.form-control.input-lg.text-center(type='text', placeholder='Enter a username to become a legend', ng-model='formData.username')
-                    button.btn.btn-success(type='submit', ng-click='createHighscore()') Add
+                    button.btn.btn-lg.btn-success(type='submit', ng-click='createHighscore()') Add
       .row 
           .col-md-12.lead.text-center      
-              .button_container
+              .button-container
                 a(href='http://brentscheibelhut.com')
-                  button.btn.btn-primary Go Home!
+                  button.btn.btn-lg.btn-primary Go Home!
                 a#replay(href='#')
-                  button.btn.btn-primary(onclick='restart()') Replay?
+                  button.btn.btn-lg.btn-primary(onclick='restart()') Replay?

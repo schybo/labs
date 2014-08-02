@@ -49,9 +49,9 @@ function restart() {
 
 function keyPress(key) {
   var arrow = '#' + key;
-  $(arrow).css('color', 'red');
+  $(arrow).css('color', '#DA727E');
   setTimeout(function () {
-    $(arrow).css('color', 'black');
+    $(arrow).css('color', '#455C7B');
   }, 150);
   
   if ((key == 'left') && (ans_loc == 4)) {

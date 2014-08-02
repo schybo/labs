@@ -31,6 +31,9 @@ var snitch_alive = false;
 //The score
 var score = 0;
 
+//The number of seconds
+var count = 60;
+
 //Indicates whether pause is on (and it's paused until the end of intro)
 var pause_on = true;
 

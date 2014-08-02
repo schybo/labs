@@ -8,10 +8,6 @@ var spaceBar   = false;
 //The initial_img
 var initial_img;
 
-//The number of seconds
-//SHOULDDO: Figure out a way to let this change the game
-var count      = 30;
-
 //The number of miliseconds
 var hund_count = 100;
 

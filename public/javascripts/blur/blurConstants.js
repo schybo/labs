@@ -1,16 +1,19 @@
 //Amount to increase time by if the user is correct
-var INCREASE = 3;
+var INCREASE      = 3;
 
 //Amount to decrease time by if the user is incorrect
-var DECREASE = 12;
+var DECREASE      = 12;
 
 //The amount applied for the filter
-var BASEBLUR = 30;
+var BASEBLUR      = 30;
 var BASEGRAYSCALE = 1;
-var BASEHUE = 180;
+var BASEHUE       = 180;
 
 //The number of options to choose from
-var OPTIONS = 4;
+var OPTIONS       = 4;
+
+//The number of seconds
+var count         = 30;
 
 //The ans img location
 //var ans_img = "/images/bg_pics/butterfly.jpg";

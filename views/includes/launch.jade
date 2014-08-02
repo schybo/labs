@@ -2,7 +2,20 @@
 	.modal-dialog.modal-sm
 		.modal-content
 			.row 
-				.col-md-12.lead.text-center #{title}
+				.col-md-12.text-center
+					if title == "Roygbiv"
+						span.game-title-icon.icon-elephant
+					else
+						span.game-title-icon.icon-blur
+					.game-title #{title}
+			.row
+				.col-md-12.center.text-center.subheader-text
+					if title == "Roygbiv"
+						span Welcome to the #{title} Alpha version! All feedback is appreciated!
+						span  Oh be aware there might be bugs a plenty. Just refresh the page if something horrible occurs
+					else
+						span Welcome to the #{title} Alpha version! All feedback is appreciated!
+						span  Oh be aware there might be bugs a plenty. Just refresh the page if something horrible occurs
 			.row
 				.col-md-12.center.text-center
 					if title == "Roygbiv"
@@ -11,6 +24,6 @@
 							img(src='/images/pulsate-v1.gif')
 					else
 						.button-container
-							button#easy.btn.btn-info(type="button") Easy
-							button#medium.btn.btn-warning(type="button") Medium
-							button#hard.btn.btn-danger(type="button") Hard
+							button#easy.btn.btn-lg.btn-info(type="button") Easy
+							button#medium.btn.btn-lg.btn-warning(type="button") Medium
+							button#hard.btn.btn-lg.btn-danger(type="button") Hard
