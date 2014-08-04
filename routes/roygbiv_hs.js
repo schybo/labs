@@ -1,10 +1,10 @@
-var HS = require('../schemas/kleptomania');
+var HS = require('../schemas/roygbivHS');
 
 module.exports = function(app) {
 
 	// api ---------------------------------------------------------------------
 	// get all highscores
-	app.get('/api/highscores', function(req, res) {
+	app.get('/api/roygbiv/highscores', function(req, res) {
 
 		// use mongoose to get all highscores in the database
 		HS.find()
@@ -21,7 +21,7 @@ module.exports = function(app) {
 	});
 
 	// create highscore and send back all highscores after creation
-	app.post('/api/highscores', function(req, res) {
+	app.post('/api/roygbiv/highscores', function(req, res) {
 
 		// create a highscore, information comes from AJAX request from Angular
 		HS.create({
@@ -43,7 +43,7 @@ module.exports = function(app) {
 	});
 
 	// delete a highscore
-	app.delete('/api/highscores/:highscore_id', function(req, res) {
+	app.delete('/api/roygbiv/highscores/:highscore_id', function(req, res) {
 		HS.remove({
 			_id : req.params.highscore_id
 		}, function(err, highscore) {

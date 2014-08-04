@@ -86,10 +86,10 @@ app.get("/photo", function(req, res) {
 })
 
 //The database api
-require('./routes/klepto_routes.js')(app);
+require('./routes/roygbiv_hs.js')(app);
 
 //The blur database api
-require('./routes/blur_routes.js')(app);
+require('./routes/blur_hs.js')(app);
 
 /// catch 404 and forward to error handler
 /*app.use(function(req, res, next) {
