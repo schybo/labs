@@ -37,6 +37,9 @@ function play_game() {
 }
 
 function pause_game() {
+  //If we need to change the icon then do so
+  //Stops the clock and clears interavals
+  stopClock();
 
   //Indicates that the pause is on
   pause_on = true;
@@ -52,22 +55,12 @@ function pause_game() {
   //Clear the time multiplier reduction if not already
   clearInterval(time_interval);
 
-  //If we need to change the icon then do so
-  //Stops the clock and clears interavals
-  stopClock();
-
   clearInterval(blur_interval);
 }
 
 function restart() {
   //Remove old images
   $(".face").remove();
-
-  new_picture = true;
-  initial_img = getPhotoInfo();
-
-  getInitialImg();
-  placeOptions();
 
   //Hide both just in case
   $('#gameOver').modal('hide');
@@ -88,6 +81,20 @@ function restart() {
   timer_div.style.textShadow = 'none';
   timer_div.style.moztextShadow = 'none;';
   timer_div.style.webkitextShadow = 'none;';
+
+  //Allow user to enter high score again
+  $('#submitHS').prop('disabled',false);
+
+  //Reset the blur (plus 1 for the second transition)
+  blur = BASEBLUR;
+  hue = BASEHUE;
+  grayscale = BASEGRAYSCALE;
+
+  new_picture = true;
+  initial_img = getPhotoInfo();
+
+  getInitialImg();
+  placeOptions();
 
   play_game();
 }
@@ -139,7 +146,23 @@ function keyPress(key) {
 
   //If they are incorrect in their guess
   } else {
-    count-=DECREASE;
+    if (count < DECREASE) {
+      pause_game();
+
+      count = 0;
+      hund_count = 0;
+      document.getElementById("timer").innerHTML=count + ".";
+      document.getElementById("timer_hund").innerHTML = "00";
+
+      $('#gameOver').modal('show');
+    } else {
+      count-=DECREASE;
+      if (count <= 0) {
+        clearInterval(counter);
+        count = 0;
+      }
+      document.getElementById("timer").innerHTML=count + ".";
+    }
   }
 }
 

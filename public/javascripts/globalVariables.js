@@ -11,6 +11,9 @@ var initial_img;
 //The number of miliseconds
 var hund_count = 100;
 
+//If the intense timer colors have applied
+var timeRunningOut = false;
+
 //Needed so that they're global
 var counter;
 var counter_hund;

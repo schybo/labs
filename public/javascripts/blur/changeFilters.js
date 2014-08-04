@@ -55,7 +55,7 @@ function addFilter(image) {
 	} else if (difficulty == "medium") {
 		new_styling = 'blur(' + BASEBLUR + 'px) hue-rotate(' + BASEHUE + 'deg)';
 	} else {
-		new_styling = 'blur(' + BASEBLUR + 'px) grayscale(' + BASEHUE + ')';
+		new_styling = 'blur(' + BASEBLUR + 'px) grayscale(' + BASEGRAYSCALE + ')';
 	}
 	addPrefixes("filter", "#guessImg", new_styling);
 }

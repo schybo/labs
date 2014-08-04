@@ -134,6 +134,9 @@ function restart() {
 	document.getElementById("timer").innerHTML=count + ".";
 	document.getElementById("timer_hund").innerHTML='00';
 
+	//Allow user to enter high score again
+  	$('#submitHS').prop('disabled',false);
+
 	play_game();
 }
 

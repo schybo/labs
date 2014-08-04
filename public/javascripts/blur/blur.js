@@ -5,7 +5,7 @@ jQuery(window).load(function () {
 		//Fill in the score
 		document.getElementById("score").innerHTML=score;
 		//Sets the timer for the introduction
-		document.getElementById("timer").innerHTML=60 + ".";
+		document.getElementById("timer").innerHTML=count + ".";
 		document.getElementById("timer_hund").innerHTML='00';
 
 		//Fade the loading screen out

@@ -18,11 +18,14 @@ function timer() {
   //and sound effects play at the end of each second
   if (count <= 4) {
   	document.getElementById("time_down").play();
-  	var timer_div = document.getElementById('timer_style');
-  	timer_div.style.color = "#DA727E";
-  	timer_div.style.textShadow = '0px 0px 5px rgba(131, 36, 37, 0.7)';
-  	timer_div.style.moztextShadow = '0px 0px 5px rgba(131, 36, 37, 0.7);';
-	timer_div.style.webkitextShadow = '0px 0px 5px rgba(131, 36, 37, 0.7);';
+    if (!timeRunningOut) {
+    	var timer_div = document.getElementById('timer_style');
+    	timer_div.style.color = "#DA727E";
+    	timer_div.style.textShadow = '0px 0px 5px rgba(131, 36, 37, 0.7)';
+    	timer_div.style.moztextShadow = '0px 0px 5px rgba(131, 36, 37, 0.7);';
+  	  timer_div.style.webkitextShadow = '0px 0px 5px rgba(131, 36, 37, 0.7);';
+      timeRunningOut = true;
+    }
   }
 
   //If the timer reaches zero then the clock stops
@@ -30,6 +33,7 @@ function timer() {
   {
      clearInterval(counter);
      document.getElementById("time_down").play();
+     timeRunningOut = false;
   }
 
 }
@@ -50,13 +54,9 @@ function hund_timer() {
   document.getElementById("timer_hund").innerHTML=hund_count; // watch for spelling
   
   if (hund_count <= 0) {
-  	 //If the second timer is out as wellthen pauses the game and brings end game menu
      if (count<=0) {
      	pause_game();
-     	//addHighScore('Brent', score);
-		$('#gameOver').modal('show');
-		//document.getElementById('replay').focus(); //not working
-	 //Else sets the counter back to 100;
+		  $('#gameOver').modal('show');
      } else {
      	hund_count=100;
      }
@@ -66,7 +66,7 @@ function hund_timer() {
 //Stops just the clock intervals
 function stopClock() {
 	clearInterval(counter_hund);
-    clearInterval(counter);
+  clearInterval(counter);
 }
 
 //Resumes the clock
