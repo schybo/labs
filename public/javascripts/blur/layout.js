@@ -1,3 +1,11 @@
+function reduceTimeMultiplier() {
+  if (time_mult != 1) {
+    time_mult = Math.floor(time_mult / 2);
+  } else {
+    clearInterval(time_interval);
+  }
+}
+
 function play_game() {
   //Resumes the clock
   resumeClock();
@@ -23,6 +31,9 @@ function play_game() {
   setTimeout(function () {
     pause_on = false;
   }, 200);
+
+  //Start the time multiplier reduction
+  time_interval = setInterval(reduceTimeMultiplier, callTimeReduction);
 }
 
 function pause_game() {
@@ -37,6 +48,9 @@ function pause_game() {
   } else {
     clearInterval(grayscale_interval);
   }
+
+  //Clear the time multiplier reduction if not already
+  clearInterval(time_interval);
 
   //If we need to change the icon then do so
   //Stops the clock and clears interavals

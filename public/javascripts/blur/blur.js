@@ -85,10 +85,20 @@ function getInitialImg() {
 
 function correct() {
 	//Add a point and time to the clock
-	score++;
-	//Score Effect
+	//score++;
+	if (difficulty == "easy") {
+		score += (BASESCORE * EASYMULT * time_mult);
+	} else if (difficulty == "medium") {
+		score += (BASESCORE * MEDMULT * time_mult);
+	} else {
+		score += (BASESCORE * HARDMULT * time_mult);
+	}
+
 	document.getElementById("score").innerHTML=score;
 	count+=INCREASE;
+	//Resets the time multiplier
+	time_mult = 36;
+
 	//Reset the blur (plus 1 for the second transition)
 	blur = BASEBLUR;
 	hue = BASEHUE;

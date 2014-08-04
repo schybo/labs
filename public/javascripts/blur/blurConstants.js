@@ -12,8 +12,26 @@ var BASEHUE       = 180;
 //The number of options to choose from
 var OPTIONS       = 4;
 
+//The base score amoutn
+var BASESCORE = 1;
+
+//Score multipliers
+var EASYMULT = 1;
+var MEDMULT  = 2;
+var HARDMULT = 3;
+
 //The number of seconds
 var count         = 30;
+
+//The descreasing score multiplier
+var time_mult = 24;
+
+//How often to call the reduction of timeMultiplier
+var callTimeReduction = 2000;
+
+//The interval for reducing time multiplier
+var time_interval;
+
 
 //The ans img location
 //var ans_img = "/images/bg_pics/butterfly.jpg";
