@@ -31,7 +31,9 @@ app.use(function (req, res, next) {
     res.set('X-Powered-By', 'Schybo Labs');
     next();
 });
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
