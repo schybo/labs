@@ -88,6 +88,9 @@ app.get("/photo", function(req, res) {
 //The database api
 require('./routes/klepto_routes.js')(app);
 
+//The blur database api
+require('./routes/blur_routes.js')(app);
+
 /// catch 404 and forward to error handler
 /*app.use(function(req, res, next) {
     var err = new Error('Not Found');

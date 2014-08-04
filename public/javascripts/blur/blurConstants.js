@@ -39,6 +39,9 @@ var hue = BASEHUE;
 //The difficulty of the game
 var difficulty;
 
+//If we're starting a new picture
+var new_picture = true;
+
 //The number of options to choose from
 var places = [];
 

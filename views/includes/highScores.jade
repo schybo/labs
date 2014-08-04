@@ -17,13 +17,13 @@
                           span.score {{ highscore.score}}
 
                 #highscore-form.hs-row
-                  form
+                  form#hsForm(ng-submit="createHighscore()")
                     input.form-control.input-lg.text-center(type='text', placeholder='Enter a username to become a legend', ng-model='formData.username')
-                    button.btn.btn-lg.btn-success(type='submit', ng-click='createHighscore()') Add
+                    input.btn.btn-lg.btn-success#submitHS(type='submit')
       .row 
           .col-md-12.lead.text-center      
               .button-container
-                a(href='http://brentscheibelhut.com')
+                a(href='http://labs.schybo.com')
                   button.btn.btn-lg.btn-primary Go Home!
                 a#replay(href='#')
                   button.btn.btn-lg.btn-primary(onclick='restart()') Replay?

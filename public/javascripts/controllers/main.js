@@ -4,11 +4,12 @@ angular.module('highscoreController', [])
 	.controller('mainController', function($scope, $http, Highscores) {
 		$scope.formData = {};
 		$scope.loading = true;
+		var title = $("#title").text();
 
 		// GET =====================================================================
 		// when landing on the page, get all todos and show them
 		// use the service to get all the todos
-		Highscores.get()
+		Highscores.get(title)
 			.success(function(data) {
 				$scope.highscores = data;
 				$scope.score = '-score';
@@ -28,10 +29,13 @@ angular.module('highscoreController', [])
 			if (($scope.formData.username != undefined) && ($scope.formData.score != undefined)) {
 
 				// call the create function from our service (returns a promise object)
-				Highscores.create($scope.formData)
+				Highscores.create(title, $scope.formData)
 
 					// if successful creation, call our get function to get all the new todos
 					.success(function(data) {
+						//disable the form
+						$('#submitHS').prop('disabled',true);
+
 						$scope.loading = false;
 						$scope.formData = {}; // clear the form so our user is ready to enter another
 						$scope.highscores = data; // assign our new list of todos
@@ -44,7 +48,7 @@ angular.module('highscoreController', [])
 		$scope.deleteHighscore = function(id) {
 			$scope.loading = true;
 
-			Highscores.delete(id)
+			Highscores.delete(title, id)
 				// if successful creation, call our get function to get all the new todos
 				.success(function(data) {
 					$scope.loading = false;

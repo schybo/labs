@@ -1,10 +1,10 @@
 <div class="header">
-	<div id="timer_style" class="timer_loc" data-step="2" data-intro="Collect all the colored gems before time runs out. The golden snitch gem is worth extra points but not necessary for completion of the level">
+	<div id="timer_style" class="timer_loc">
 		<span id="timer"></span>
 		<span id="timer_hund"></span>
 	</div>
 
-	<div class="play-pause" data-step="4" data-intro="Pause/play the game with the space bar or by clicking on this icon" data-position='left'>
+	<div id="play-pause" class="play-pause">
 		<a href="#" onclick="play_game(true)">
 			<span id="play" class="icon-play"></span>
 		</a>
@@ -13,8 +13,10 @@
 		</a>
 	</div>
 
-	<div class="title"><span class="title-icon icon-elephant"></span>roygbiv</div>
-	<div class="music-volume" data-step="5" data-intro="Mute the background music if you'd like" data-position='right'>
+	<a href="http://labs.schybo.com">
+		<div id="title" class="title"><span class="title-icon icon-elephant"></span>roygbiv</div>
+	</a>
+	<div id="music-volume" class="music-volume">
 		<a href="#" onclick="bgMusicOff(true)">
 			<span id="mute" class="icon-volume-high"></span>
 		</a>
@@ -23,7 +25,7 @@
 		</a>
 	</div>
 
-	<div id="score_style" class="score_loc" data-step="3" data-intro="The higher your level the more your score multiplier!" data-position='left'>
+	<div id="score_style" class="score_loc">
 		<span id="score"></span>
 	</div>
 </div>
@@ -31,12 +33,11 @@
 <div class="playing-field">
 	<a class="pulse1" href="#pulse1">
 	    <div onclick="move()" id="pulse" class="pulse_marker">
-	        <div class="pulse_ring" data-step="6" data-intro="These guys get you points too, try clicking on them!"></div>
+	        <div id="pulse_ring" class="pulse_ring"></div>
 	    </div>
 	</a>
 
-	<div id="hero" class="hero" data-step="1" data-intro="This is your hero! Move him around with the arrow keys. <strong> Move to the next slide with the right arrow key</strong>">
-	</div>
+	<div id="hero" class="hero"></div>
 </div>
 
 <!-- HTML5 Audio Mayhem -->

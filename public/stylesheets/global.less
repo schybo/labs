@@ -60,6 +60,15 @@ body {
     display: none;
 }
 
+a {
+    color : @header-text-color;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+        color : darken(@header-text-color, 10%);
+    }
+}
+
 /* must be same height as the footer */
 .main {
     overflow:auto;
@@ -189,4 +198,8 @@ ol ol {
         .transition(all .3s ease-out);
         .box-sizing(content-box);
     }  
+}
+
+.introjs-helperNumberLayer {
+    .box-sizing(content-box);
 }

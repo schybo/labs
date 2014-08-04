@@ -180,8 +180,44 @@ function init() {
 	//pause_game();
 
 	//The introduction
-	//May not want to change icon here
-  	introJs().setOption('showButtons', false).oncomplete(play_game).onexit(play_game).start();
+	var intro = introJs();
+
+  	intro.setOption('showButtons', false);
+  	intro.setOptions({
+  	steps: [
+	      { 
+	      	element: '#hero',
+	        intro: "This is your hero! Move him around with the arrow keys. <strong> Move to the next slide with the right arrow key</strong>"
+	      },
+	      {
+	        element: '#timer_style',
+	        intro: "Collect all the <strong>colored gems</strong> before time runs out. The <strong>golden snitch</strong> gem is worth <strong>extra points</strong> but not necessary for completion of the level",
+	      	position: 'bottom'
+	      },
+	      {
+	        element: '#score_style',
+	        intro: "The <strong>higher</strong> your level the more your <strong>score multiplier!</strong>",
+	        position: 'bottom'
+	      },
+	      {
+	        element: '#play-pause',
+	        intro: '<strong>Pause/play</strong> the game with the <strong>space bar</strong> or by clicking on this icon',
+	        position: 'bottom'
+	      },
+	      {
+	        element: '#music-volume',
+	        intro: "<strong>Mute</strong> the background music if you'd like",
+	        position: 'bottom'
+	      },
+	      {
+	        element: '#pulse_ring',
+	        intro: 'These guys get you points too, try <strong>clicking on them!</strong>'
+	      }
+    	]
+	});
+  	intro.oncomplete(play_game)
+  	.onexit(play_game)
+  	.start();
 }
 
 function init_quick() {
