@@ -1,5 +1,29 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	.row
+		.col-md-12.header
+			h1= title
+			.border-box
+				.border-bottom-left
+				.border-bottom-right
+	.row
+		.col-md-12.projects.text-center
+			.col-md-4
+				a(href="/roygbiv")
+					h2 Roygbiv
+				a(href="/roygbiv")
+					.image
+						img(src="/images/roygbiv.png")
+			.col-md-4
+				a(href="/blur") 
+					h2 Blur
+				a(href="/blur")
+					.image
+						img(src="/images/blur.png")
+			.col-md-4
+				a(href="easybadge.herokuapp.com")
+					h2 EasyBadge
+				a(href="easybadge.herokuapp.com")
+					.image
+						img(src="/images/easybadge.png")

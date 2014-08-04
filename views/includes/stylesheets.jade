@@ -1,7 +1,10 @@
 link(rel='shortcut icon', type='image/png', href='/images/favicon.ico')
 	
 link(rel='stylesheet', type='text/css', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
-link(rel='stylesheet', type='text/css', href='/stylesheets/icons.css')
+link(rel='stylesheet', type='text/css', href='/stylesheets/vendor/icons.css')
 link(rel='stylesheet', type='text/css', href='/vendor/intro.js/minified/introjs.min.css')
 
-link(rel='stylesheet', type='text/css', href='/stylesheets/site.css')
+if title != "Schybo Labs"
+	link(rel='stylesheet', type='text/css', href='/stylesheets/site.css')
+else
+	link(rel='stylesheet', type='text/css', href='/stylesheets/labs.css')

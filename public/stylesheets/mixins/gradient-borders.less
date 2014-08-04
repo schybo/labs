@@ -1,0 +1,33 @@
+.left-to-right(@color) {
+	width        : 49.3%;
+	display      : inline-block;
+	margin       : 0;
+	padding      : 0;
+	border-width : 0 0 2px 0;
+    -webkit-border-image: 
+        -webkit-gradient(linear, 0 0, 100% 0, from(@color), to(fade(@color,0%))) 100% 1;
+    -webkit-border-image: 
+        -webkit-linear-gradient(right, @color, fade(@color,0%)) 100% 1;
+    -o-border-image:
+        -o-linear-gradient(right, @color, fade(@color,0%)) 100% 1;
+    -moz-border-image:
+        -moz-linear-gradient(right, @color, fade(@color,0%)) 100% 1;   
+}
+
+.right-to-left(@color) {
+	width        : 50%;
+	display      : inline-block;
+	//position     : relative;
+	//left         : -5px;
+	margin       : 0;
+	padding      : 0;
+	border-width : 0 0 2px 0;
+    -webkit-border-image: 
+        -webkit-gradient(linear, 0 0, 0 100%, from(@color), to(fade(@color,0%))) 100% 1;
+    -webkit-border-image: 
+        -webkit-linear-gradient(left, @color, fade(@color,0%)) 100% 1;
+    -o-border-image:
+        -o-linear-gradient(left, @color, fade(@color,0%)) 100% 1;
+    -moz-border-image:
+        -moz-linear-gradient(left, @color, fade(@color,0%)) 100% 1;  
+}
