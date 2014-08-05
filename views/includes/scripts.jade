@@ -1,5 +1,9 @@
 script(src='/javascripts/vendor/jquery/dist/jquery.min.js')
 script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
+script(src='/vendor/qtip2/jquery.qtip.min.js')
+
+script
+	$('a[title]').qtip();
 
 if title != "Schybo Labs"
 	script(src='/javascripts/vendor/intro.js/minified/intro.min.js')
@@ -27,4 +31,6 @@ else
 	script(src='/javascripts/blur/layout.js')
 	script(src='/javascripts/global.js')
 	script(src='/javascripts/blur/blur.js')
+	script(src='/javascripts/blur/qtips.js')
+		
 
