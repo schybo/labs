@@ -7,17 +7,19 @@ jQuery(window).load(function () {
 		document.getElementById("timer_hund").innerHTML='00';
 		document.getElementById("score").innerHTML=score;
 
+		//Sets the position of the board
+		$(".playing-field").css('left', center_field);
+
 		//Checks for user input to move the hero
 		inv_hero=setInterval(move_hero, 15);
-
-		$(".loading-screen").fadeOut("slow");
-
 
 		//Pauses the game until the menus
 		pause_game();
 
 		//Launch the launching modal
 		$('#launch').modal('show');
+
+		$(".loading-screen").fadeOut("slow");
 	}, 1000);
 });
 

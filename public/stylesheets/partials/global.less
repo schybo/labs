@@ -22,6 +22,11 @@
 }
 
 @header-text-color : @off-white;
+@header-height : 75px;
+
+html {
+    height: 100%;
+}
 
 body {
     width: 100%;
@@ -69,14 +74,8 @@ a {
     }
 }
 
-/* must be same height as the footer */
-.main {
-    overflow:auto;
-    //padding-bottom: 150px;
-}
-
 .header {
-    height        : 75px;
+    height        : @header-height;
     width         : 100%;
     background    : @dark-blue;
     border-bottom : 1px solid #e2e2e6;
@@ -202,4 +201,8 @@ ol ol {
 
 .introjs-helperNumberLayer {
     .box-sizing(content-box);
+}
+
+.qtip-styling .qtip-content{
+    font-size: 14px;
 }

@@ -12,7 +12,7 @@ BUGS
 - Enemies all seem to move the same distance
 - Fix so you can use icons from the css
 - Can save the silver orb for later and then click on it
-- the mask still applies when you go back to brentscheibelhut.com
+- shouldn't be able to click the space bar during walkthrough
 
 Features
 ================

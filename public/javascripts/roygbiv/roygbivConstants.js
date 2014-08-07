@@ -17,7 +17,7 @@ var NUGGETSIZE = 16;
 var ENEMYSIZE = NUGGETSIZE;
 
 //Size of the hero
-var HEROSIZE = NUGGETSIZE;
+var HEROSIZE = 22;
 
 //The amount of movement done by the hero
 var MOVEMENT = 5;
@@ -37,8 +37,12 @@ var count = 60;
 //Indicates whether pause is on (and it's paused until the end of intro)
 var pause_on = true;
 
+//The amount of 'left' needed to center the field
+var center_field = (windowSize.width / 2) - (size.width / 2);
+
 //The left margin of the game board
-var left_margin = parseInt($(".playing-field").css('margin-left'), 10);
+//var left_margin = parseInt($(".playing-field").css('margin-left'), 10);
+var left_margin = center_field;
 
 //Version 2
 //var shoot_bullet=setInterval(shootBullet, 100);

@@ -54,10 +54,10 @@ function move_hero() {
   //Gets the hero position
   var hero_position = hero.position();
 
-  var left_boundary = left_margin;
-  var right_boundary = size.width + left_margin - HEROSIZE;
-  var top_boundary = TOPMARGIN;
-  var bottom_boundary = size.height + TOPMARGIN - HEROSIZE;
+  var left_boundary = 0;
+  var right_boundary = size.width - HEROSIZE;
+  var top_boundary = 0;
+  var bottom_boundary = size.height - HEROSIZE;
 
   //Simple process flow based on keyboard input
   //Why do I even set a vlaue here if its at the border

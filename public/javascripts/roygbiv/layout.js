@@ -213,6 +213,11 @@ function init() {
 	        position: 'bottom'
 	      },
 	      {
+	        element: '#badguy1',
+	        intro: "These are <strong>black twirling bad guys</strong>. <strong>Don't get hit</strong> by them or you've lost.",
+	        position: 'bottom'
+	      },
+	      {
 	        element: '#pulse_ring',
 	        intro: 'These guys get you points too, try <strong>clicking on them!</strong>'
 	      }

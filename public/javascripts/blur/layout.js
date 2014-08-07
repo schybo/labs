@@ -225,12 +225,12 @@ function init() {
   //The introduction
   var intro = introJs();
 
-  intro.setOption('showButtons', false);
+  //intro.setOption('showButtons', false);
   intro.setOptions({
   steps: [
       { 
         element: '#card',
-        intro: "This is the <strong>filtered</strong> image. As <strong>time decrease</strong> so does the <strong>filter on the image</strong>"
+        intro: "This is the <strong>filtered</strong> image. As <strong>time decreases</strong> so does the <strong>filter on the image</strong>. Use the <strong>arrow keys</strong> or <strong>buttons</strong> to move to the next slide."
       },
       { 
         element: '#option',
@@ -243,7 +243,7 @@ function init() {
       },
       {
         element: '#score_style',
-        intro: "The more pictures you guess the <strong>higher</strong> your score. Try and get on the <strong>highscore</strong> board",
+        intro: "The more pictures you guess the <strong>higher</strong> your score. The <strong>quicker</strong> you answer - the <strong>more points</strong> per picture.Try and get on the <strong>highscore</strong> board",
         position: 'bottom'
       },
     ]

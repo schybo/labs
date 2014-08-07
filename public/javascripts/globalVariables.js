@@ -25,3 +25,8 @@ var size = {
   //height: (window.innerHeight - 20) || (document.body.clientHeight - 20)
   height: 550
 }
+
+var windowSize = {
+	width: (window.innerWidth) || (document.body.clientWidth),
+	height: (window.innerHeight) || (document.body.clientHeight)
+}
