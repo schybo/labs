@@ -1,6 +1,6 @@
 function blurReduction () {
 	if (blur != 0) {
-		blur-= 0.5;
+		blur-= reduce_blur;
 		var new_blur = 'blur(' + blur + 'px)';
 		addPrefixes("filter", "#guessImg", new_blur);
 	} else {
@@ -16,10 +16,10 @@ function resetGrayscale() {
 function grayscaleReduction () {
 	if (grayscale != 0 || blur != 0) {
 		if (blur != 0) {
-			blur -= 0.5;
+			blur -= reduce_blur;
 		}
 		if (grayscale != 0) {
-			base_graysclae -= 0.05;
+			base_graysclae -= reduce_grayscale;
 		}
 		var new_grayscale = 'blur(' + blur + 'px) grayscale(' + grayscale + ')';
 		addPrefixes("filter", "#guessImg", new_grayscale);
@@ -36,10 +36,10 @@ function resetHue() {
 function hueReduction() {
 	if (hue != 0 || blur != 0) {
 		if (blur != 0) {
-			blur -= 0.5;
+			blur -= reduce_blur;
 		}
 		if (hue != 0) {
-			hue -= 5;
+			hue -= reduce_hue;
 		}
 		var new_hue = 'blur(' + blur + 'px) hue-rotate(' + hue + 'deg)';
 		addPrefixes("filter", "#guessImg", new_hue);

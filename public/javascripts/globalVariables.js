@@ -14,6 +14,9 @@ var hund_count = 100;
 //If the intense timer colors have applied
 var timeRunningOut = false;
 
+//Miliseconds to seconds
+var MILLITOSECONDS = 0.001;
+
 //Needed so that they're global
 var counter;
 var counter_hund;

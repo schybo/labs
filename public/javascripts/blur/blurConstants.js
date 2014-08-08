@@ -4,10 +4,26 @@ var INCREASE      = 3;
 //Amount to decrease time by if the user is incorrect
 var DECREASE      = 12;
 
+//How long the user has before the filter is completely gone
+var TIMETILLGONE = 10;
+
+//How quickly we reduce the filters in miliseconds
+var REDUCEFILTER = 250;
+
 //The amount applied for the filter
-var BASEBLUR      = 30;
+var BASEBLUR      = 10;
 var BASEGRAYSCALE = 1;
 var BASEHUE       = 180;
+
+//The starting amount of reduction appplied every second to the filters 
+var REDUCBLUR      = BASEBLUR / (TIMETILLGONE / (REDUCEFILTER * MILLITOSECONDS));
+var REDUCGRAYSCALE = BASEGRAYSCALE / (TIMETILLGONE / (REDUCEFILTER * MILLITOSECONDS));
+var REDUCHUE       = BASEHUE / (TIMETILLGONE / (REDUCEFILTER * MILLITOSECONDS));
+
+//The variable amount of reduction applied to the filters
+var reduce_blur = REDUCBLUR;
+var reduce_grayscale = REDUCGRAYSCALE;
+var reduce_hue = REDUCHUE = REDUCHUE;
 
 //The number of options to choose from
 var OPTIONS       = 4;
@@ -23,8 +39,11 @@ var HARDMULT = 3;
 //The number of seconds
 var count         = 30;
 
+//The intial time multiplier
+var TIMEMULT = 16;
+
 //The descreasing score multiplier
-var time_mult = 24;
+var time_mult = TIMEMULT;
 
 //How often to call the reduction of timeMultiplier
 var callTimeReduction = 2000;

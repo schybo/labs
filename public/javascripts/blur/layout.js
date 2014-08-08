@@ -12,19 +12,19 @@ function play_game() {
 
   //Start the blur reduction
   if (difficulty == "easy") {
-    blur_interval = setInterval(blurReduction, 250);
+    blur_interval = setInterval(blurReduction, REDUCEFILTER);
   } else if (difficulty == "medium") {
     if (new_picture) {
       resetHue();
       new_picture = false;
     }
-    hue_interval = setInterval(hueReduction, 250);
+    hue_interval = setInterval(hueReduction, REDUCEFILTER);
   } else {
     if (new_picture) {
       resetGrayscale();
       new_picture = false;
     }
-    grayscale_interval = setInterval(grayscaleReduction, 250);
+    grayscale_interval = setInterval(grayscaleReduction, REDUCEFILTER);
   }
 
   //Indicates the game is not paused

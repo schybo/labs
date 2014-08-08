@@ -87,17 +87,17 @@ function correct() {
 	//Add a point and time to the clock
 	//score++;
 	if (difficulty == "easy") {
-		score += (BASESCORE * EASYMULT * time_mult);
+		score += (BASESCORE * EASYMULT * Math.ceil(time_mult * Math.random()));
 	} else if (difficulty == "medium") {
-		score += (BASESCORE * MEDMULT * time_mult);
+		score += (BASESCORE * MEDMULT * Math.ceil(time_mult * Math.random()));
 	} else {
-		score += (BASESCORE * HARDMULT * time_mult);
+		score += (BASESCORE * HARDMULT * Math.ceil(time_mult * Math.random()));
 	}
 
 	document.getElementById("score").innerHTML=score;
 	count+=INCREASE;
 	//Resets the time multiplier
-	time_mult = 36;
+	time_mult = TIMEMULT;
 
 	//Reset the blur (plus 1 for the second transition)
 	blur = BASEBLUR;
