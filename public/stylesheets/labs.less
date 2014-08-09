@@ -3,14 +3,17 @@
 @import "/mixins/colors";
 @import "/mixins/gradient-borders";
 
+@main-color : @dark-blue;
+
 body {
-	background: @dark-blue;
-	color     : @off-white;
+	background-image : url("../images/bg.png");
+	color     : @dark-font;
+	padding-top: 70px; 
 	-webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: @light-red;
+	color: @main-color;
 }
 
 h1 {
@@ -18,9 +21,9 @@ h1 {
 }
 
 h2 {
-	color : @light-red;
+	color : @main-color;
 	&:hover {
-		color: @dark-red;
+		color: lighten(@main-color, 10%);
 	}
 }
 .border-box {
@@ -28,11 +31,11 @@ h2 {
 }
 
 .border-bottom-left {
-	.left-to-right(@light-red);
+	.left-to-right(@main-color);
 }
 
 .border-bottom-right {
-	.right-to-left(@light-red);
+	.right-to-left(@main-color);
 }
 
 .projects {
@@ -46,7 +49,7 @@ h2 {
 	.image {
 		position : relative;
 		width    : 300px;
-		border   : 5px solid @light-red;
+		border   : 5px solid @main-color;
 		.border-radius(5px);
 		margin: 0 auto;
 		.transition(border-color 0.4s);
@@ -67,7 +70,7 @@ h2 {
 		}
 
 		&:hover {
-			border-color: @dark-red;
+			border-color: lighten(@main-color, 10%);
 			.transition(border-color 0.4s);
 			&:after {
 				opacity : 1;
@@ -78,9 +81,10 @@ h2 {
 
 	a {
 		text-decoration: none;
-		h1 {
+	}
 
-		}
+	.subheader {
+		margin-top: 10px;
 	}
 }
 

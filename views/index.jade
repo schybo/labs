@@ -2,28 +2,43 @@ extends layout
 
 block content
 	.row
-		.col-md-12.header
+		.col-md-12.center.text-center.header
 			h1= title
-			.border-box
+			.border-box.center
 				.border-bottom-left
 				.border-bottom-right
 	.row
 		.col-md-12.projects.text-center
 			.col-md-4
-				a(href="/roygbiv") 
-					h2 Roygbiv
-				a(href="/roygbiv")
-					.image
-						img(src="/images/roygbiv.png")
+				.row 
+					.col-md-12
+						a(href="/roygbiv") 
+							h2 Roygbiv
+						a(href="/roygbiv")
+							.image
+								img(src="/images/roygbiv.png")
+				.row
+					.col-md-10.center.text-center
+						p.subheader Fast paced action game. Move the hero around with the arrow keys and collect as many gems as possible!
 			.col-md-4
-				a(href="/blur") 
-					h2 Blur
-				a(href="/blur")
-					.image
-						img(src="/images/blur.png")
+				.row 
+					.col-md-12
+						a(href="/blur") 
+							h2 Blur
+						a(href="/blur")
+							.image
+								img(src="/images/blur.png")
+				.row
+					.col-md-10.center.text-center
+						p.subheader Try and guess the filtered (CSS3) images before time runs out. The quicker you get the answer the more points you get!
 			.col-md-4
-				a(href="http://easybadge.herokuapp.com")
-					h2 EasyBadge
-				a(href="http://easybadge.herokuapp.com")
-					.image
-						img(src="/images/easybadge.png")
+				.row 
+					.col-md-12
+						a(href="http://easybadge.herokuapp.com")
+							h2 EasyBadge
+						a(href="http://easybadge.herokuapp.com")
+							.image
+								img(src="/images/easybadge.png")
+				.row
+					.col-md-10.center.text-center
+						p.subheader Create perfectly rimmed badges for use with the incredibly popular Salesforce apps. 100&#37; free to use!

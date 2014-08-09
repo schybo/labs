@@ -1,5 +1,6 @@
 BUGS
 =================
+- Get answer's back to back. Time seems to run out or mess up
 
 FEATURES
 =================

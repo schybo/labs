@@ -1,6 +1,7 @@
 function blurReduction () {
 	if (blur != 0) {
 		blur-= reduce_blur;
+		reduce_blur = reduce_blur;
 		var new_blur = 'blur(' + blur + 'px)';
 		addPrefixes("filter", "#guessImg", new_blur);
 	} else {
