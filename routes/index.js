@@ -18,4 +18,8 @@ router.get('/trevor-bday', function(req, res) {
   res.render('trevor-bday', { title: 'Happy Birthday Trevor' });
 });
 
+router.get('/happy-birthday-chris', function(req, res) {
+  res.render('hbd-chris', { title: 'Happy Birthday Chris' });
+});
+
 module.exports = router;
