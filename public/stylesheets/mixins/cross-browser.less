@@ -247,6 +247,21 @@
 //          animation : @value;  // Chrome complains about this currently
 }
 
+.animation2(@value1, @value2) {
+  -webkit-animation : @value1, @value2;
+     -moz-animation : @value1, @value2;
+      -ms-animation : @value1, @value2;
+       -o-animation : @value1, @value2;
+//          animation : @value;  // Chrome complains about this currently
+}
+
+.animation-fill-mode(@value) {
+  -webkit-animation-fill-mode : @value;
+     -moz-animation-fill-mode : @value;
+      -ms-animation-fill-mode : @value;
+       -o-animation-fill-mode : @value;
+}
+
 .animation-delay(@value) {
   -webkit-animation-delay : @value;
      -moz-animation-delay : @value;
