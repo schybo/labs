@@ -22,4 +22,8 @@ router.get('/happy-birthday-chris', function(req, res) {
   res.render('hbd-chris', { title: 'Happy Birthday Chris' });
 });
 
+router.get('/canvas-play', function(req, res) {
+  res.render('canvas-play', { title: 'Playing with Canvas' });
+});
+
 module.exports = router;
