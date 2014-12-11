@@ -18,7 +18,46 @@ html, body {
 	border-right: 50px solid transparent;
 	
 	border-bottom: 50px solid @dark-green;
+	//box-shadow: inset 0 0 10px #000000;
 	position: relative;
+	.root {
+		display: block;	
+		margin-left: auto;
+		margin-right: auto;
+		width: 12px;
+		height: 20px;
+		position: relative;
+		top: 145px;
+		left: -12px;
+		background-color: @dark-brown;
+		box-shadow: 12px 0 0 @darker-brown;
+	}
+	.shadow1 {
+		display: block;	
+		margin-left: auto;
+		margin-right: auto;
+		width: 85px;
+		height: 5px;
+		position: relative;
+		top: 70px;
+		left: -42.5px;
+		z-index: 1;
+		background-color: @dark-green;
+		box-shadow: 0 5px 2px rgba(31,155,83,0.6);
+	}
+	.shadow2 {
+		display: block;	
+		margin-left: auto;
+		margin-right: auto;
+		width: 54px;
+		height: 5px;
+		position: relative;
+		top: 20px;
+		left: -27.5px;
+		z-index: 1;
+		background-color: @dark-green;
+		box-shadow: 0 5px 2px rgba(31,155,83,0.6);
+	}
 }
 
 .tree:before {
@@ -45,4 +84,5 @@ html, body {
 	border-right: 90px solid transparent;
 	
 	border-bottom: 90px solid @dark-green;
+	//box-shadow: 0 6px 0 #f1cb9a, 0 8px 2px rgba(0,0,0,0.2), -132px 40px 0 -61px #f6c83e, -128px 40px 0 -54px #edb815, -128px 42px 2px -54px rgba(0,0,0,0.2), -115px 30px 0 -30px white, -62px 90px 0 -61px #f6c83e, -65px 90px 0 -54px #edb815, -65px 92px 2px -54px rgba(0,0,0,0.2), -80px 90px 0 -32px white, -115px 33px 2px -30px rgba(0,0,0,0.1), -80px 93px 2px -32px rgba(0,0,0,0.1), -8px 110px 0 -45px #8c7842, -8px 113px 2px -45px rgba(0,0,0,0.2), 25px 103px 0 -45px #806c35, 25px 106px 2px -45px rgba(0,0,0,0.2), -93px -40px 0 -45px #e4a5b6, -93px -39px 0 -42px #c97d91, -93px -37px 2px -42px rgba(0,0,0,0.2)
 }
