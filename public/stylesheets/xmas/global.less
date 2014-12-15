@@ -27,11 +27,11 @@ html, body {
 	content:"";
 }
 
-.triangle(@size1, @size2, @color: @dark-green) {
+.triangle(@size1, @size2, @color: @dark-green, @size3 : @size1) {
 	width: 0; 
 	height: 0; 
 	border-left: @size1 solid transparent;
-	border-right: @size1 solid transparent;
+	border-right: @size3 solid transparent;
 	
 	border-bottom: @size2 solid @color;
 }
@@ -54,13 +54,17 @@ html, body {
 
 
 //********Tree1*************//
-.tree(@x: 280px, @lr : false, @y: 390px) {
+.tree(@x: 280px, @foreground : false, @lr : false, @y: 390px) {
 	@size1: 40px;
 	@size2: 50px;
 	.display();
 	display: inline-block;
 	.triangle(@size1, @size2);
 	.position(relative, @y, @x);
+
+	& when not (@foreground = false) {
+        z-index : 2;
+    }
 
 	&:before {
 		.ba();
@@ -155,17 +159,17 @@ html, body {
 }
 
 .tree1 {
-	.tree();
+	.tree(280px, true);
 }
 
 .tree2 {
-	.tree(900px, true);
+	.tree(900px, false, true);
 }
 //**********************//
 
 //**************TreeOFF*********///
 
-.treeOff(@x: 280px, @foreground : false, @y: 366px) {
+.treeOff(@x: 280px, @foreground : false, @lr : false, @y: 366px) {
 	@size1: 50px;
 	@size2: 60px;
 	.display();
@@ -243,11 +247,15 @@ html, body {
 		&:after {
 			.ba();
 			.position(absolute, 2px, 10px);
+			& when not (@lr = false) {
+				.position(absolute, 2px, 40px);
+			}
 			.size(17px, 17px);
 			background-color: @snow-white;
 			border-radius: 100%;
 		}
 	}
+
 	.snow2 {
 		.display();
 		.snow-clump();
@@ -271,11 +279,82 @@ html, body {
 }
 
 .tree3 {
-	.treeOff();
+	.treeOff(230px, false, true);
 }
 
 .tree4 {
 	.treeOff(780px, true);
+}
+
+//*************************//
+
+//********Mountains********//
+
+.mountain(@y: 240px, @x: 290px, @rotate : 135deg) {
+	@size1 : 310px;
+	@size2 : 310px;
+	.display();
+	display: inline-block;
+	opacity: 0.18;
+	.position(relative, @y, @x);
+
+	.snow() {
+		z-index: 1;
+		background-color: @snow-white;
+		border-radius: 25px;
+	}
+
+	.snow-clump() {
+		.size(32px, 100px);
+		position: absolute;
+		top : -188px;
+	}
+
+	.half1 {
+		.triangle(@size1, @size2, @dark-light-grey);
+		.position(absolute, 0, 0);
+		.transform(rotate(@rotate));
+		.display();
+		display: inline-block;
+	}
+	.half2 {
+		.triangle(@size1, @size2, @dark-dark-grey);
+		.position(absolute, 0, 0 + @size1 - 92px);
+		.transform(rotate(-135deg));
+		.display();
+		display: inline-block;
+	}
+	
+	.snow1 {
+		.display();
+		.snow-clump();
+		left: 380px;
+		.snow();
+		.transform(rotate(45deg));
+	}
+	
+	.snow2 {
+		.display();
+		.snow-clump();
+		left: 430px;
+		.snow();
+		.transform(rotate(-45deg));
+	}
+
+	/*.snow3 {
+		.display();
+		.snow-clump();
+		left: -5px;
+		.snow();
+	}*/
+}
+
+.mountain1 {
+	.mountain();
+}
+
+.mountain2 {
+
 }
 
 //*************************//
