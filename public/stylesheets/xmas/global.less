@@ -1,3 +1,23 @@
+/*
+SAFETY PIG
+
+                         _
+ _._ _..._ .-',     _.._(`))
+'-. `     '  /-._.-'    ',/
+   )         \            '.
+  / _    _    |             \
+ |  a    a    /              |
+ \   .-.                     ;  
+  '-('' ).-'       ,'       ;
+     '-;           |      .'
+        \           \    /
+        | 7  .__  _.-\   \
+        | |  |  ``/  /`  /
+       /,_|  |   /,_/   /
+          /,_/      '`-'
+*/
+
+
 html, body {
 	height: 100%;
 	margin: 0;
@@ -210,7 +230,7 @@ html, body {
 		.position(relative, 85px, -43px);
 		.shadow();
 		background-color: @other-green;
-		box-shadow: 0 5px 5px rgb(24,138,54, 0.6);
+		box-shadow: 0 5px 5px rgba(24,138,54, 0.6);
 	}
 	.shadow2 {
 		.display();
@@ -218,7 +238,7 @@ html, body {
 		.size(54px, 5px);
 		.position(relative, 20px, -28px);
 		background-color: @other-green;
-		box-shadow: 0 5px 5px rgb(24,138,54, 0.6);
+		box-shadow: 0 5px 5px rgba(24,138,54, 0.6);
 	}
 
 	.snow() {
@@ -596,8 +616,8 @@ html, body {
 @ss-width: 82px;
 @ss-height: 92px;
 
-@ss-x : 70px;
-@ss-y : 0px;
+@ss-x : 10px;
+@ss-y : 92px;
 
 @overlap-x : @ss-x + @ss-width - 3px;
 @overlap-y : @ss-y + @ss-height - 3px;
@@ -639,14 +659,14 @@ html, body {
 
 	.generate-rows(@n, @i: 0) when (@i < @n) {
 	  .snow-row@{i} {
-	  	.snow-row(11, @i);
+	  	.snow-row(12, @i);
 	  }
 	  .generate-rows(@n, (@i + 1));
 	}
 }
 
 .map-snowflakes {
-	.snowflakes(7);
+	.snowflakes(6);
 }
 /*.snow-square2 {
 	.snow-square(@overlap-x);
@@ -874,6 +894,123 @@ html, body {
 
 //*************************//
 
+//*****Christmas Tree******//
+
+.xtree(@x: 70px, @foreground : true, @lr : false, @y: 355px) {
+	@size1: 60px;
+	@size2: 70px;
+	.display();
+	display: inline-block;
+	.triangle(@size1, @size2, @xmas-green);
+	.position(relative, @y, @x);
+
+	& when not (@foreground = false) {
+        z-index : 2;
+    }
+
+	&:before {
+		.ba();
+		.position(absolute, 35px, -85px);
+		.triangle(85px, 100px, @xmas-green);
+	}
+
+	&:after {
+		.ba();
+		.position(absolute, 85px, -100px);
+		.triangle(100px, 110px, @xmas-green);
+		//box-shadow: 0 6px 0 #f1cb9a, 0 8px 2px rgba(0,0,0,0.2), -132px 40px 0 -61px #f6c83e, -128px 40px 0 -54px #edb815,
+	}
+
+	.root {
+		.display();
+		.size(15px, 30px);
+		.position(relative, 190px, -15px);
+		background-color: @dark-brown;
+		box-shadow: 15px 0 0 @darker-brown;
+	}
+	//add triangle to shadow
+	.shadow1 {
+		.display();
+		.size(93px, 5px);
+		.position(relative, 101px, -47px);
+		.shadow();
+		background-color: @xmas-green;
+		box-shadow: 0 5px 5px rgba(19, 108, 61, 0.6); //@dark-xmas-green; //rgb(24,138,54, 0.6);
+	}
+	.shadow2 {
+		.display();
+		.shadow();
+		.size(60px, 5px);
+		.position(relative, 31px, -29px);
+		background-color: @xmas-green;
+		box-shadow: 0 5px 5px rgba(19, 108, 61, 0.6); //@dark-xmas-green; //rgb(24,138,54, 0.6);
+	}
+
+	.snow() {
+		z-index: 1;
+		background-color: @snow-white;
+		border-radius: 10px;
+	}
+
+	.snow-clump() {
+		.size(12px, 27px);
+		position: absolute;
+		top : 0;
+	}
+
+	.snow5 {
+		.display();
+		.size(50px, 11px);
+		.position(relative, 75px, 10px);
+		.snow();
+	}
+
+	.snow1 {
+		.display();
+		.size(75px, 13px);
+		.position(relative, 145px, -57px);
+		.snow();
+
+		&:after {
+			.ba();
+			.position(absolute, 2px, 40px);
+			& when not (@lr = false) {
+				.position(absolute, 2px, 40px);
+			}
+			.size(17px, 17px);
+			background-color: @snow-white;
+			border-radius: 100%;
+		}
+	}
+
+	.snow2 {
+		.display();
+		.snow-clump();
+		left: -12px;
+		.snow();
+		.transform(rotate(40deg));
+	}
+	.snow3 {
+		.display();
+		.snow-clump();
+		left: -5px;
+		.snow();
+	}
+	.snow4 {
+		.display();
+		.snow-clump();
+		left: 2px;
+		.snow();
+		.transform(rotate(-40deg));
+	}
+}
+
+.xmas-tree {
+	.xtree();
+}
+
+//*************************//
+
 //***********Ground******//
 .ground {
 	.display();
@@ -896,7 +1033,7 @@ html, body {
 
 .frame {
 	.display();
-	.size(1000px, 700px);
+	.size(1000px, 100%);
 	.position(relative, 0, 0);
 }
 
