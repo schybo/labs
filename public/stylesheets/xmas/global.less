@@ -32,7 +32,7 @@ html, body {
 //**********Variables*****//
 @ground-y : 500px;
 @ground-height : 25px;
-@ground-length : 900px;
+@ground-length : 975px;
 
 @tree-clump1 : 80px;
 @tree-clump2 : 680px;
@@ -65,7 +65,7 @@ html, body {
   left: @left;
 }
 
-.size(@width: 0, @height: 0) {
+.size(@width: 0, @height: @width) {
 	width: @width;
 	height: @height;
 }
@@ -896,6 +896,30 @@ html, body {
 
 //*****Christmas Tree******//
 
+@-webkit-keyframes pulsate {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes pulsate {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 .xtree(@x: 70px, @foreground : true, @lr : false, @y: 355px) {
 	@size1: 60px;
 	@size2: 70px;
@@ -1002,6 +1026,109 @@ html, body {
 		left: 2px;
 		.snow();
 		.transform(rotate(-40deg));
+	}
+
+	.light(@color1 : @red, @color2: @dark-red) {
+		@width : 8px;
+		.size(@width);
+		.shadow();
+		background-color: @color1;
+		.border-radius(50%);
+		.box-shadow(@color2 0px 0px 10px);
+		.animation(pulsate 2.5s infinite);
+	}
+
+	//Level 1
+
+	.light11 {
+		.light(@purple, @dark-purple);
+		.position(absolute, 44px, -35px);
+	}
+
+	.light12 {
+		.light();
+		.position(absolute, 50px, -16px);
+	}
+
+	.light13 {
+		.light(@orange, @dark-orange);
+		.position(absolute, 50px, 7px);
+	}
+
+	.light14 {
+		.light(@green, @dark-green);
+		.position(absolute, 44px, 27px);
+	}
+
+	//Level 2
+
+	.light21 {
+		.light();
+		.position(absolute, 103px, -52px);
+	}
+
+	.light22 {
+		.light(@green, @dark-green);
+		.position(absolute, 108px, -29px);
+	}
+
+	.light23 {
+		.light(@blue, @dark-blue);
+		.position(absolute, 113px, -5px);
+	}
+
+	.light24 {
+		.light(@purple, @dark-purple);
+		.position(absolute, 108px, 19px);
+	}
+
+	.light25 {
+		.light(@orange, @dark-orange);
+		.position(absolute, 103px, 44px);
+	}
+
+	//Level 3
+
+	.light31 {
+		.light(@blue, @dark-blue);
+		.position(absolute, 157px, -57px);
+	}
+
+	.light32 {
+		.light(@orange, @dark-orange);
+		.position(absolute, 160px, -37px);
+	}
+
+	.light33 {
+		.light();
+		.position(absolute, 165px, -15px);
+	}
+
+	.light34 {
+		.light(@green, @dark-green);
+		.position(absolute, 165px, 7px);
+	}
+
+	.light35 {
+		.light(@purple, @dark-purple);
+		.position(absolute, 160px, 29px);
+	}
+
+	.light36 {
+		.light(@blue, @dark-blue);
+		.position(absolute, 157px, 49px);
+	}
+
+	#star-six {
+		.triangle(15px, 30px, @dark-gold);
+		.position(absolute, -38px, -14px);
+		z-index: 1;
+	}
+	#star-six:after {
+		.ba();
+		.triangle(15px, 30px, @gold);
+		.transform(rotate(180deg));
+		.position(absolute, 10px, -15px);
 	}
 }
 

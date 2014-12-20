@@ -72,4 +72,22 @@ block content
 							.snow3
 							.snow4
 							.snow5
+							#star-six
+							- var i = 1
+							while i <= 3
+								- var n = 1
+								if i == 1
+									while n <= 4
+										div(class="light#{i}#{n}")
+										- n++
+								else
+									if i == 2
+										while n <= 5
+											div(class="light#{i}#{n}")
+											- n++
+									else
+										while n <= 6
+											div(class="light#{i}#{n}")
+											- n++
+								-i++
 						.ground
