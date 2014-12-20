@@ -30,9 +30,9 @@ html, body {
 
 
 //**********Variables*****//
-@ground-y : 500px;
+@ground-y : 420px;
 @ground-height : 25px;
-@ground-length : 975px;
+@ground-length : 1000px;
 
 @tree-clump1 : 80px;
 @tree-clump2 : 680px;
@@ -76,7 +76,7 @@ html, body {
 //***************************//
 
 //********Tree1*************//
-.tree(@x: 280px, @foreground : false, @lr : false, @y: 390px) {
+.tree(@x: 280px, @foreground : false, @lr : false, @y: 310px) {
 	@size1: 40px;
 	@size2: 50px;
 	.display();
@@ -191,7 +191,7 @@ html, body {
 
 //**************TreeOFF*********///
 
-.treeOff(@x: 280px, @foreground : false, @lr : false, @y: 366px) {
+.treeOff(@x: 280px, @foreground : false, @lr : false, @y: 286px) {
 	@size1: 50px;
 	@size2: 60px;
 	.display();
@@ -617,7 +617,7 @@ html, body {
 @ss-height: 92px;
 
 @ss-x : 10px;
-@ss-y : 92px;
+@ss-y : 0px;
 
 @overlap-x : @ss-x + @ss-width - 3px;
 @overlap-y : @ss-y + @ss-height - 3px;
@@ -920,7 +920,7 @@ html, body {
 	}
 }
 
-.xtree(@x: 70px, @foreground : true, @lr : false, @y: 355px) {
+.xtree(@x: 70px, @foreground : true, @lr : false, @y: 275px) {
 	@size1: 60px;
 	@size2: 70px;
 	.display();
@@ -1160,8 +1160,11 @@ html, body {
 
 .frame {
 	.display();
-	.size(1000px, 100%);
-	.position(relative, 0, 0);
+	.size(1050px, 600px);
+	.position(relative, 50px, 0);
+	border: 25px solid @dark-brown;
+	box-shadow: @darker-brown 0 0 5px 25px; 
+
 }
 
 //*********************//
