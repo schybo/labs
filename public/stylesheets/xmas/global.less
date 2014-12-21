@@ -30,7 +30,8 @@ html, body {
 
 //**********Variables*****//
 @ground-y : 420px;
-@ground-height : 25px;
+@ground-height1 : 15px;
+@ground-height2 : 25px;
 @ground-length : 1000px;
 
 @tree-clump1 : 80px;
@@ -190,7 +191,7 @@ html, body {
 
 //**************TreeOFF*********///
 
-.treeOff(@x: 280px, @foreground : false, @lr : false, @y: 286px) {
+.treeOff(@x: 280px, @foreground : false, @lr : false, @y: 285px) {
 	@size1: 50px;
 	@size2: 60px;
 	.display();
@@ -300,7 +301,7 @@ html, body {
 }
 
 .tree3 {
-	.treeOff(@tree-clump1 - 50px, false, true);
+	.treeOff(@tree-clump1 - 50px, false, true, 291px);
 }
 
 .tree4 {
@@ -1151,18 +1152,92 @@ html, body {
 
 //*************************//
 
-//***********Ground******//
-.ground {
+//***********Ground1******//
+.ground1 {
 	.display();
-	.size(@ground-length, @ground-height);
-	.position(relative, @ground-y, 0);
+	display: inline-block;
+	.size(@ground-length, @ground-height1);
+	.position(relative, @ground-y + 5, 0);
 	background-color: @snow-white;
 	border-radius: 10px;
+}
+//********************/
+
+//***********Ground2******//
+.ground2 {
+	.display();
+	display: inline-block;
+	.size(200px, @ground-height2);
+	.position(relative, @ground-y - @ground-height1 - 5, 0);
+	background-color: @snow-white;
+	border-radius: 10px;
+
+	&:before {
+		.ba();
+		.position(absolute, 10px, 65px);
+		.size(30px);
+		background-color: @snow-white;
+		border-radius: 100%;
+	}
 
 	&:after {
 		.ba();
 		.position(absolute, 2px, 30px);
 		.size(45px, 45px);
+		background-color: @snow-white;
+		border-radius: 100%;
+	}
+}
+//********************/
+
+//***********Ground3******//
+.ground3 {
+	.display();
+	display: inline-block;
+	.size(225px, @ground-height2);
+	.position(relative, @ground-y - @ground-height1 - 5, 100px);
+	background-color: @snow-white;
+	border-radius: 10px;
+
+	&:before {
+		.ba();
+		.position(absolute, 15px, 175px);
+		.size(20px);
+		background-color: @snow-white;
+		border-radius: 100%;
+	}
+
+	&:after {
+		.ba();
+		.position(absolute, 0px, 30px);
+		.size(40px);
+		background-color: @snow-white;
+		border-radius: 100%;
+	}
+}
+//********************/
+
+//***********Ground4******//
+.ground4 {
+	.display();
+	display: inline-block;
+	.size(400px, @ground-height2);
+	.position(relative, @ground-y - @ground-height1 - 5, 175px);
+	background-color: @snow-white;
+	border-radius: 10px;
+
+	&:before {
+		.ba();
+		.position(absolute, 2px, 250px);
+		.size(38px);
+		background-color: @snow-white;
+		border-radius: 100%;
+	}
+
+	&:after {
+		.ba();
+		.position(absolute, 10px, 30px);
+		.size(25px);
 		background-color: @snow-white;
 		border-radius: 100%;
 	}
