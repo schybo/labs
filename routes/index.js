@@ -30,4 +30,8 @@ router.get('/canvas-play', function(req, res) {
   res.render('canvas-play', { title: 'Playing with Canvas' });
 });
 
+router.get('/boggle', function(req, res) {
+  res.render('boggle', { title: 'Boggle' });
+});
+
 module.exports = router;
