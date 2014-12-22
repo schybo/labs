@@ -36,7 +36,7 @@ body {
 
 
 //**********Variables*****//
-@ground-y : 420px;
+@ground-y : 345px;
 @ground-height1 : 15px;
 @ground-height2 : 25px;
 @ground-length : 1000px;
@@ -90,9 +90,10 @@ body {
 	display: inline-block;
 	.triangle(@size1, @size2);
 	.position(relative, @y, @x);
+	z-index: 1;
 
 	& when not (@foreground = false) {
-        z-index : 2;
+        z-index : 3;
     }
 
 	&:before {
@@ -134,7 +135,7 @@ body {
 	}
 
 	.snow() {
-		z-index: 1;
+		z-index: 2;
 		background-color: @snow-white;
 		border-radius: 10px;
 	}
@@ -196,7 +197,7 @@ body {
 }
 //**********************//
 
-//**************TreeOFF*********///
+//**************TreeOFF*********//
 
 .treeOff(@x: 280px, @foreground : false, @lr : false, @y: 285px) {
 	@size1: 50px;
@@ -205,9 +206,10 @@ body {
 	display: inline-block;
 	.triangle(@size1, @size2, @other-green);
 	.position(relative, @y, @x);
+	z-index: 1;
 
 	& when not (@foreground = false) {
-        z-index : 2;
+        z-index : 3;
     }
 
 	&:before {
@@ -249,7 +251,7 @@ body {
 	}
 
 	.snow() {
-		z-index: 1;
+		z-index: 2;
 		background-color: @snow-white;
 		border-radius: 10px;
 	}
@@ -308,14 +310,66 @@ body {
 }
 
 .tree3 {
-	.treeOff(@tree-clump1 - 50px, false, true, 291px);
+	.treeOff(@tree-clump1 - 50px, false, true, 290px);
 }
 
 .tree4 {
 	.treeOff(@tree-clump2 - 120px, true);
 }
 
+
 //*************************//
+
+//*********BackTree***********//
+
+.treeBack(@x: -315px, @foreground : false, @lr : false, @y: 285px) {
+	@size1: 50px;
+	@size2: 60px;
+	.display();
+	display: inline-block;
+	.triangle(@size1, @size2, @dark-tree);
+	.position(relative, @y, @x);
+	z-index: 0;
+
+	&:before {
+		.ba();
+		.position(absolute, 30px, -75px);
+		.triangle(75px, 90px, @dark-tree);
+	}
+
+	&:after {
+		.ba();
+		.position(absolute, 75px, -90px);
+		.triangle(90px, 100px, @dark-tree);
+	}
+
+	.root {
+		.display();
+		.size(15px, 30px);
+		.position(relative, 170px, -15px);
+		background-color: @dark-tree;
+		box-shadow: 15px 0 0 @dark-tree;
+	}
+	
+}
+
+.tree5 {
+	.treeBack();
+}
+
+.tree6 {
+	.treeBack(-175px);
+}
+
+.tree7 {
+	.treeBack(300px);
+}
+
+.tree8 {
+	.treeBack(0px);
+}
+
+//**************************//
 
 //********Mountains********//
 
@@ -381,7 +435,7 @@ body {
 }
 
 .mountain2 {
-	.mountain(240px, 277px, 15px, 176px, -210px, 285px, 335px);
+	.mountain(240px, 277px, 15px, 168px, -210px, 285px, 335px);
 }
 
 //*************************//
@@ -395,8 +449,9 @@ body {
 	.display();
 	display: inline-block;
 	.size(@width, @height);
-	.position(relative, @ground-y + 5, 0);
+	.position(relative, @ground-y + 80px, -400px);
 	background-color: @cred;
+	z-index: 1;
 
 	.window() {
 		@width : 27px;
@@ -630,7 +685,7 @@ body {
 .snow-square(@ox : 0, @oy : 0) {
 	display: inline-block;
 	.position(absolute, @ss-y + (@ss-height * @oy - (3 * @oy)), @ss-x + (@ss-width * @ox - 3));
-	z-index: 2;
+	z-index: 3;
 	width: @ss-width;
 	height: @ss-height;
 	.snow {
@@ -925,7 +980,7 @@ body {
 	}
 }
 
-.xtree(@x: 70px, @foreground : true, @lr : false, @y: 275px) {
+.xtree(@x: 600px, @foreground : true, @lr : false, @y: 200px) {
 	@size1: 60px;
 	@size2: 70px;
 	.display();
