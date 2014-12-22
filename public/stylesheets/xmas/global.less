@@ -20,10 +20,17 @@ SAFETY PIG
 html, body {
 	height: 100%;
 	margin: 0;
+	padding: 0;
+}
+
+body {
+	min-height: 100%;
 }
 
 #wrapper {
 	min-height: 100%; 
+	max-height: 800px;
+	overflow: hidden;
 	background-color: @bg-grey;
 }
 
@@ -312,12 +319,10 @@ html, body {
 
 //********Mountains********//
 
-.mountain(@y: 240px, @x: 80px, @rotate : 135deg) {
-	@size1 : 310px;
-	@size2 : 310px;
+.mountain(@size1 : 280px, @y: 240px, @x: 237px, @align: @size1 - 92px, @top : -225px, @clump1: 330px, @clump2: 380px, @size2 : @size1, @rotate : 135deg) {
 	.display();
 	display: inline-block;
-	opacity: 0.18;
+	opacity: 0.5;
 	.position(relative, @y, @x);
 
 	.snow() {
@@ -329,19 +334,19 @@ html, body {
 	.snow-clump() {
 		.size(32px, 100px);
 		position: absolute;
-		top : -188px;
+		top : @top;
 	}
 
 	.half1 {
 		.triangle(@size1, @size2, @dark-light-grey);
-		.position(absolute, 0, 0);
+		.position(absolute, -50px, 0);
 		.transform(rotate(@rotate));
 		.display();
 		display: inline-block;
 	}
 	.half2 {
 		.triangle(@size1, @size2, @dark-dark-grey);
-		.position(absolute, 0, 0 + @size1 - 92px);
+		.position(absolute, -50px, @align);
 		.transform(rotate(-135deg));
 		.display();
 		display: inline-block;
@@ -350,7 +355,7 @@ html, body {
 	.snow1 {
 		.display();
 		.snow-clump();
-		left: 380px;
+		left: @clump1;
 		.snow();
 		.transform(rotate(45deg));
 	}
@@ -358,7 +363,7 @@ html, body {
 	.snow2 {
 		.display();
 		.snow-clump();
-		left: 430px;
+		left: @clump2;
 		.snow();
 		.transform(rotate(-45deg));
 	}
@@ -376,7 +381,7 @@ html, body {
 }
 
 .mountain2 {
-
+	.mountain(240px, 277px, 15px, 176px, -210px, 285px, 335px);
 }
 
 //*************************//
@@ -1250,6 +1255,7 @@ html, body {
 	.display();
 	.size(1050px, 600px);
 	.position(relative, 50px, 0);
+	z-index: 2;
 	border: 25px solid @dark-brown;
 	box-shadow: @darker-brown 0 0 5px 25px; 
 
