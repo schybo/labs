@@ -31,36 +31,34 @@ block content
 							.root
 							.shadow1
 							.shadow2
-							.snow1
-							.snow2
-							.snow3
-							.snow4
+							- i = 1
+							while i <= 4
+								div(class="snow#{i}")
+								- i++
 						.tree2
 							.root
 							.shadow1
 							.shadow2
-							.snow1
-							.snow2
-							.snow3
-							.snow4
+							- i = 1
+							while i <= 4
+								div(class="snow#{i}")
+								- i++
 						.tree3
 							.root
 							.shadow1
 							.shadow2
-							.snow1
-							.snow2
-							.snow3
-							.snow4
-							.snow5
+							- i = 1
+							while i <= 5
+								div(class="snow#{i}")
+								- i++
 						.tree4
 							.root
 							.shadow1
 							.shadow2
-							.snow1
-							.snow2
-							.snow3
-							.snow4
-							.snow5
+							- i = 1
+							while i <= 5
+								div(class="snow#{i}")
+								- i++
 						.tree5
 							.root
 						.tree6
@@ -81,11 +79,10 @@ block content
 							.root
 							.shadow1
 							.shadow2
-							.snow1
-							.snow2
-							.snow3
-							.snow4
-							.snow5
+							- i = 1
+							while i <= 5
+								div(class="snow#{i}")
+								- i++
 							#star-six
 							- var i = 1
 							while i <= 3
@@ -104,7 +101,7 @@ block content
 											div(class="light#{i}#{n}")
 											- n++
 								-i++
-						.ground1
-						.ground2
-						.ground3
-						.ground4
+						- var i = 1
+						while i <= 4
+							div(class="ground#{i}")
+							- i++

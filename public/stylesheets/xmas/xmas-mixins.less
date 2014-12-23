@@ -1,0 +1,44 @@
+//********Mixins************//
+.margin() {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.display() {
+	display: block;	
+	.margin();
+}
+
+.display-i() {
+	display: inline-block;	
+	.margin();
+}
+
+.ba() {
+	content:"";
+}
+
+.triangle(@size1, @size2, @color: @dark-green, @size3 : @size1) {
+	width: 0; 
+	height: 0; 
+	border-left: @size1 solid transparent;
+	border-right: @size3 solid transparent;
+	
+	border-bottom: @size2 solid @color;
+}
+
+.position(@position, @top, @left) {
+  position: @position;
+  top: @top;
+  left: @left;
+}
+
+.size(@width: 0, @height: @width) {
+	width: @width;
+	height: @height;
+}
+
+.shadow() {
+	z-index: 1;
+}
+//***************************//
