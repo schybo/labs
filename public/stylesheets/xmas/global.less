@@ -599,10 +599,11 @@ body {
 	.display-i();
 	.triangle(@size1, @size2, @xmas-green);
 	.position(relative, @y, @x);
+	z-index: @normal;
 
-	& when not (@foreground = false) {
+	/*& when not (@foreground = false) {
         z-index : @fground;
-    }
+    }*/
 
 	&:before {
 		.ba();
