@@ -19,14 +19,19 @@ app.set('view engine', 'jade');
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(session({
-    secret: 'jacksonville floor',
-    saveUninitialized: true,
-    resave: true,
-    store: new MongoStore({
-      mongoose_connection : db
-    })
-}));
+
+// Attempting to use session before connection to mongoDB occurs
+// http://stackoverflow.com/questions/22698661/mongodb-error-setting-ttl-index-on-collection-sessions
+
+// app.use(session({
+//     secret: 'jacksonville floor',
+//     saveUninitialized: true,
+//     resave: true,
+//     store: new MongoStore({
+//       mongoose_connection : db
+//     })
+// }));
+
 app.use(function (req, res, next) {
     res.set('X-Powered-By', 'Schybo Labs');
     next();
