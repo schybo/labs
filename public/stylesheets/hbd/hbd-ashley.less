@@ -8,18 +8,22 @@ html, body {
   height: 100%; }
 
 body {
-  background: radial-gradient(circle, #ff7f7f, #ff4c4c, #ff1919, #b30000, #7f0000, #4c0000);
-  -webkit-font-smoothing: subpixel-antialiased; }
+  // background: radial-gradient(circle, #ff7f7f, #ff4c4c, #ff1919, #b30000, #7f0000, #4c0000);
+  -webkit-font-smoothing: subpixel-antialiased;
+  background: url('../../images/ashley-birthday-image.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
 
 .stage {
-  height: 300px;
+  height: 400px;
   width: 500px;
   margin: auto;
   position: absolute;
-  top: 0;
+  // background: red;
+  top: -75px;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: -170px;
   .perspective(9999px);
   .transform-style(preserve-3d);
 }
