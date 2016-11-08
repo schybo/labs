@@ -22,6 +22,10 @@ router.get('/happy-birthday-ashley', function(req, res) {
   res.render('hbd-ashley', { title: 'Happy Birthday Ashley' });
 });
 
+router.get('/happy-birthday-lindsay', function(req, res) {
+  res.render('hbd-lindsay', { title: 'Happy Birthday Lindsay' });
+});
+
 router.get('/happy-birthday-chris', function(req, res) {
   res.render('hbd-chris', { title: 'Happy Birthday Chris' });
 });
