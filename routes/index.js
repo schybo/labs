@@ -18,12 +18,16 @@ router.get('/trevor-bday', function(req, res) {
   res.render('trevor-bday', { title: 'Happy Birthday Trevor' });
 });
 
-router.get('/happy-birthday-ashley', function(req, res) {
-  res.render('hbd-ashley', { title: 'Happy Birthday Ashley' });
-});
+// router.get('/happy-birthday-ashley', function(req, res) {
+//   res.render('hbd-ashley', { title: 'Happy Birthday Ashley' });
+// });
 
-router.get('/happy-birthday-lindsay', function(req, res) {
-  res.render('hbd-lindsay', { title: 'Happy Birthday Lindsay' });
+// router.get('/happy-birthday-lindsay', function(req, res) {
+//   res.render('hbd-lindsay', { title: 'Happy Birthday Lindsay' });
+// });
+
+router.get('/happy-bearthday-sophia', function(req, res) {
+  res.render('hbd-sophia', { title: 'Happy Birthday Sophia' });
 });
 
 router.get('/happy-birthday-chris', function(req, res) {
